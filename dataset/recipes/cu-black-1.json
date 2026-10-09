@@ -1,0 +1,16 @@
+{
+  "panel_id": "cu-black-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. Close-up of a coal miner underground, face turned toward the viewer. Pooled solid blacks swallow the tunnel and half his face in flat ink masses; the single pure-white region in the whole frame is the cone of his headlamp beam and the lit crescent of his cheek \u2014 every other surface carries black or deep tone. Confident heavy contour lines, no grey gradients. Monochrome. No lettering.",
+  "negative": null,
+  "seed": 1107,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "CU-BLACK-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

@@ -1,0 +1,622 @@
+{
+  "status": "EXPLORATORY \u2014 post-hoc, PREREGISTRATION.md amendment A6",
+  "n_cells_joined": 164,
+  "n_cells_missing_motion": 0,
+  "missing_examples": [],
+  "motion_backend": "raft_small@mps",
+  "q1_motion_by_engine": {
+    "gen4.5": {
+      "n": 33,
+      "motion_median_norm": 0.007341985901196797,
+      "motion_iqr": [
+        0.0026465385324425167,
+        0.025567388368977442
+      ],
+      "chamfer_median_px": 4.788167256267537
+    },
+    "gen4_turbo": {
+      "n": 32,
+      "motion_median_norm": 0.0019369016194509135,
+      "motion_iqr": [
+        0.0011199792303765812,
+        0.00306042244968315
+      ],
+      "chamfer_median_px": 2.6416193720067502
+    },
+    "h3-fal": {
+      "n": 33,
+      "motion_median_norm": 0.003959277437792884,
+      "motion_iqr": [
+        0.0014177694295843442,
+        0.008087860213385688
+      ],
+      "chamfer_median_px": 5.384125921772175
+    },
+    "ltx23": {
+      "n": 33,
+      "motion_median_norm": 0.002478539198637009,
+      "motion_iqr": [
+        0.0016278527677059174,
+        0.008112485493932451
+      ],
+      "chamfer_median_px": 2.7981393443098197
+    },
+    "wan22": {
+      "n": 33,
+      "motion_median_norm": 0.0007961275056004524,
+      "motion_iqr": [
+        0.0006860449111887387,
+        0.0014706409403256009
+      ],
+      "chamfer_median_px": 0.7798875656772123
+    }
+  },
+  "q1_ordering": {
+    "engines_by_motion_ascending": [
+      "wan22",
+      "gen4_turbo",
+      "ltx23",
+      "h3-fal",
+      "gen4.5"
+    ],
+    "engines_by_chamfer_ascending": [
+      "wan22",
+      "gen4_turbo",
+      "ltx23",
+      "gen4.5",
+      "h3-fal"
+    ],
+    "note": "if these orderings agree, the stability league is tracking stillness"
+  },
+  "q1_engine_level_rho_motion_vs_chamfer": {
+    "rho": 0.8999999999999998,
+    "p": 0.08333333333333333,
+    "n_engines": 5
+  },
+  "q2_within_engine_motion_vs_metric": {
+    "gen4.5": {
+      "line_chamfer_mean_px": {
+        "rho": 0.43014705882352944,
+        "p": 0.012469424034093474,
+        "n": 33
+      },
+      "tone_variance": {
+        "rho": 0.24876847290640386,
+        "p": 0.19315537951003253,
+        "n": 29
+      },
+      "edge_abs_slope": {
+        "rho": 0.23395721925133695,
+        "p": 0.19004894360637536,
+        "n": 33
+      },
+      "style_terminal": {
+        "rho": 0.5401069518716578,
+        "p": 0.0011770049520907174,
+        "n": 33
+      },
+      "closure_abs_terminal": {
+        "rho": 0.20655080213903745,
+        "p": 0.24879466507539114,
+        "n": 33
+      }
+    },
+    "gen4_turbo": {
+      "line_chamfer_mean_px": {
+        "rho": 0.5835777126099706,
+        "p": 0.0004549417677989456,
+        "n": 32
+      },
+      "tone_variance": {
+        "rho": 0.38368910782703886,
+        "p": 0.04383971743892305,
+        "n": 28
+      },
+      "edge_abs_slope": {
+        "rho": 0.35923753665689145,
+        "p": 0.04345867847508894,
+        "n": 32
+      },
+      "style_terminal": {
+        "rho": 0.3940615835777126,
+        "p": 0.0256392385666336,
+        "n": 32
+      },
+      "closure_abs_terminal": {
+        "rho": 0.07331378299120234,
+        "p": 0.6900681890252026,
+        "n": 32
+      }
+    },
+    "h3-fal": {
+      "line_chamfer_mean_px": {
+        "rho": 0.37667112299465244,
+        "p": 0.03072097666632261,
+        "n": 33
+      },
+      "tone_variance": {
+        "rho": 0.27142857142857135,
+        "p": 0.15436180201590535,
+        "n": 29
+      },
+      "edge_abs_slope": {
+        "rho": 0.12366310160427807,
+        "p": 0.4929414628678114,
+        "n": 33
+      },
+      "style_terminal": {
+        "rho": 0.22961229946524067,
+        "p": 0.19864627738941928,
+        "n": 33
+      },
+      "closure_abs_terminal": {
+        "rho": 0.06684491978609626,
+        "p": 0.7116787187166579,
+        "n": 33
+      }
+    },
+    "ltx23": {
+      "line_chamfer_mean_px": {
+        "rho": 0.46290106951871657,
+        "p": 0.006674543496858842,
+        "n": 33
+      },
+      "tone_variance": {
+        "rho": 0.33694581280788166,
+        "p": 0.0738769383264565,
+        "n": 29
+      },
+      "edge_abs_slope": {
+        "rho": 0.31885026737967914,
+        "p": 0.07051860714844502,
+        "n": 33
+      },
+      "style_terminal": {
+        "rho": 0.455548128342246,
+        "p": 0.007720034204825903,
+        "n": 33
+      },
+      "closure_abs_terminal": {
+        "rho": 0.07219251336898397,
+        "p": 0.6897124203111334,
+        "n": 33
+      }
+    },
+    "wan22": {
+      "line_chamfer_mean_px": {
+        "rho": -0.006684491978609626,
+        "p": 0.9705494261796221,
+        "n": 33
+      },
+      "tone_variance": {
+        "rho": 0.12906403940886696,
+        "p": 0.5046073524589316,
+        "n": 29
+      },
+      "edge_abs_slope": {
+        "rho": -0.001336898395721925,
+        "p": 0.9941086640252162,
+        "n": 33
+      },
+      "style_terminal": {
+        "rho": -0.06149732620320855,
+        "p": 0.7338749310981602,
+        "n": 33
+      },
+      "closure_abs_terminal": {
+        "rho": -0.365975935828877,
+        "p": 0.03620705406407897,
+        "n": 33
+      }
+    }
+  },
+  "q2_pooled": {
+    "line_chamfer_mean_px": {
+      "rho": 0.5895936773087752,
+      "p": 9.900029331212786e-17,
+      "n": 164
+    },
+    "tone_variance": {
+      "rho": 0.432204002893658,
+      "p": 6.325184457468262e-08,
+      "n": 144
+    },
+    "edge_abs_slope": {
+      "rho": 0.3724456898779807,
+      "p": 9.061131266902899e-07,
+      "n": 164
+    },
+    "style_terminal": {
+      "rho": 0.4458422319861793,
+      "p": 2.194515378381897e-09,
+      "n": 164
+    },
+    "closure_abs_terminal": {
+      "rho": 0.15781154353651733,
+      "p": 0.04357249807867104,
+      "n": 164
+    }
+  },
+  "q3a_engine_effect_controlling_motion": {
+    "line_chamfer_mean_px": {
+      "rho_raw": 0.4952781867823517,
+      "rho_controlling_motion": 0.2966764598544561,
+      "n": 164
+    },
+    "tone_variance": {
+      "rho_raw": 0.38222565603325315,
+      "rho_controlling_motion": 0.2114066347765979,
+      "n": 144
+    },
+    "edge_abs_slope": {
+      "rho_raw": 0.40482915347616194,
+      "rho_controlling_motion": 0.2763803772823882,
+      "n": 164
+    },
+    "style_terminal": {
+      "rho_raw": 0.46121523827711963,
+      "rho_controlling_motion": 0.31314807867311045,
+      "n": 164
+    },
+    "closure_abs_terminal": {
+      "rho_raw": 0.33836093572044607,
+      "rho_controlling_motion": 0.3031862327309321,
+      "n": 164
+    }
+  },
+  "q3b_matched_motion_band": {
+    "lo": 0.0026465385324425167,
+    "hi": 0.0014706409403256009,
+    "valid": false
+  },
+  "q4_ground_series": {
+    "gen4_turbo": {
+      "n": 5,
+      "k": [
+        1.0,
+        0.9,
+        0.8,
+        0.65,
+        0.52
+      ],
+      "motion_norm": [
+        0.012029,
+        0.009333,
+        0.004901,
+        0.009029,
+        0.006375
+      ],
+      "chamfer_px": [
+        4.677,
+        2.665,
+        3.124,
+        7.757,
+        15.799
+      ],
+      "rho_k_vs_motion": 0.7,
+      "p_k_vs_motion": 0.23333333333333334,
+      "rho_k_vs_chamfer": -0.7,
+      "rho_k_vs_chamfer_controlling_motion": -0.8003267306650412
+    },
+    "gen4.5": {
+      "n": 5,
+      "k": [
+        1.0,
+        0.9,
+        0.8,
+        0.65,
+        0.52
+      ],
+      "motion_norm": [
+        0.020224,
+        0.020748,
+        0.024367,
+        0.020074,
+        0.010117
+      ],
+      "chamfer_px": [
+        7.551,
+        12.302,
+        9.344,
+        10.556,
+        5.815
+      ],
+      "rho_k_vs_motion": 0.6,
+      "p_k_vs_motion": 0.35,
+      "rho_k_vs_chamfer": 0.3,
+      "rho_k_vs_chamfer_controlling_motion": 9.614813431917818e-17
+    },
+    "h3-fal": {
+      "n": 5,
+      "k": [
+        1.0,
+        0.9,
+        0.8,
+        0.65,
+        0.52
+      ],
+      "motion_norm": [
+        0.006602,
+        0.002476,
+        0.003461,
+        0.003705,
+        0.005177
+      ],
+      "chamfer_px": [
+        51.731,
+        0.665,
+        2.433,
+        0.392,
+        0.763
+      ],
+      "rho_k_vs_motion": 0.0,
+      "p_k_vs_motion": 1.0,
+      "rho_k_vs_chamfer": 0.49999999999999994,
+      "rho_k_vs_chamfer_controlling_motion": 0.5773502691896256
+    },
+    "wan22": {
+      "n": 5,
+      "k": [
+        1.0,
+        0.9,
+        0.8,
+        0.65,
+        0.52
+      ],
+      "motion_norm": [
+        0.001612,
+        0.002213,
+        0.002173,
+        0.00203,
+        0.002239
+      ],
+      "chamfer_px": [
+        1.878,
+        1.33,
+        1.413,
+        0.079,
+        0.087
+      ],
+      "rho_k_vs_motion": -0.6,
+      "p_k_vs_motion": 0.35,
+      "rho_k_vs_chamfer": 0.7999999999999999,
+      "rho_k_vs_chamfer_controlling_motion": 0.7637626158259733
+    },
+    "ltx23": {
+      "n": 5,
+      "k": [
+        1.0,
+        0.9,
+        0.8,
+        0.65,
+        0.52
+      ],
+      "motion_norm": [
+        0.000909,
+        0.00138,
+        0.000994,
+        0.00094,
+        0.000932
+      ],
+      "chamfer_px": [
+        10.041,
+        1.51,
+        13.381,
+        19.774,
+        27.065
+      ],
+      "rho_k_vs_motion": 0.0,
+      "p_k_vs_motion": 1.0,
+      "rho_k_vs_chamfer": -0.8999999999999998,
+      "rho_k_vs_chamfer_controlling_motion": -0.9819805060619659
+    }
+  },
+  "q5a_pairwise_matched_bands": {
+    "gen4.5|gen4_turbo": {
+      "lo": 0.0026465385324425167,
+      "hi": 0.00306042244968315,
+      "overlaps": true,
+      "gen4.5": {
+        "n": 2,
+        "drift_median": 2.863584440740724
+      },
+      "gen4_turbo": {
+        "n": 4,
+        "drift_median": 2.338103786823803
+      },
+      "usable": false
+    },
+    "gen4.5|h3-fal": {
+      "lo": 0.0026465385324425167,
+      "hi": 0.008087860213385688,
+      "overlaps": true,
+      "gen4.5": {
+        "n": 10,
+        "drift_median": 4.97496856291848
+      },
+      "h3-fal": {
+        "n": 12,
+        "drift_median": 5.438248423329098
+      },
+      "usable": true,
+      "winner_in_band": "gen4.5"
+    },
+    "gen4.5|ltx23": {
+      "lo": 0.0026465385324425167,
+      "hi": 0.008112485493932451,
+      "overlaps": true,
+      "gen4.5": {
+        "n": 10,
+        "drift_median": 4.97496856291848
+      },
+      "ltx23": {
+        "n": 6,
+        "drift_median": 3.2694785243045157
+      },
+      "usable": true,
+      "winner_in_band": "ltx23"
+    },
+    "gen4.5|wan22": {
+      "lo": 0.0026465385324425167,
+      "hi": 0.0014706409403256009,
+      "overlaps": false
+    },
+    "gen4_turbo|h3-fal": {
+      "lo": 0.0014177694295843442,
+      "hi": 0.00306042244968315,
+      "overlaps": true,
+      "gen4_turbo": {
+        "n": 11,
+        "drift_median": 2.8763071079568836
+      },
+      "h3-fal": {
+        "n": 6,
+        "drift_median": 2.460747901611513
+      },
+      "usable": true,
+      "winner_in_band": "h3-fal"
+    },
+    "gen4_turbo|ltx23": {
+      "lo": 0.0016278527677059174,
+      "hi": 0.00306042244968315,
+      "overlaps": true,
+      "gen4_turbo": {
+        "n": 9,
+        "drift_median": 2.8763071079568836
+      },
+      "ltx23": {
+        "n": 11,
+        "drift_median": 1.8280131551989527
+      },
+      "usable": true,
+      "winner_in_band": "ltx23"
+    },
+    "gen4_turbo|wan22": {
+      "lo": 0.0011199792303765812,
+      "hi": 0.0014706409403256009,
+      "overlaps": true,
+      "gen4_turbo": {
+        "n": 7,
+        "drift_median": 1.2067818569732884
+      },
+      "wan22": {
+        "n": 3,
+        "drift_median": 1.3978390090881305
+      },
+      "usable": false
+    },
+    "h3-fal|ltx23": {
+      "lo": 0.0016278527677059174,
+      "hi": 0.008087860213385688,
+      "overlaps": true,
+      "h3-fal": {
+        "n": 15,
+        "drift_median": 3.377028527651907
+      },
+      "ltx23": {
+        "n": 16,
+        "drift_median": 2.554628957377145
+      },
+      "usable": true,
+      "winner_in_band": "ltx23"
+    },
+    "h3-fal|wan22": {
+      "lo": 0.0014177694295843442,
+      "hi": 0.0014706409403256009,
+      "overlaps": true,
+      "h3-fal": {
+        "n": 1,
+        "drift_median": 6.956215662466957
+      },
+      "wan22": {
+        "n": 2,
+        "drift_median": 1.2332822728549049
+      },
+      "usable": false
+    },
+    "ltx23|wan22": {
+      "lo": 0.0016278527677059174,
+      "hi": 0.0014706409403256009,
+      "overlaps": false
+    }
+  },
+  "q5b_fitted_at_common_motion": {
+    "target_motion_norm": 0.0024283189326524735,
+    "gen4.5": {
+      "n": 33,
+      "slope": 53.07569918318313,
+      "fitted_drift_at_target": 6.096236247315664,
+      "motion_range": [
+        0.0015485705807805061,
+        0.09962280260192023
+      ],
+      "extrapolating": false
+    },
+    "gen4_turbo": {
+      "n": 32,
+      "slope": 41.24789000912939,
+      "fitted_drift_at_target": 5.323986033414024,
+      "motion_range": [
+        0.0005859611814634667,
+        0.03933825592199961
+      ],
+      "extrapolating": false
+    },
+    "h3-fal": {
+      "n": 33,
+      "slope": -17.76137631986721,
+      "fitted_drift_at_target": 10.906251507703063,
+      "motion_range": [
+        0.0005987377112938298,
+        0.07311040825313991
+      ],
+      "extrapolating": false
+    },
+    "ltx23": {
+      "n": 33,
+      "slope": 65.5017151254199,
+      "fitted_drift_at_target": 5.675813939499844,
+      "motion_range": [
+        0.0007620005469237055,
+        0.12585459436689103
+      ],
+      "extrapolating": false
+    },
+    "wan22": {
+      "n": 33,
+      "slope": 403.576843540408,
+      "fitted_drift_at_target": 1.7111774333657144,
+      "motion_range": [
+        0.000543205173952239,
+        0.016741163390023368
+      ],
+      "extrapolating": false
+    },
+    "ordering_at_target": [
+      "wan22",
+      "gen4_turbo",
+      "ltx23",
+      "gen4.5",
+      "h3-fal"
+    ],
+    "ordering_is_partly_extrapolated": []
+  },
+  "q5c_pareto": {
+    "dominated_by": {
+      "gen4.5": [],
+      "gen4_turbo": [],
+      "h3-fal": [
+        "gen4.5"
+      ],
+      "ltx23": [],
+      "wan22": []
+    },
+    "frontier": [
+      "gen4.5",
+      "gen4_turbo",
+      "ltx23",
+      "wan22"
+    ],
+    "note": "engines on the frontier are not rankable against each other without a motion-quality trade-off being stated"
+  }
+}

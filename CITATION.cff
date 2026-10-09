@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use StillDrawn, please cite the paper and the dataset."
+title: "StillDrawn: A Benchmark Dataset for Inked Line Art under Image-to-Video Generation"
+type: dataset
+version: "1.0.0"
+date-released: "2026-10-09"
+license: CC-BY-4.0
+repository-code: "https://github.com/aaronlsmiles/stilldrawn"
+authors:
+  - family-names: Smiles
+    given-names: Aaron
+    orcid: "https://orcid.org/0000-0003-2982-8226"
+    affiliation: "Independent researcher, UK"
+keywords:
+  - image-to-video generation
+  - line art
+  - benchmark
+  - evaluation
+  - comics
+  - manga
+doi: "10.5281/zenodo.23072784"
+# Add once assigned: preferred-citation = the arXiv preprint (type: article, identifiers: arXiv ID)

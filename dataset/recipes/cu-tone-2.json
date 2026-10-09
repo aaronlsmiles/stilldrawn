@@ -1,0 +1,18 @@
+{
+  "panel_id": "cu-tone-2",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, screentone, halftone, manga style, ink, 1boy, male focus, boxer, facing viewer, sitting on stool, boxing gloves, towel on head, sweat, bruise, exhausted, close-up, upper body",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, ink drips, ink splatter, blood, 1girl, female, from behind, back view",
+  "seed": 2105,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "CU-TONE-2L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": true
+}

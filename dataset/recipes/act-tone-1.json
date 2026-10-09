@@ -1,0 +1,16 @@
+{
+  "panel_id": "act-tone-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white manga-style panel, landscape frame. A skateboarder mid-ollie shot from ground level, deck's grip-tape underside dominating the foreground in steep foreshortening, rider folded above it against the sky. Halftone dot fields carry all value: coarse tone on the deck's underside, fine tone in the sky gradient, dot-textured shadow pooling below; crisp ink line above the dots throughout. Monochrome, dots and line only. No lettering.",
+  "negative": null,
+  "seed": 1113,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-TONE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

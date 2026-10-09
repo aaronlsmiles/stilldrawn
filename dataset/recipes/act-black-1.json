@@ -1,0 +1,16 @@
+{
+  "panel_id": "act-black-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. A firefighter swinging an axe through a door, seen from inside the dark room: his silhouette and the room are massed solid black ink, flat and hard-edged; the single reserved white is the blinding glare of the doorway bursting around him. Foreshortened axe-head leading. No gradients, no grey \u2014 black shapes, white shape, heavy closed line. Full-bleed composition: the drawing fills the entire frame edge to edge, no borders, no margins, no panel frame. Monochrome. No lettering.",
+  "negative": null,
+  "seed": 2116,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-BLACK-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": true
+}

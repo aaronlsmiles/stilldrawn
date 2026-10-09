@@ -1,0 +1,8 @@
+# The clips (1.7 GB) are distributed through the Zenodo archive, not git.
+runs/*/*.mp4
+zenodo/dist/
+paper/arxiv/
+__pycache__/
+.DS_Store
+# Local dump of the private Zenodo draft record (user id, draft file ids): not for the public tree.
+zenodo/23072784.json

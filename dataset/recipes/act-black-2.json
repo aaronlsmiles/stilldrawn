@@ -1,0 +1,18 @@
+{
+  "panel_id": "act-black-2",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, high contrast, ink, manga style, chiaroscuro, black background, 1boy, male focus, baseball, pitcher, throwing, ball, foreshortening, incoming attack, perspective, night, dynamic pose, action, dramatic lighting",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, screentone, gradient, grey wash, 1girl, female",
+  "seed": 1117,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-BLACK-2L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

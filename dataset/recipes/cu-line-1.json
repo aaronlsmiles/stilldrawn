@@ -1,0 +1,16 @@
+{
+  "panel_id": "cu-line-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. Close-up of an elderly violinist backstage, chin resting on her instrument, eyes closed, deep laugh lines. Drawn in clean unbroken pen contour only: every outline closed, uniform fine line weight, interiors left as bare white paper, no tone fields, no grey wash, no dot shading anywhere. Wide white negative space on the right of the frame. Monochrome ink on white. No lettering, no sound-effect marks.",
+  "negative": null,
+  "seed": 1101,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "CU-LINE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

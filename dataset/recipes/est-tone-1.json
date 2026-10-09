@@ -1,0 +1,16 @@
+{
+  "panel_id": "est-tone-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white manga-style panel, landscape frame. An empty subway platform at night: tiled walls, a bench, the tunnel mouth swallowing the tracks, strip lights overhead. Every value carried by halftone dot tone \u2014 fine dots on lit tile, mid dots across the platform floor, coarse heavy dots deepening into the tunnel; edges held crisp by ink line above the tone. No people. Monochrome, dots and line only. No lettering.",
+  "negative": null,
+  "seed": 1122,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "EST-TONE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

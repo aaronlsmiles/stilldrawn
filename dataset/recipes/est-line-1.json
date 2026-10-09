@@ -1,0 +1,16 @@
+{
+  "panel_id": "est-line-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. Interior of a lighthouse: the spiral stair winding up and away from the viewer, iron railings, stone courses, a small window throwing a parallelogram of light on the steps. Pure line drawing \u2014 architecture described entirely by closed single-weight contours and sparse open hatching, no tone fields, no wash, white paper ground. Empty of people. Monochrome. No lettering.",
+  "negative": null,
+  "seed": 1119,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "EST-LINE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

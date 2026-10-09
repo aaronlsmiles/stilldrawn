@@ -1,0 +1,50 @@
+{
+ "protocol": "docs/PREREGISTRATION.md \u00a76 (frozen)",
+ "drawn": "2026-08-13",
+ "seed_declared": 20260813,
+ "seed_used": 20260813,
+ "n": 20,
+ "pool": "164 standard cells (FLINT excluded \u2014 see docstring), refused cell naturally absent",
+ "algorithm": "seeded Fisher-Yates over sorted cell_ids + greedy feasibility-checked take (draw_subset.py)",
+ "strata_counts": {
+  "engine": {
+   "gen4.5": 3,
+   "gen4_turbo": 4,
+   "wan22": 4,
+   "ltx23": 4,
+   "h3-fal": 5
+  },
+  "content_class": {
+   "act": 7,
+   "est": 6,
+   "cu": 7
+  },
+  "motion": {
+   "CAMPUSH": 6,
+   "IDLE": 8,
+   "BURST": 6
+  }
+ },
+ "cells": [
+  "act-black-1_campush_gen45",
+  "act-black-2_idle_gen4t",
+  "act-line-1_idle_wan22",
+  "act-line-2_burst_gen4t",
+  "act-line-2_burst_ltx23",
+  "chain-est-cosmic-1_burst_ltx23",
+  "chain-est-cosmic-1_campush_wan22",
+  "chain-est-cosmic-1_idle_gen45",
+  "cu-black-3_burst_wan22",
+  "cu-line-1_idle_h3",
+  "cu-line-1_idle_ltx23",
+  "cu-line-3_campush_gen4t",
+  "cu-line-3_campush_h3",
+  "cu-tone-2_campush_h3",
+  "cu-tone-3_idle_h3",
+  "est-black-1_campush_wan22",
+  "est-line-1_idle_gen4t",
+  "est-line-2_burst_h3",
+  "cip-act-tank-1_burst_gen45",
+  "cip-act-tank-1_idle_ltx23"
+ ]
+}

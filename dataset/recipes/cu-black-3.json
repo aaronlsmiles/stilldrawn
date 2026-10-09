@@ -1,0 +1,18 @@
+{
+  "panel_id": "cu-black-3",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, high contrast, ink, manga style, chiaroscuro, dark background, 1boy, male focus, mature man, fishmonger, apron, flat cap, hanging light bulb, fish, market stall, close-up, upper body, dramatic lighting",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, screentone, gradient, grey wash, ink drips on skin, 1girl, female",
+  "seed": 1109,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "CU-BLACK-3L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

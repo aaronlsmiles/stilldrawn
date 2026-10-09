@@ -1,0 +1,18 @@
+{
+  "panel_id": "act-line-3",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, lineart, clean line art, (white background:1.3), 1boy, male focus, goalkeeper, diving, full stretch, gloves, soccer ball, soccer goal, grass field, horizontal, dynamic pose, action, motion lines, foreshortening",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, screentone, halftone, gradient, grey wash, grey background, gradient background, ink drips, 1girl, female, spider web",
+  "seed": 2112,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-LINE-3L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": true
+}

@@ -1,0 +1,16 @@
+{
+  "panel_id": "est-black-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. A vast disused turbine hall: the great machines and the roof trusses massed in flat solid black ink, floor grime in heavy tone; one tall shaft of light from a broken roof panel is the single pure-white region in the frame, cutting down onto the floor. Hard-edged ink shapes, no gradients, no mist. Empty of people. Monochrome. No lettering.",
+  "negative": null,
+  "seed": 1125,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "EST-BLACK-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

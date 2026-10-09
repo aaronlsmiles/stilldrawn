@@ -1,0 +1,18 @@
+{
+  "panel_id": "est-tone-2",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, screentone, halftone, manga style, ink, no humans, scenery, outdoors, harbor, fishing boat, low tide, mudflat, mooring chain, stone quay, seagulls, overcast, wide shot",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, 1boy, 1girl, people, crowd",
+  "seed": 1123,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "EST-TONE-2L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

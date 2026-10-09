@@ -1,0 +1,17 @@
+{
+  "panel_id": "cip-act-tank-1",
+  "engine": "private-production-chain",
+  "model": null,
+  "prompt": null,
+  "negative": null,
+  "seed": null,
+  "settings": {
+    "native_size": "1024x1792"
+  },
+  "reproducible": false,
+  "provenance": "Creator-IP subset: one inked action panel (tank shatter) from the author's comic project, admitted to the dataset 2026-08-12 with the author's per-panel clearance recorded in dataset/DATASHEET.md (two sibling candidates were refused and are absent). The production chain is named but not reproducible from this repository: line extraction → inversion → img2img inking, run on the author's private production stack. Tuned settings and prompts are withheld: this repository ships evaluation artifacts only. This panel is provenance-documented, not generation-reproducible.",
+  "source_created": "2026-08 (private production, pre-project)",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

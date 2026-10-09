@@ -1,0 +1,18 @@
+{
+  "panel_id": "act-tone-2",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, screentone, halftone, manga style, ink, 1girl, female focus, sprinter, starting blocks, running, clenched fist, foreshortening, perspective, incoming punch, track and field, dynamic pose, action, motion lines",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, ink drips, 1boy, male",
+  "seed": 1114,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-TONE-2L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

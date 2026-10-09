@@ -1,0 +1,16 @@
+{
+  "panel_id": "act-line-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white inked comic panel, landscape frame. A BMX rider mid-jump coming straight at the viewer, front wheel huge in extreme foreshortening, body compressed behind the handlebars, dirt kicked loose below. Pure contour line drawing: speed lines as single strokes, all outlines closed, no tone, no dots, no wash \u2014 white paper carries all the light. Monochrome. No lettering, no sound-effect marks.",
+  "negative": null,
+  "seed": 1110,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "ACT-LINE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

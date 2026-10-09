@@ -1,0 +1,10 @@
+{
+ "derived_from": "cu-line-1",
+ "transform": "global linear luminance scale: pixel' = clip(pixel * 0.9)",
+ "amendment": "A3 (2026-08-13, ground-value causal series)",
+ "engine": "derived",
+ "date": "2026-08-13",
+ "paper_white_p90": 0.898,
+ "black_frac": 0.014,
+ "lineart": "copied from cu-line-1 (global value scale moves no geometry)"
+}

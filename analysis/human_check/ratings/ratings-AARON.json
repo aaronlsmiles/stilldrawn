@@ -1,0 +1,164 @@
+{
+ "rater": "AARON",
+ "instrument": "A6",
+ "ratings": [
+  {
+   "clip": "c10",
+   "register": 5,
+   "sameness": 3
+  },
+  {
+   "clip": "c20",
+   "register": 4,
+   "sameness": 1
+  },
+  {
+   "clip": "c07",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c09",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c13",
+   "register": 5,
+   "sameness": 4
+  },
+  {
+   "clip": "c08",
+   "register": 4,
+   "sameness": 5
+  },
+  {
+   "clip": "c12",
+   "register": 3,
+   "sameness": 2
+  },
+  {
+   "clip": "c04",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c18",
+   "register": 5,
+   "sameness": 4
+  },
+  {
+   "clip": "c14",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c17",
+   "register": 2,
+   "sameness": 3
+  },
+  {
+   "clip": "c19",
+   "register": 3,
+   "sameness": 5
+  },
+  {
+   "clip": "c01",
+   "register": 4,
+   "sameness": 4
+  },
+  {
+   "clip": "c16",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c06",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c03",
+   "register": 3,
+   "sameness": 2
+  },
+  {
+   "clip": "c02",
+   "register": 2,
+   "sameness": 3
+  },
+  {
+   "clip": "c15",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c05",
+   "register": 5,
+   "sameness": 5
+  },
+  {
+   "clip": "c11",
+   "register": 2,
+   "sameness": 3
+  }
+ ],
+ "baseline": [
+  {
+   "panel": "p11",
+   "hand_drawn": 3
+  },
+  {
+   "panel": "p04",
+   "hand_drawn": 4
+  },
+  {
+   "panel": "p08",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p05",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p10",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p12",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p01",
+   "hand_drawn": 4
+  },
+  {
+   "panel": "p03",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p02",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p09",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p06",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p13",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p14",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p07",
+   "hand_drawn": 4
+  }
+ ]
+}

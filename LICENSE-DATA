@@ -1,0 +1,25 @@
+Data licence — CC BY 4.0
+
+The data and documents in this release are licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0):
+
+- dataset/          panels, line-art layers, recipes, metadata, datasheet
+- runs/             generated clips, manifest and supplement, metric outputs
+- analysis/out/     tables, figures, frame strips and other analysis outputs
+- analysis/human_check/   aggregated ratings, mappings, results, instrument pages
+- docs/             pre-registration, taxonomy, terms review, provenance records
+- LEDGER.md         the budget ledger
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution: "StillDrawn dataset (Aaron Smiles, 2026)", with a link to the Zenodo
+record or this repository.
+
+Notes:
+- Each panel's generation provenance is in dataset/recipes/ and summarised in
+  dataset/DATASHEET.md. Two panels have described-not-reproducible recipes.
+- Some items were generated through commercial services. NOTICE-PROVIDERS.md
+  lists them and summarises the relevant provider terms. That notice is
+  informational and does not add conditions to this licence.
+- Code is licensed separately under MIT (LICENSE-CODE). The paper source in
+  paper/ is licensed as chosen for its arXiv posting.

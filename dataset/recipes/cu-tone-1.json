@@ -1,0 +1,16 @@
+{
+  "panel_id": "cu-tone-1",
+  "engine": "hosted",
+  "model": "gemini_2.5_flash",
+  "prompt": "Black-and-white manga-style panel, landscape frame. Close-up of a night-shift nurse at a ward desk, tired eyes over a paper cup of coffee, fluorescent light from above. All shading carried by mechanical halftone dot fields: fine dots on the face's shadow side, coarser dots in the room behind, crisp ink line holding every edge above the tone. No grey wash \u2014 dots and line only. Monochrome. No lettering, no sound-effect marks.",
+  "negative": null,
+  "seed": 1104,
+  "settings": {
+    "ratio": "1344:768"
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "CU-TONE-1H",
+  "cost_usd": 0.04,
+  "date": "2026-08-12",
+  "reroll": false
+}

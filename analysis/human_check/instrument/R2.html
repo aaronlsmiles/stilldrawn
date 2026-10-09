@@ -1,0 +1,398 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ink clip rating — R2</title>
+<style>
+ :root { --paper:#fbfaf8; --ink:#131311; --line:#ddd; --accent:#2a78d6;
+   --muted:#6b6b68; }
+ body { margin:0; background:var(--paper); color:var(--ink);
+   font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+ .wrap { max-width:1080px; margin:0 auto; padding:1.4rem; }
+ .card { background:#fff; border:1px solid var(--line); padding:1.2rem 1.4rem;
+   border-radius:10px; }
+ .media { display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start;
+   justify-content:center; margin:.8rem 0; }
+ .media > div { flex:1 1 380px; max-width:500px; }
+ .media img, .media video { width:100%; height:auto; border:1px solid var(--line);
+   background:#fff; display:block; border-radius:4px; }
+ .medialabel { font-size:.8rem; color:var(--muted); text-transform:uppercase;
+   letter-spacing:.05em; margin-bottom:4px; }
+ .qblock { border-top:1px solid var(--line); padding-top:.9rem; margin-top:.9rem; }
+ .q { font-size:1.06rem; font-weight:650; text-align:center; margin:0 0 .1rem; }
+ .dir { text-align:center; font-size:.85rem; color:var(--muted); margin:0 0 .5rem; }
+ .scale { display:flex; gap:8px; justify-content:center; margin:.4rem 0 .3rem;
+   flex-wrap:wrap; }
+ .scale button { font:inherit; font-weight:650; width:56px; height:52px;
+   border:2px solid var(--line); background:#fff; cursor:pointer;
+   border-radius:8px; }
+ .scale button:hover { border-color:var(--accent); }
+ .scale button.sel { background:var(--accent); color:#fff; border-color:var(--accent); }
+ .picked { text-align:center; font-size:.9rem; color:var(--muted);
+   min-height:1.4em; margin:0; }
+ .picked b { color:var(--ink); font-weight:600; }
+ .nav { display:flex; justify-content:space-between; align-items:center;
+   margin-top:1rem; }
+ .nav button { font:inherit; padding:.55rem 1.1rem; cursor:pointer;
+   border:1px solid var(--line); background:#fff; border-radius:6px; }
+ .nav button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+ .nav button:disabled { opacity:.4; cursor:default; }
+ .prog { color:var(--muted); font-size:.9rem; }
+ ol.key { font-size:.9rem; color:var(--muted); margin:.3rem 0 0; padding-left:1.4rem; }
+ #done textarea { width:100%; min-height:70px; font:inherit; margin:.5rem 0; }
+ .hint { font-size:.85rem; color:var(--muted); }
+ .note { font-size:.9rem; color:var(--ink); background:#f4f6f9;
+   border-left:3px solid var(--accent); padding:.5rem .7rem; border-radius:4px; }
+ .note2 { font-size:.85rem; color:var(--muted); text-align:center;
+   max-width:62ch; margin:.1rem auto .4rem; }
+ .watch { font-size:.8rem; color:var(--muted); margin:.35rem 0 0; }
+ #seen { color:#15803d; font-weight:700; }
+</style></head><body><div class="wrap">
+<style>
+ .overall { position:sticky; top:0; z-index:20; background:var(--paper);
+   padding:.55rem 0 .6rem; margin-bottom:.4rem; }
+ .overall .lab { font-size:.8rem; color:var(--muted); margin:0 0 .3rem;
+   display:flex; justify-content:space-between; gap:1rem; }
+ .overall .lab b { color:var(--ink); font-weight:600; }
+ .overall .track { height:8px; background:#e7e5e0; border-radius:99px;
+   overflow:hidden; }
+ .overall .fill { height:100%; width:0; background:var(--accent);
+   border-radius:99px; transition:width .25s ease; }
+ ul.parts { margin:.4rem 0 .8rem; padding-left:1.2rem; }
+ ul.parts li { margin:.25rem 0; }
+</style>
+<div class="overall">
+ <p class="lab"><span id="ovtext"></span><span id="ovcount"></span></p>
+ <div class="track"><div class="fill" id="ovfill"></div></div>
+</div>
+
+
+
+<div class="card" id="baseline">
+ <h2 style="margin-top:0">Rating task — about 25 minutes</h2>
+ <p>Thank you for helping. There are <b>two parts</b>. Please do them in one
+ sitting, and don't discuss them with anyone first.</p>
+ <ul class="parts">
+  <li><b>Part 1 — 14 still drawings.</b> One question about each. Roughly 3
+  minutes. This part is just the drawings on their own.</li>
+  <li><b>Part 2 — 20 short clips</b>, each one made by animating one of those
+  drawings. Two questions about each. Roughly 20 minutes.</li>
+ </ul>
+ <p>Part 1 begins below. The bar at the top of the page tracks how far through
+ you are.</p>
+ <div class="qblock">
+  <p class="q">“Does this original still image look like a hand-drawn black-and-white ink picture?”</p>
+  <p class="dir">5 = yes, completely · 1 = no, not at all</p>
+  <ol class="key"><li>No: it doesn't look hand-drawn — photographic, painted, or mechanically rendered</li><li>Mostly not</li><li>Half and half</li><li>Mostly</li><li>Yes: it could be a drawn panel</li></ol>
+  <p class="note">Ink can stop looking hand-drawn <b>without</b> becoming photographic. Look for marks that no one drawing by hand would make: contours gone soft or blurred, edges that fade instead of ending crisply, lines that smear, warp or run together in ways a pen or brush would not, or shading that has turned into a smooth gradient instead of line or tone. <b>Clean, even linework, flat solid blacks and regular screentone are normal in manga and are not, by themselves, a departure.</b></p>
+ </div>
+ <div class="media" style="margin-top:1rem">
+  <div style="flex:1 1 520px;max-width:620px">
+   <div class="medialabel">Original image</div>
+   <img id="bpanel" alt="original image">
+  </div>
+ </div>
+ <div class="scale" id="bscale"></div>
+ <p class="picked" id="bpicked"></p>
+ <div class="nav">
+  <button id="bback" onclick="bnav(-1)">◀ Back</button>
+  <span class="prog" id="bprog"></span>
+  <button id="bnext" class="primary" onclick="bnav(1)" disabled>Next ▶</button>
+ </div>
+</div>
+<div class="card" id="intro" style="display:none">
+ <h2 style="margin-top:0">Rating 20 short clips — about 20 minutes</h2>
+ <p>Each screen shows an <b>original still image</b> (left) and a <b>5-second
+ animated clip</b> made from it (right, plays on loop). You answer
+ <b>two questions</b> about each clip.</p>
+
+ <div class="qblock">
+  <p class="q">1. “Does this clip still look like a hand-drawn black-and-white ink picture, all the way through?”</p>
+  <p class="dir">5 = yes, completely · 1 = no, not at all</p>
+  <ol class="key"><li>No: it stops looking hand-drawn — photographic, painted, or mechanically rendered</li><li>Mostly not</li><li>Half and half</li><li>Mostly: a few frames slip</li><li>Yes: every frame could be a drawn panel</li></ol>
+  <p class="note">Ink can stop looking hand-drawn <b>without</b> becoming photographic. Look for marks that no one drawing by hand would make: contours gone soft or blurred, edges that fade instead of ending crisply, lines that smear, warp or run together in ways a pen or brush would not, or shading that has turned into a smooth gradient instead of line or tone. <b>Clean, even linework, flat solid blacks and regular screentone are normal in manga and are not, by themselves, a departure.</b></p>
+  <p class="note2">A slight overall shift in paper tone or brightness belongs here, mildly — a 4 rather than a 5. It is not a question-2 change.</p>
+ </div>
+ <div class="qblock">
+  <p class="q">2. “Apart from the movement itself, is this the same original image throughout?”</p>
+  <p class="dir">5 = yes, it is unchanged · 1 = no, it became a different picture</p>
+  <ol class="key"><li>No: it became a different picture</li><li>Mostly not: much of it is different</li><li>Half and half</li><li>Mostly: small things change</li><li>Yes: nothing has been added, removed or replaced</li></ol>
+  <p class="note">Anything <b>added, removed or replaced</b> counts as a change, even if the setting looks identical — a clip that adds a person to an empty landscape is not the same image.</p>
+  <p class="note"><b>Action already in the drawing doesn't count.</b> If the original shows glass shattering, a figure mid-leap, or cloth blowing, then that action carrying on is the animation working — not a change. Count only things the original never contained: a new person, vehicle, object or lettering.</p>
+ </div>
+
+ <p class="note" style="margin-top:1rem"><b>Watch the whole five seconds before answering. Things that appear briefly and then leave still count.</b></p>
+ <p style="margin-top:1rem">The two are different questions and often have
+ different answers. A clip can still look perfectly hand-drawn (a high answer
+ to&nbsp;1) while having turned into a completely different picture (a low
+ answer to&nbsp;2). How <i>much</i> a clip moves is not being asked about —
+ a clip that barely moves but keeps everything intact is still a 5 on
+ question&nbsp;2.</p>
+ <p>Go with your eye — there are no right answers, and other people's answers
+ will differ. Please do it in one sitting, without discussing it with anyone
+ first. You can change an answer with Back before finishing.</p>
+ <div class="nav"><span></span><button class="primary" onclick="start()">Start</button></div>
+</div>
+
+<div class="card" id="rate" style="display:none">
+ <div class="media">
+  <div><div class="medialabel">Original image</div><img id="panel" alt="original image"></div>
+  <div><div class="medialabel">Clip (loops) <span id="seen"></span></div>
+   <video id="clip" loop autoplay muted playsinline controls></video>
+   <p class="watch">Watch the whole five seconds before answering. Things that appear briefly and then leave still count.</p></div>
+ </div>
+
+ <div class="qblock">
+  <p class="q">1. “Does this clip still look like a hand-drawn black-and-white ink picture, all the way through?”</p>
+  <p class="dir">5 = yes, completely · 1 = no, not at all</p>
+  <p class="note2">Ink can stop looking hand-drawn <b>without</b> becoming photographic. Look for marks that no one drawing by hand would make: contours gone soft or blurred, edges that fade instead of ending crisply, lines that smear, warp or run together in ways a pen or brush would not, or shading that has turned into a smooth gradient instead of line or tone. <b>Clean, even linework, flat solid blacks and regular screentone are normal in manga and are not, by themselves, a departure.</b></p>
+  <div class="scale" id="scale1"></div>
+  <p class="picked" id="picked1"></p>
+ </div>
+ <div class="qblock">
+  <p class="q">2. “Apart from the movement itself, is this the same original image throughout?”</p>
+  <p class="dir">5 = yes, unchanged at every point · 1 = no, it became a different picture</p>
+  <p class="note2">Anything <b>added, removed or replaced</b> counts as a change, even if the setting looks identical — a clip that adds a person to an empty landscape is not the same image.</p>
+  <p class="note2"><b>Action already in the drawing doesn't count.</b> If the original shows glass shattering, a figure mid-leap, or cloth blowing, then that action carrying on is the animation working — not a change. Count only things the original never contained: a new person, vehicle, object or lettering.</p>
+  <div class="scale" id="scale2"></div>
+  <p class="picked" id="picked2"></p>
+ </div>
+
+ <div class="nav">
+  <button id="back" onclick="nav(-1)">◀ Back</button>
+  <span class="prog" id="prog"></span>
+  <button id="next" class="primary" onclick="nav(1)" disabled>Next ▶</button>
+ </div>
+</div>
+
+<div class="card" id="done" style="display:none">
+ <h2 style="margin-top:0">Done — thank you!</h2>
+ <p>Anything that stood out, or was hard to judge? (optional)</p>
+ <textarea id="comment" placeholder="optional"></textarea>
+ <div class="nav">
+  <button onclick="show('rate');paint()">◀ Back to the clips</button>
+  <button class="primary" id="submitbtn" onclick="finish()">Send my answers</button>
+ </div>
+ <p id="status" class="hint"></p>
+ <div class="nav" id="fallbacknav" style="display:none">
+  <span></span><button onclick="save()">Download my answers instead</button>
+ </div>
+ <p class="hint" id="fallbackhint" style="display:none">This saves a small file
+ called <code>ratings-R2.json</code> — please send it back to Aaron.</p>
+</div>
+
+</div><script>
+const RATER = "R2";
+const ITEMS = ["c11", "c17", "c19", "c14", "c13", "c20", "c03", "c08", "c12", "c16", "c09", "c06", "c02", "c18", "c10", "c07", "c15", "c01", "c04", "c05"];
+const L1 = ["No: it stops looking hand-drawn \u2014 photographic, painted, or mechanically rendered", "Mostly not", "Half and half", "Mostly: a few frames slip", "Yes: every frame could be a drawn panel"], L2 = ["No: it became a different picture", "Mostly not: much of it is different", "Half and half", "Mostly: small things change", "Yes: nothing has been added, removed or replaced"];
+let i = 0;
+const t0 = new Date().toISOString();
+const a1 = {}, a2 = {};
+
+function mkScale(elId, store, labels, pickedId) {
+  const el = document.getElementById(elId);
+  for (let v = 1; v <= 5; v++) {
+    const b = document.createElement('button');
+    b.textContent = v;
+    b.onclick = () => { store[ITEMS[i]] = v; paint(); };
+    el.appendChild(b);
+  }
+}
+mkScale('scale1', a1, L1, 'picked1');
+mkScale('scale2', a2, L2, 'picked2');
+
+function show(id) { for (const s of ['intro','rate','done'])
+  document.getElementById(s).style.display = (s === id ? '' : 'none'); }
+
+function paint() {
+  const item = ITEMS[i];
+  document.getElementById('panel').src = 'panels/' + item + '.png';
+  const v = document.getElementById('clip');
+  const src = 'clips/' + item + '.mp4';
+  if (!v.src.endsWith(src)) { v.src = src; v.play().catch(()=>{}); }
+  document.getElementById('prog').textContent = (i + 1) + ' / ' + ITEMS.length;
+  document.getElementById('back').disabled = (i === 0);
+  document.getElementById('next').disabled = !(item in a1 && item in a2);
+  const s1 = document.getElementById('scale1').children;
+  const s2 = document.getElementById('scale2').children;
+  [...s1].forEach((b, k) => b.classList.toggle('sel', a1[item] === k + 1));
+  [...s2].forEach((b, k) => b.classList.toggle('sel', a2[item] === k + 1));
+  document.getElementById('picked1').innerHTML =
+    a1[item] ? '<b>' + a1[item] + '</b> — ' + L1[a1[item]-1] : '';
+  document.getElementById('picked2').innerHTML =
+    a2[item] ? '<b>' + a2[item] + '</b> — ' + L2[a2[item]-1] : '';
+  paintSeen();
+}
+document.getElementById('clip').addEventListener('ended', markSeen);
+document.getElementById('clip').addEventListener('timeupdate', function () {
+  // loop:true fires 'seeking' rather than 'ended' in some browsers
+  if (this.duration && this.currentTime > this.duration - 0.15) markSeen();
+});
+const seenOnce = {};
+function markSeen() { seenOnce[ITEMS[i]] = true; paintSeen(); }
+function paintSeen() {
+  document.getElementById('seen').textContent =
+    seenOnce[ITEMS[i]] ? '· played through ✓' : '';
+}
+function start() { show('rate'); paint(); }
+function nav(d) {
+  if (d > 0 && i === ITEMS.length - 1) { show('done'); return; }
+  i = Math.max(0, Math.min(ITEMS.length - 1, i + d)); paint();
+}
+function save() {
+  const out = { rater: RATER, started: t0, finished: new Date().toISOString(),
+    instrument: "A6",
+    questions: { register: "Does this clip still look like a hand-drawn black-and-white ink picture, all the way through?", sameness: "Apart from the movement itself, is this the same original image throughout?" },
+    ratings: ITEMS.map(id => ({ clip: id,
+      register: a1[id] ?? null, sameness: a2[id] ?? null })),
+    comment: document.getElementById('comment').value || null };
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 1)],
+    {type: 'application/json'}));
+  a.download = 'ratings-' + RATER + '.json'; a.click();
+}
+
+const Q1_TEXT = "Does this clip still look like a hand-drawn black-and-white ink picture, all the way through?", Q2_TEXT = "Apart from the movement itself, is this the same original image throughout?", Q3_TEXT = "Does this original still image look like a hand-drawn black-and-white ink picture?";
+</script>
+<script>
+// A8: per-panel baseline, asked FIRST. Q1 is an absolute judgement with no
+// anchor; without this, a panel that already reads as mechanical charges the
+// engine for a property of the corpus. Mirrors Q1's construct so that
+// clip_Q1 - panel_Q3 isolates the engine's contribution.
+const PANELS = ["p05", "p04", "p11", "p09", "p03", "p13", "p07", "p10", "p01", "p02", "p06", "p14", "p08", "p12"];
+const L3 = ["No: it doesn't look hand-drawn \u2014 photographic, painted, or mechanically rendered", "Mostly not", "Half and half", "Mostly", "Yes: it could be a drawn panel"];
+const b = {};
+let bi = 0;
+const bdwell = {}, bansweredAt = {};
+let _blast = Date.now();
+
+(function () {
+  const el = document.getElementById('bscale');
+  for (let v = 1; v <= 5; v++) {
+    const btn = document.createElement('button');
+    btn.textContent = v;
+    btn.onclick = () => {
+      b[PANELS[bi]] = v;
+      (bansweredAt[PANELS[bi]] = bansweredAt[PANELS[bi]] || {}).q3 = new Date().toISOString();
+      bpaint();
+    };
+    el.appendChild(btn);
+  }
+  bpaint();
+})();
+
+setInterval(() => {
+  const now = Date.now();
+  const p = PANELS[bi];
+  if (p && document.getElementById('baseline').style.display !== 'none' && !document.hidden) {
+    bdwell[p] = (bdwell[p] || 0) + (now - _blast);
+  }
+  _blast = now;
+}, 250);
+
+function bpaint() {
+  const p = PANELS[bi];
+  document.getElementById('bpanel').src = 'panels_unique/' + p + '.png';
+  document.getElementById('bprog').textContent = (bi + 1) + ' / ' + PANELS.length;
+  document.getElementById('bback').disabled = (bi === 0);
+  document.getElementById('bnext').disabled = !(p in b);
+  [...document.getElementById('bscale').children]
+    .forEach((btn, k) => btn.classList.toggle('sel', b[p] === k + 1));
+  document.getElementById('bpicked').innerHTML =
+    b[p] ? '<b>' + b[p] + '</b> — ' + L3[b[p] - 1] : '';
+}
+
+function bnav(d) {
+  if (d > 0 && bi === PANELS.length - 1) {
+    // Baseline complete -> hand over to the frozen clip instrument, untouched.
+    document.getElementById('baseline').style.display = 'none';
+    document.getElementById('intro').style.display = '';
+    window.scrollTo(0, 0);
+    return;
+  }
+  bi = Math.max(0, Math.min(PANELS.length - 1, bi + d));
+  bpaint();
+}
+</script>
+
+<script>
+// A7 exploratory fields: dwell, played-through, answer timestamps. Observational
+// only — nothing is blocked, warned or prompted on their basis, and no exclusion
+// rule exists or may be added (A7, "Binding status of the new fields").
+const dwell = {}, answeredAt = {};
+let _last = Date.now();
+// Overall progress across BOTH parts. Driven from this existing tick rather
+// than by patching the frozen instrument's paint(), which stays untouched.
+function updateOverall() {
+  const donePanels = PANELS.filter(p => p in b).length;
+  const doneClips = ITEMS.filter(id => (id in a1) && (id in a2)).length;
+  const done = donePanels + doneClips;
+  const total = PANELS.length + ITEMS.length;
+  document.getElementById('ovfill').style.width = (100 * done / total) + '%';
+  document.getElementById('ovcount').textContent = done + ' of ' + total + ' answered';
+  const onPart1 = document.getElementById('baseline').style.display !== 'none';
+  document.getElementById('ovtext').innerHTML = onPart1
+    ? '<b>Part 1 of 2</b> — still drawings'
+    : '<b>Part 2 of 2</b> — clips';
+}
+
+setInterval(() => {
+  const now = Date.now();
+  const item = ITEMS[i];
+  if (item && document.getElementById('rate').style.display !== 'none'
+      && !document.hidden) {
+    dwell[item] = (dwell[item] || 0) + (now - _last);
+  }
+  _last = now;
+  updateOverall();
+}, 250);
+updateOverall();
+
+for (const [el, q] of [['scale1', 'register'], ['scale2', 'sameness']]) {
+  document.getElementById(el).addEventListener('click', ev => {
+    if (ev.target.tagName !== 'BUTTON') return;
+    const item = ITEMS[i];
+    (answeredAt[item] = answeredAt[item] || {})[q] = new Date().toISOString();
+  }, true);
+}
+
+function payload() {
+  return {
+    rater: RATER, started: t0, finished: new Date().toISOString(),
+    instrument: "A6", delivery: "hosted-A7",
+    questions: { register: Q1_TEXT, sameness: Q2_TEXT, panel_baseline: Q3_TEXT },
+    baseline: PANELS.map(p => ({ panel: p, hand_drawn: b[p] ?? null,
+      dwell_ms: bdwell[p] ?? 0, answered_at: bansweredAt[p] ?? null })),
+    ratings: ITEMS.map(id => ({ clip: id,
+      register: a1[id] ?? null, sameness: a2[id] ?? null })),
+    order: ITEMS,
+    telemetry: ITEMS.map(id => ({ clip: id,
+      dwell_ms: dwell[id] ?? 0,
+      played_through: !!seenOnce[id],
+      answered_at: answeredAt[id] ?? null })),
+    comment: document.getElementById('comment').value || null
+  };
+}
+
+async function finish() {
+  const btn = document.getElementById('submitbtn');
+  const status = document.getElementById('status');
+  btn.disabled = true;
+  status.textContent = 'Sending…';
+  try {
+    const r = await fetch('/api/submit', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload())
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    status.innerHTML = '<b>Sent — thank you. Nothing else to do.</b>';
+    btn.textContent = 'Sent ✓';
+  } catch (e) {
+    // Never lose twenty minutes of a rater's work to a network failure.
+    btn.disabled = false;
+    status.innerHTML = '<b>That didn\'t send.</b> Please use the download '
+      + 'button below and send Aaron the file.';
+    document.getElementById('fallbacknav').style.display = '';
+    document.getElementById('fallbackhint').style.display = '';
+  }
+}
+</script>
+</body></html>

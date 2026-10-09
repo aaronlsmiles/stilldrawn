@@ -1,0 +1,18 @@
+{
+  "panel_id": "est-black-3",
+  "engine": "local",
+  "model": "Illustrious-XL-v0.1.safetensors (ComfyUI txt2img workflow)",
+  "prompt": "masterpiece, best quality, monochrome, greyscale, high contrast, ink, manga style, chiaroscuro, black background, no humans, scenery, outdoors, alley, brick wall, fire escape, night, lit window, puddle, reflection, cobblestone, dramatic lighting",
+  "negative": "color, blurry, worst quality, lowres, text, watermark, signature, speech bubble, sound effects, screentone, gradient, grey wash, 1boy, 1girl, people",
+  "seed": 1127,
+  "settings": {
+    "ratio": "1344x768",
+    "steps": 28,
+    "cfg": 5.5
+  },
+  "prompt_file": "dataset/panel-pack.md",
+  "shot": "EST-BLACK-3L",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

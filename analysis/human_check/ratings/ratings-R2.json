@@ -1,0 +1,164 @@
+{
+ "rater": "R2",
+ "instrument": "A6",
+ "ratings": [
+  {
+   "clip": "c11",
+   "register": 1,
+   "sameness": 5
+  },
+  {
+   "clip": "c17",
+   "register": 2,
+   "sameness": 5
+  },
+  {
+   "clip": "c19",
+   "register": 2,
+   "sameness": 1
+  },
+  {
+   "clip": "c14",
+   "register": 4,
+   "sameness": 5
+  },
+  {
+   "clip": "c13",
+   "register": 3,
+   "sameness": 1
+  },
+  {
+   "clip": "c20",
+   "register": 1,
+   "sameness": 1
+  },
+  {
+   "clip": "c03",
+   "register": 2,
+   "sameness": 2
+  },
+  {
+   "clip": "c08",
+   "register": 3,
+   "sameness": 4
+  },
+  {
+   "clip": "c12",
+   "register": 1,
+   "sameness": 1
+  },
+  {
+   "clip": "c16",
+   "register": 4,
+   "sameness": 4
+  },
+  {
+   "clip": "c09",
+   "register": 1,
+   "sameness": 1
+  },
+  {
+   "clip": "c06",
+   "register": 4,
+   "sameness": 4
+  },
+  {
+   "clip": "c02",
+   "register": 4,
+   "sameness": 4
+  },
+  {
+   "clip": "c18",
+   "register": 4,
+   "sameness": 3
+  },
+  {
+   "clip": "c10",
+   "register": 2,
+   "sameness": 2
+  },
+  {
+   "clip": "c07",
+   "register": 4,
+   "sameness": 4
+  },
+  {
+   "clip": "c15",
+   "register": 4,
+   "sameness": 5
+  },
+  {
+   "clip": "c01",
+   "register": 4,
+   "sameness": 2
+  },
+  {
+   "clip": "c04",
+   "register": 3,
+   "sameness": 3
+  },
+  {
+   "clip": "c05",
+   "register": 4,
+   "sameness": 5
+  }
+ ],
+ "baseline": [
+  {
+   "panel": "p05",
+   "hand_drawn": 1
+  },
+  {
+   "panel": "p04",
+   "hand_drawn": 4
+  },
+  {
+   "panel": "p11",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p09",
+   "hand_drawn": 4
+  },
+  {
+   "panel": "p03",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p13",
+   "hand_drawn": 2
+  },
+  {
+   "panel": "p07",
+   "hand_drawn": 2
+  },
+  {
+   "panel": "p10",
+   "hand_drawn": 5
+  },
+  {
+   "panel": "p01",
+   "hand_drawn": 3
+  },
+  {
+   "panel": "p02",
+   "hand_drawn": 3
+  },
+  {
+   "panel": "p06",
+   "hand_drawn": 1
+  },
+  {
+   "panel": "p14",
+   "hand_drawn": 2
+  },
+  {
+   "panel": "p08",
+   "hand_drawn": 4
+  },
+  {
+   "panel": "p12",
+   "hand_drawn": 5
+  }
+ ]
+}

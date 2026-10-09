@@ -1,0 +1,17 @@
+{
+  "panel_id": "chain-est-cosmic-1",
+  "engine": "private-production-chain",
+  "model": null,
+  "prompt": null,
+  "negative": null,
+  "seed": null,
+  "settings": {
+    "native_size": "1344x768"
+  },
+  "reproducible": false,
+  "provenance": "Chain-made neutral panel (pre-registration amendment A1 clause 2). Subject is original and neutral: a single cracked moon over an ice field — no named properties, no franchise content, nothing from any existing fictional cosmology. Built 2026-08-12 for this benchmark: a locally generated colour establishing plate was passed through the author's production chain — line extraction → inversion → img2img inking — on the author's private stack. The chain is named; tuned settings, prompts and intermediate plates are withheld (this repository ships evaluation artifacts only). Purpose: a public space-content establishing probe of the pilot study's photoreal-drift hypothesis with chain provenance, replacing nothing in the 27-panel neutral core. This panel is provenance-documented, not generation-reproducible.",
+  "source_created": "2026-08-12 (built for the benchmark, private chain)",
+  "cost_usd": 0.0,
+  "date": "2026-08-12",
+  "reroll": false
+}

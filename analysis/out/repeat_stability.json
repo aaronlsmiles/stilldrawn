@@ -1,0 +1,245 @@
+{
+ "n_repeat_cells": 98,
+ "engines": [
+  "gen4.5",
+  "gen4_turbo",
+  "h3-fal"
+ ],
+ "league": {
+  "line_chamfer_mean_px": {
+   "medians_r1": {
+    "gen4.5": 4.788167256267537,
+    "gen4_turbo": 2.6416193720067502,
+    "h3-fal": 5.384125921772175
+   },
+   "medians_r2": {
+    "gen4.5": 4.025069017251445,
+    "gen4_turbo": 2.4321487831668334,
+    "h3-fal": 7.525650820862814
+   },
+   "spearman": 1.0
+  },
+  "tone_variance": {
+   "medians_r1": {
+    "gen4.5": 2.806017944648429e-05,
+    "gen4_turbo": 1.206712173548861e-06,
+    "h3-fal": 4.96980659369996e-05
+   },
+   "medians_r2": {
+    "gen4.5": 3.4744912056376724e-05,
+    "gen4_turbo": 1.1421173674692588e-06,
+    "h3-fal": 5.723038094444092e-05
+   },
+   "spearman": 1.0
+  },
+  "edge_abs_slope": {
+   "medians_r1": {
+    "gen4.5": 0.1432765778145694,
+    "gen4_turbo": 0.021897984085160395,
+    "h3-fal": 0.11843732852342438
+   },
+   "medians_r2": {
+    "gen4.5": 0.20154543376079304,
+    "gen4_turbo": 0.031108987264578527,
+    "h3-fal": 0.0833282837295868
+   },
+   "spearman": 1.0
+  },
+  "style_terminal": {
+   "medians_r1": {
+    "gen4.5": 0.25286078453063965,
+    "gen4_turbo": 0.05682894587516785,
+    "h3-fal": 0.1893877387046814
+   },
+   "medians_r2": {
+    "gen4.5": 0.22268688678741455,
+    "gen4_turbo": 0.0718560516834259,
+    "h3-fal": 0.18520355224609375
+   },
+   "spearman": 1.0
+  },
+  "closure_abs_terminal": {
+   "medians_r1": {
+    "gen4.5": 0.013037414270432354,
+    "gen4_turbo": 0.008196828849178994,
+    "h3-fal": 0.036508058032205054
+   },
+   "medians_r2": {
+    "gen4.5": 0.02235339265175526,
+    "gen4_turbo": 0.009776995167122611,
+    "h3-fal": 0.030433179318832576
+   },
+   "spearman": 1.0
+  }
+ },
+ "per_cell": {
+  "gen4.5": {
+   "line_chamfer_mean_px": {
+    "n": 33,
+    "spearman": 0.6283422459893049,
+    "median_abs_delta": 1.5441967487948673,
+    "max_abs_delta": 36.8727882045902
+   },
+   "tone_variance": {
+    "n": 29,
+    "spearman": 0.6004926108374383,
+    "median_abs_delta": 2.7688196926023675e-05,
+    "max_abs_delta": 0.0023623744357911154
+   },
+   "edge_abs_slope": {
+    "n": 33,
+    "spearman": 0.4251336898395722,
+    "median_abs_delta": 0.0918207554996692,
+    "max_abs_delta": 2.483421475080439
+   },
+   "style_terminal": {
+    "n": 33,
+    "spearman": 0.7286096256684492,
+    "median_abs_delta": 0.06238371133804321,
+    "max_abs_delta": 0.5161393880844116
+   },
+   "closure_abs_terminal": {
+    "n": 33,
+    "spearman": 0.5137032085561497,
+    "median_abs_delta": 0.0098385608532316,
+    "max_abs_delta": 0.07422083547533805
+   }
+  },
+  "gen4_turbo": {
+   "line_chamfer_mean_px": {
+    "n": 32,
+    "spearman": 0.7800586510263928,
+    "median_abs_delta": 0.8745030138721407,
+    "max_abs_delta": 50.8730907946077
+   },
+   "tone_variance": {
+    "n": 28,
+    "spearman": 0.7312534209085934,
+    "median_abs_delta": 1.6539340362291952e-06,
+    "max_abs_delta": 0.00013464649664516855
+   },
+   "edge_abs_slope": {
+    "n": 32,
+    "spearman": 0.31341642228739,
+    "median_abs_delta": 0.018535716045653274,
+    "max_abs_delta": 1.9966242356221384
+   },
+   "style_terminal": {
+    "n": 32,
+    "spearman": 0.5557184750733136,
+    "median_abs_delta": 0.02364310622215271,
+    "max_abs_delta": 0.4960845112800598
+   },
+   "closure_abs_terminal": {
+    "n": 32,
+    "spearman": 0.4915689149560116,
+    "median_abs_delta": 0.005974641565698914,
+    "max_abs_delta": 0.039475530380575136
+   }
+  },
+  "h3-fal": {
+   "line_chamfer_mean_px": {
+    "n": 33,
+    "spearman": 0.5474598930481284,
+    "median_abs_delta": 2.7170273561784493,
+    "max_abs_delta": 101.68077428612607
+   },
+   "tone_variance": {
+    "n": 29,
+    "spearman": 0.7359605911330047,
+    "median_abs_delta": 7.093928607152952e-05,
+    "max_abs_delta": 0.01441331436823563
+   },
+   "edge_abs_slope": {
+    "n": 33,
+    "spearman": 0.5370989304812834,
+    "median_abs_delta": 0.11401409053692586,
+    "max_abs_delta": 5.2937226983684535
+   },
+   "style_terminal": {
+    "n": 33,
+    "spearman": 0.37800802139037437,
+    "median_abs_delta": 0.09645092487335205,
+    "max_abs_delta": 0.854345440864563
+   },
+   "closure_abs_terminal": {
+    "n": 33,
+    "spearman": 0.07921122994652408,
+    "median_abs_delta": 0.039496208112294526,
+    "max_abs_delta": 0.23924460995529062
+   }
+  }
+ },
+ "exemplars": {
+  "cu-line-2_burst_h3": {
+   "mode": "A1 enrichment",
+   "metric": "tone_variance",
+   "r1": 0.0002597183765366894,
+   "r2": 0.00029245584391189805,
+   "regime": "SAME"
+  },
+  "est-black-3_burst_gen4t": {
+   "mode": "A2 transposition",
+   "metric": "edge_abs_slope",
+   "r1": 2.4458867060426317,
+   "r2": 0.4492624704204933,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "est-black-2_idle_h3": {
+   "mode": "A3 partial collapse",
+   "metric": "style_terminal",
+   "r1": 0.5073142051696777,
+   "r2": 0.04837280511856079,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "est-tone-1_burst_gen45": {
+   "mode": "B1 insertion (train)",
+   "metric": "style_terminal",
+   "r1": 0.5783171653747559,
+   "r2": 0.06217777729034424,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "cu-line-1_idle_h3": {
+   "mode": "B2 pseudo-text",
+   "metric": "line_chamfer_mean_px",
+   "r1": 103.13051487211607,
+   "r2": 1.4497405859900068,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "cu-black-3_burst_h3": {
+   "mode": "B2 pseudo-text",
+   "metric": "line_chamfer_mean_px",
+   "r1": 36.093421492469254,
+   "r2": 29.655082640430052,
+   "regime": "SAME"
+  },
+  "est-tone-2_campush_h3": {
+   "mode": "B3 evacuation",
+   "metric": "closure_abs_terminal",
+   "r1": 0.11416858499563377,
+   "r2": 0.031560380894589596,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "act-line-3_campush_gen45": {
+   "mode": "B3 evacuation",
+   "metric": "closure_abs_terminal",
+   "r1": 0.06819747416762342,
+   "r2": 0.054158655060799164,
+   "regime": "SAME"
+  },
+  "cu-line-2_burst_gen4t": {
+   "mode": "C1 framing escape",
+   "metric": "line_chamfer_mean_px",
+   "r1": 65.11861130199274,
+   "r2": 14.245520507385045,
+   "regime": "DIFFERENT \u2014 review strips"
+  },
+  "act-tone-1_burst_gen45": {
+   "mode": "C1/B3 whiteout",
+   "metric": "style_terminal",
+   "r1": 0.876335859298706,
+   "r2": 0.4125537872314453,
+   "regime": "SAME"
+  }
+ }
+}
