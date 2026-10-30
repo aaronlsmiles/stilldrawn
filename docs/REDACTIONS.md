@@ -18,7 +18,7 @@ original panel and clip files in `dataset/PANEL-HASHES.csv` and
 - `dataset/recipes/cip-act-tank-1.json` — `543c57fe468f9b34f3c52bc722590c5e3c7526dc05c04d89ab6ed857a2ee313f`
 - `docs/PREREGISTRATION.md` — `9ae7c5817e4c833257ca50e94410cb9a458252870d7b3a45c181ff151040ab29`
 - `docs/TAXONOMY.md` — `ec5899a4039a25c0dc94ec859150f5f1e4801b33852db727d4fff66576934003`
-- `docs/TOS-REVIEW.md` — `eb5a93d85c4211c2fbb668fd34a97e95f76955b09cfb80104497d2e466d91aee`
+- `docs/TOS-REVIEW.md` — `67e55da4906ad25b20739f042d95ce623c3a28584dbb9d3178547b141987d795`
 
 ## Changes
 

@@ -149,8 +149,10 @@ must not be used for dataset panels).
 
 - [x] Runway §5(viii) verified verbatim against the 2026-08-12 snapshot (quoted in
   `NOTICE-PROVIDERS.md`).
-- [ ] Any Supplemental Terms presented at the Runway developer-portal click-through
-  (needs a logged-in check).
+- [x] Any Supplemental Terms at the Runway developer-portal click-through: checked
+  2026-10-30 in the signed-in portal, which links only the Terms of Use, Privacy Policy
+  and Code of Conduct; no separate agreement. The sign-up screen itself could not be
+  recovered (see the 2026-10-30 re-check).
 - [x] `docs/tos-snapshots/` captured 2026-08-12, before generation (hashes in
   `SHA256SUMS`; the third-party pages themselves are not redistributed).
 - [x] LTX-2.3 watermark check: no watermarking code in the local inference stack
@@ -214,3 +216,13 @@ capture. The ToU lists no named Supplemental Terms; any would have been "present
 your acceptance when you sign up". The 2026-08-12 open item closes once
 Aaron confirms the developer portal presented no separate agreement at sign-up. Nothing restricts publishing evaluations or the
 CC BY release beyond §5(viii), which `NOTICE-PROVIDERS.md` already addresses.
+
+## Re-check — 2026-10-30 (the developer-portal open item)
+
+Checked with Aaron in his signed-in Runway developer portal (dev.runwayml.com). Its only legal
+links are the Terms of Use (now dated 23 Oct 2026), the Privacy Policy and the Code of Conduct,
+which redirects to the Usage Policy (6 Mar 2026: content rules only, nothing on training,
+datasets or evaluation). The account has no API agreement, legal or settings page, and no public
+API terms exist (`/api-terms` returns 404). In the 23 Oct Terms, §5(viii) reads as quoted above, and
+§1's "Powered by Runway" applies to applications built on the API. What the sign-up screen showed
+in August could not be recovered. Aaron closed the item on this evidence on 30 Oct 2026.
