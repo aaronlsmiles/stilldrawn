@@ -1,0 +1,14 @@
+{
+ "a9-burst": {
+  "tree_sha256": "04d9986a21840c0e9c877c732d970b17c905298e1ec63803c3bc4d9651290b74",
+  "blindpanel": [
+   "blindpanel@0.1.0"
+  ]
+ },
+ "a9-push": {
+  "tree_sha256": "2d3d6be1127d4474e199c6ae48b51a6711543169b119bcc31810f0c932d006cb",
+  "blindpanel": [
+   "blindpanel@0.1.0"
+  ]
+ }
+}

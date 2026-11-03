@@ -1,0 +1,7 @@
+{
+ "schema": "stilldrawn-a9-config/1",
+ "registered_on": "2026-11-03",
+ "r7_deadline": "2026-11-17",
+ "r7_blind_to_engine_styles": true,
+ "note": "registered_on and r7_deadline (registration day + 14 days, YYYY-MM-DD) are filled at registration. r7_blind_to_engine_styles is Aaron's declaration that R7, a new rater who has never rated for StillDrawn, had not seen its explorer, release, clips or results as of 3 Nov 2026 (Gate A, revised); a later exposure is recorded in the written record, not here. If R7 has not exported both studies by the deadline, analysis/adherence/r7-status.json records it; Test 1 then has no verdict and its numbers stay author-rated."
+}

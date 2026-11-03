@@ -10,6 +10,7 @@ made, and the metric outputs for each clip.
 | `manifest-supplement.jsonl` | Five clips generated outside the manifest (see below) |
 | `metrics/` · `metrics-r2/` · `metrics-ground/` · `metrics-hazard/` · `metrics-seedance/` | Stability-metric outputs per clip, by study arm |
 | `metrics-motion/` | Optical-flow motion magnitude for all 373 clips (amendment A6) |
+| `metrics-masked/` | Masked line-drift records for the 109 idle and burst clips (amendment A9, `metrics/masked.py`); empty until the registered run publishes |
 | `CLIP-HASHES.csv` | SHA-256 of every clip; for the six clips whose metadata was edited, a commitment to the original (see `docs/REDACTIONS.md`) |
 | `RECONCILIATION-2026-08-12-h3.md` | Why some H3 cells appear twice in the manifest |
 

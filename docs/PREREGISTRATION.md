@@ -965,3 +965,521 @@ because a rater read the instrument critically and objected before rating, and
 because the objection was checked against a real reference case rather than
 resolved by argument. Neither the six-agent structured review nor the piloting
 process caught it — the same pattern R13 records for the A2 taxonomy conflation.
+
+### A9 — 2026-11-03: exploratory follow-up: did each engine do the motion, and drift where nothing should move
+
+*The manuscript submitted on 9 Oct 2026 describes A1–A8 (nine entries). This is
+the tenth; it postdates the manuscript and changes no result it reports.*
+
+**STATUS: APPROVED — Aaron's go recorded 2026-11-03 ("Yes to all"), approving
+this text, its predictions, verdict rules, wording and dates, after an
+adversarial review whose two blocking findings he decided. Registered 2026-11-03
+(UTC) by the public commit tagged `a9-registered`, with a Software Heritage
+"save code now" of the public repository requested within the hour (its visit
+date is cited in the provenance row). £0: no generation and no paid calls;
+existing clips are re-analysed and rated. The ledger is unchanged.**
+
+**Why this is an amendment at all.** It adds no cells and changes no frozen
+definition, but it introduces two new measurements over the frozen corpus after
+the corpus was complete and scored: human ratings of whether each clip carried
+out its requested motion, and line drift measured only outside the region the
+prompt allows to move. Under the freeze rule that is a protocol change, so it is
+recorded here, with its analysis fixed, before any of its numbers exist.
+
+**The problem it addresses.** A6 found that the frozen league tracks how little
+each engine moves (engine-level ρ = 0.90 between median motion and median line
+drift, exact p = 0.083). Two readings of that remain open. First, an engine may
+look steady because it does not do what it was asked: a clip that ignores "one
+fast, committed burst" holds its lines by not moving. Second, the frozen
+line-drift metric counts every line that moves, including lines the prompt asked
+to move: a burst that does happen is scored as drift. Test 1 asks the first
+question with blind human ratings; Test 2 asks the second by measuring drift
+only where nothing should move.
+
+#### A9.0 Status of any result derived from it — binding
+
+1. A9 is **EXPLORATORY and POST-HOC**. Its hypotheses were written on 30 Oct
+   2026, after the league and A6's motion medians had been seen (A9.1). It adds
+   no headline metric; the paper's contribution list is unchanged.
+2. A9 results may **qualify, condition or caveat** the frozen league. They may
+   **not** restate, re-rank or replace it, and the §8 test is not re-run against
+   them.
+3. The pre-registered §8 test remains as reported: **null, ten of ten.**
+4. Every threshold A9 uses is declared below where it is applied.
+5. **Every A9 number is labelled post-hoc** wherever it appears, including
+   beside frozen values.
+
+#### A9.1 Seen before registration
+
+Seen by Aaron, by Claude (the agent that built A9's tools) or by both, before
+registration:
+
+- The frozen league (33-cell medians), A6's engine-level motion medians and ρ;
+  `analysis/out/tables.md` §1 (per-engine × class **mean** line drift, already
+  public); `analysis/out/motion_confound.md`.
+- The fifteen per-class motion medians below, computed on 30 Oct 2026 during
+  planning by an exploration agent from the released per-clip motion JSONs
+  (median `headline_median_norm` per engine and motion class). Reproduced
+  verbatim, not recomputed:
+
+  | Engine | IDLE | BURST | CAMPUSH |
+  |---|---|---|---|
+  | Turbo | 0.00118 | 0.00138 | 0.00300 |
+  | Gen-4.5 | 0.00251 | 0.02444 | 0.00849 |
+  | H3 | 0.00201 | 0.00162 | 0.00438 |
+  | Wan 2.2 | 0.00085 | 0.00074 | 0.00080 |
+  | LTX | 0.00158 | 0.00264 | 0.00679 |
+
+  Given these and A6's ρ, ρ(S, m) < 0 in Test 1 is the expected outcome if
+  raters' misses simply track motion magnitude; the within-row check and the
+  motion cross-check (A9.3) carry most of Test 1's information beyond that.
+
+- Aaron's earlier viewing of these clips while building the benchmark (frame
+  reviews, the failure taxonomy). He is not naive to them (A9.3).
+- Until 3 Nov 2026 the plan named R2, a rater from the §6 human check, as the
+  second rater; R2's A6 ratings cover 12 of Test 1's 110 clips, and to list them
+  Claude printed one A6 rating row (A6's questions only). R2 does not rate in A9
+  (A9.3).
+- The reproduction-gate table and the per-engine mapping medians (A9.4, A9.5).
+- Both mask sets, their per-row IoU, the eligibility counts and the contact
+  sheet `analysis/out/figures/a9_masks.png`. Aaron drew his set before the blind
+  set existed. Before he reported his one slip (A9.4, `dataset/masks/RULES.md`
+  slip log), he had been told how the blind set treated that row.
+- A discarded pilot of the rating instrument on A3, A4 and ground clips only,
+  answered with fixed scores by a script, to prove the mapping from opaque codes
+  back to clips. No A9 clip was in it; every pilot file was deleted.
+
+**Not computed by anyone before registration:** any adherence rating; any masked
+line-drift value; the steadiness values S_e of A9.3; the drift medians or gap g
+on the eligible rows of A9.4. No masked value can be read from any saved file:
+none of the tools saves a line map, flow field or other spatial data, and none
+is held, so one would need a fresh extraction. The masked tool's A9 run refuses
+until this amendment is public, and its general scoring command refuses any A9
+clip it recognises by path, name or identical bytes until then; that is a
+tripwire, not a proof, since the underlying library functions are not guarded.
+The whole-frame gap on the eligible rows follows in seconds from public per-clip
+values and `a9_eligible.csv`; it was not computed, but its rough size was known
+from the league's 2.6 doublings and `tables.md`, and the "not testable"
+threshold of A9.4 was set with that knowledge.
+
+#### A9.2 Frozen artefacts
+
+`docs/A9-MANIFEST.sha256` (sha256
+`95291df0d3477f69f5f83254885095aea5c3414d31e1a216202fa2595bf7fb93`) lists, at
+their release paths and hashed in release form:
+
+- Tools and analysis: `metrics/masked.py` and `metrics/test_masked.py`;
+  `metrics/inkstab.py`; `analysis/a9_eligibility.py`,
+  `analysis/a9_adherence.py`, `analysis/a9_masked_drift.py`,
+  `analysis/test_a9_adherence.py` and `analysis/test_a9_masked_drift.py`;
+  `analysis/adherence/prepare.py`; the input `analysis/out/results_table.json`.
+- Masks: `dataset/masks/allowed-aaron.json`, `allowed-agent.json`, `RULES.md`,
+  `agent-brief.md`, `agent-raw/` (the dispatch prompt, the system-prompt text,
+  both attempts and their normalisation notes), `agent-reads.txt`, and the
+  drawing page `draw.html`.
+- Gate and eligibility: `analysis/out/a9_repro_gate.csv`, `a9_geometry.csv`,
+  `a9_repro_gate.md`, `a9_eligible.csv`.
+- Instrument: for each study (`analysis/adherence/burst/`, `push/`)
+  `study.yaml`, `study.lock.json`, `media-sources.json` and `banned-terms.txt`;
+  `rating-copies.sha256` (the hashes of the 110 rating copies, which are local
+  and never released); `build-trees.json` (the hashes of both built studies);
+  `a9-config.json` (registration day, R7's deadline, the R7 declaration).
+- The 110 motion JSONs of Test 1's clips (`runs/metrics-motion/`).
+
+The masked tool's run command checks every entry against this manifest, at the
+tagged public commit, before it computes anything.
+
+#### A9.3 Test 1: adherence (110 primary burst and camera-push clips, 22 per engine)
+
+**Steadiness.** S_e = the median released `line_chamfer_mean_px` over engine e's
+22 burst and camera-push cells, read from `analysis/out/results_table.json`.
+
+**Instrument.** Two blindpanel studies, `a9-burst` (55 clips) and `a9-push` (55
+clips), instrument `A9`, titled "Motion check: set 1" and "set 2", seeds
+`a9-burst-2026-10-31` and `a9-push-2026-10-31`. Each asks one question, quoting
+only the motion clause of the clip's frozen prompt:
+
+- Burst: *The clip was asked for this motion: "The action implied by the drawing
+  continues in one fast, committed burst of motion, then settles." Does the clip
+  do it?* Note: "Rate only this motion. How the clip looks, and anything else
+  that changes, is not being asked about." Scale 1–5: 1 "No: the implied action
+  doesn't happen (still, idle movement only, or something else)", 2 "Barely:
+  small or hesitant, not a burst", 3 "Partly", 4 "Mostly: a burst, a little weak
+  or incomplete", 5 "Yes: one fast, committed burst".
+- Push: *The clip was asked for this motion: "Slow, steady camera push-in toward
+  the focal point of the drawing." Does the clip do it?* Note: "Rate only the
+  camera's move. What the subject does, and how the clip looks, is not being
+  asked about." Scale 1–5: 1 "No push-in (holds, pulls back, pans or cuts)", 2
+  "Barely: a slight or hesitant move in, not a clear push-in", 3 "Partly", 4
+  "Mostly: a push-in, a little uneven, quick or off the main subject", 5 "A
+  slow, steady push-in toward the main subject".
+- Both: direction line "5 = yes, fully · 1 = no, not at all"; watch note "Watch
+  the whole five seconds before answering."; intro lines: "Each screen shows an
+  original image (left) and a 5-second clip made from it (right, plays on loop).
+  You answer one question about each clip." / "Every clip was asked for the same
+  motion, quoted in the question. Rate how fully the clip carries it out." / "Go
+  with your eye. There are no right answers. You can change an answer with Back
+  before finishing."
+
+`blindpanel lock` hashes the scale labels, each question's id, part, text,
+direction, notes and scale, and the intro lines and watch note: `text_sha256`
+`de27cc1ec585ee6d0eac879d7cf28eaea6aee2fa50b23fc3b1b897278ec35125` (burst) and
+`9e44cba7976eca542add7685a248d79d8f41b892fbf4b93465c2660725f7f43a` (push).
+Everything else in each `study.yaml` is covered by the manifest.
+
+**Blinding, in the files.** Every screen shows the clip's source panel as
+"original image" and nothing else: no engine name, no metric, no label. Each
+rating copy is re-encoded from its source: retimed to 24 fps by frame timing
+(never relabelled), cover-scaled (lanczos) and centre-cropped to 1280×704
+(704×1280 for the portrait tank row, 10 clips), the first 121 frames, libx264
+CRF 16, yuv420p, constant frame rate, no audio, all metadata, chapters, the
+encoder tag and all SEI NAL units removed, bitexact flags; panels are rewritten
+with only their image chunks. All 110 copies have 121 frames and one size per
+orientation, and no C2PA or JUMBF bytes; their hashes are in
+`rating-copies.sha256`. The copies are local and never released. Clip order is a
+fresh seeded shuffle per session, with each clip's position recorded. Opaque
+codes are derived from the study seed and the cell id, and the seed reaches the
+page, so a determined rater could work out which code is which engine (as in
+A6); the protection is conduct, below. blindpanel's fixed end screen (an offer
+to reveal the engines, a public tally opt-in) appears only after the last
+answer; no rater presses the reveal before exporting both studies.
+
+**Raters.** Two, each alone and unobserved, on Aaron's Mac through
+`blindpanel dev` on localhost, at the builds recorded in `build-trees.json`. Who
+rates is procedural: each rater has their own store folder, and nobody else's
+session is in it.
+- **AARON** built the benchmark and has seen these clips; that is declared, and
+  the label "author-rated" carries it. AARON rates on a later UTC day than
+  registration, burst then push, at least an hour apart, and before any Test 2
+  number exists.
+- **R7**, a new rater (the next free pseudonym after the §6 pool's R1–R6). Per
+  Aaron's declaration (3 Nov 2026), R7 has never rated for StillDrawn and has
+  never seen its explorer, its release, these clips or any result;
+  `a9-config.json` records R7 as blind to engine styles. Before rating, R7 signs
+  a short written declaration: they rate alone and unobserved, have not opened
+  anything about StillDrawn, will not before finishing, and consent to their
+  ratings being published under the pseudonym. R7 rates on any later UTC day
+  than registration, up to and including the deadline, 2026-11-17 (14 days after
+  registration). Anything R7 sees before rating that the declaration does not
+  cover is recorded in the written record and the write-up; it does not change
+  the analysis files.
+- Neither rater sees the other's ratings.
+
+**Collection.** The analysis reads `blindpanel export` together with the stored
+session row, never `report` (which silently drops flagged sessions); flags never
+exclude a session (A7). The day of a rating is the stored session's
+`received_day`, the UTC day blindpanel records at submission, read from the
+rating computer's clock. One session per rater per study counts: the first
+complete one. Any later rows in that rater's store are moved aside unchanged to
+`raw/<study>-<RATER>/extra-sessions.jsonl` and never analysed; their sha256 is
+published in `analysis/adherence/sessions.sha256` (A9.5).
+
+**Primary statistic, per rater.** A miss is a score ≤ 2. m_e = misses / 22 for
+engine e. ρ = Spearman(S_e, m_e) over the five engines, with midranks for ties.
+The exact one-sided p-value is #{π : ρ_π ≤ ρ_obs} / 120 over all 120
+permutations of the miss rates, counted with multiplicity. **Prediction: ρ < 0**
+(the steadier the engine, the more it misses). Without ties the attainable
+values are: ρ = −1.0, p = 1/120 = 0.0083; ρ = −0.9, p = 5/120 = 0.0417; ρ =
+−0.8, p = 8/120 = 0.0667; ρ = −0.7, p = 14/120 = 0.1167. So without ties only ρ
+≤ −0.9 passes. The actual ρ and p are always printed. Equal miss rates for every
+engine leave ρ undefined and read "not supported".
+
+**Verdict.** **Supported iff p ≤ 0.05 for both raters**; otherwise not
+supported. Only two raters give a verdict: there is no verdict on AARON's
+ratings alone.
+
+**Reporting states.**
+- *Pending* (R7's ratings not yet in, deadline not passed): Test 1 is published
+  as "author-rated; second rater pending", with AARON's ρ and p marked
+  "provisional (AARON only)". No verdict.
+- *Two-rater:* when both R7 studies are in and dated within the deadline, the
+  two-rater verdict above is issued.
+- *Fallback:* if R7 has not completed both studies by the deadline, Test 1 has
+  **no verdict**: AARON's ρ and p are reported, labelled "author-rated", and H1
+  reads "not tested by two raters". Missing the second rater can therefore never
+  make H1 supported. The fallback is recorded by
+  `analysis/adherence/r7-status.json` with `deadline_passed: true`, written by
+  hand on the first UTC day after the deadline, or by an R7 file whose
+  `received_day` is after the deadline. If both R7 files are present and in
+  time, the two-rater state applies even if a status file exists. A late R7 file
+  is still analysed and printed (R7's statistic and κ) under the "author-rated"
+  label, with no verdict.
+
+**Secondary, no verdict.**
+- Agreement: quadratic-weighted κ between the raters, per study. κ is undefined
+  only when both raters gave every clip the same single score; one constant
+  rater, or both constant on different scores, gives κ = 0.
+- Miss rates per engine and class, and per engine overall, with Wilson 95%
+  intervals.
+- Within-row check: Test 1's 22 rows (11 burst, 11 camera-push panels). Per row,
+  Spearman(released drift, score) across its five engines; the statistic is the
+  mean over rows with a defined ρ (a positive mean means higher drift goes with
+  higher adherence). The null permutes scores within rows, 10,000 draws,
+  `numpy.random.default_rng(20261030)`, only rows with a defined ρ drawing a
+  permutation, in sorted row order; p = (k + 1) / (draws + 1), where k counts
+  draws whose mean is ≥ the observed mean (tolerance 1e-12): one-sided, for a
+  positive mean. Ties use midranks within rows. Same seed for each rater.
+- Sensitivity: the primary statistic with a miss defined as score ≤ 3.
+- Motion cross-check per class, threshold-free (A6 rule 4): AUC = P(motion of a
+  non-miss clip > motion of a miss clip), ties ½, on the released
+  `headline_median_norm` of the base clips (never the `-r2` replicates), using
+  each rater's misses. An AUC ≥ 0.70 corroborates the ratings. An AUC ≤ 0.60 is
+  reported prominently as "the misses are not under-animation"; between the two
+  it reads "inconclusive". It is undefined when a class has no misses or no
+  non-misses. The engine-level correlation of median motion with miss rate is
+  reported as non-evidential, because its ordering was seen.
+- Outputs are rounded to 12 significant digits after every decision is taken.
+  numpy 2.5.2 is pinned; it fixes the permutation draws here and the bootstrap
+  of A9.4.
+
+#### A9.4 Test 2: masked drift (109 primary idle and burst clips)
+
+**Rows.** 22 rows of a panel and a motion class (11 idle, 11 burst) on 20
+panels; the two A1 panels (`cip-act-tank-1`, `chain-est-cosmic-1`) carry one row
+per class. 109 clips: Gen-4 Turbo's `cu-tone-3_idle` was refused at generation
+and stays missing.
+
+**Masks.** For each row a mask M marks where the row's prompt allows the drawing
+to move, stored as polygons in panel fractions (`stilldrawn-allowed-regions/1`,
+public ids). The drawing rule, given word for word to both drawers: "Idle marks
+bodies (breathing), hair, cloth, foliage, smoke, water, cloud and particles.
+Burst marks the actor, its plausible path, whatever it strikes or sheds, and
+anything attached to it. Never rigid structure, ground, lettering or the camera.
+When unsure, leave it unmarked." with the note that the rule decides what may be
+marked and the motion prompt only names the kind of motion. Leaving a doubtful
+region unmarked enlarges the measured region, which works against H2. A row
+whose prompt allows nothing to move is `nothing-allowed` (M empty).
+`dataset/masks/RULES.md` holds the full rules, written on 30 Oct 2026 before any
+mask was drawn; a dated note on how the blind drawer runs (3 Nov, after Aaron's
+set and before the blind set) and the slip log have been added since, as the
+file allows.
+
+Two sets, drawn after the reproduction gate passed and before registration:
+- **Aaron's** (`allowed-aaron.json`), drawn on 3 Nov 2026 in `draw.html`, a
+  local page that showed only the panel, its public id, its prompt and the
+  drawing rule. One slip was fixed, as RULES.md allows and logs:
+  `cu-line-2_burst` had been saved as nothing-allowed by mistake; Aaron meant
+  the whole frame, and the row now holds one whole-panel polygon. The row is
+  ineligible either way (below).
+- **The blind set** (`allowed-agent.json`), drawn by Claude Opus 5.5
+  (`claude-opus-5-5`, effort high) with Read as its only tool, in a fresh
+  non-interactive Claude Code session started inside a scratch folder holding
+  only the 20 panels, a grid-overlay copy of each, and the frozen brief
+  (`agent-brief.md`, copied in as `brief.md`, sha256
+  `0a7ba7b7e7a3386b17e9da140728539c643f890faff6bcd1839218abef1e2377`). The
+  session loaded no user or project instructions, memory, hooks, plugins, MCP
+  servers or skills, and refused any permission prompt. Its system prompt
+  carried, besides Claude Code's own, the drawer definition's text, shipped as
+  `agent-raw/system-prompt.txt`, which names no study. The brief gives the
+  prompts, the drawing rule and the reply format and does not name the study
+  either. A session started as a subagent of the working session was ruled out
+  because that session's instructions name this study. The first attempt was
+  malformed (a sentence before the JSON) and was kept unedited; the second, with
+  the identical prompt, was converted and needed no normalisation. The read log
+  (`agent-reads.txt`, extracted from both transcripts) shows 41 reads per
+  attempt, all inside the folder, every file read, no other tool and no context
+  file loaded. The transcripts are not released; their sha256 are in the read
+  log.
+
+Agreement and eligibility (from `analysis/out/a9_eligible.csv`):
+
+| Row | Aaron | Blind | IoU | Eligible |
+|---|---|---|---|---|
+| act-black-2_idle | drawn | drawn | 0.1310 | yes |
+| act-black-3_burst | drawn | drawn | 0.3706 | yes |
+| act-line-1_idle | drawn | drawn | 0.4225 | yes |
+| act-line-2_burst | drawn | drawn | 0.6043 | yes |
+| act-tone-1_burst | drawn | drawn | 0.4052 | yes |
+| act-tone-3_idle | drawn | drawn | 0.1282 | yes |
+| chain-est-cosmic-1_burst | nothing | nothing | 1.0000 | yes |
+| chain-est-cosmic-1_idle | nothing | nothing | 1.0000 | yes |
+| cip-act-tank-1_burst | drawn | drawn | 0.5694 | yes |
+| cip-act-tank-1_idle | drawn | drawn | 0.1882 | yes |
+| cu-black-2_idle | drawn | drawn | 0.0314 | yes |
+| cu-black-3_burst | drawn | drawn | 0.3545 | yes |
+| cu-line-1_idle | drawn | drawn | 0.1004 | yes |
+| cu-line-2_burst | drawn | drawn | 0.9588 | **no** |
+| cu-tone-1_burst | drawn | drawn | 0.3380 | yes |
+| cu-tone-3_idle | drawn | drawn | 0.0446 | yes |
+| est-black-2_idle | drawn | drawn | 0.0778 | yes |
+| est-black-3_burst | nothing | nothing | 1.0000 | yes |
+| est-line-1_idle | nothing | nothing | 1.0000 | yes |
+| est-line-2_burst | drawn | nothing | 0.0000 | yes |
+| est-tone-1_burst | drawn | nothing | 0.0000 | yes |
+| est-tone-3_idle | drawn | drawn | 0.0893 | yes |
+
+**21 of 22 rows are eligible** (104 clips before the 500-pixel rule below).
+Median IoU 0.3463, minimum 0.0000. `cu-line-2_burst` is out because both sets
+allow the whole frame or nearly so, leaving no line pixels to measure. The blind
+set gives its two `cip-act-tank-1` rows identical polygons. Four rows are
+nothing-allowed in both sets; for them, masked drift equals whole-frame drift,
+which dilutes s. The blind set also marks `est-line-2_burst` and
+`est-tone-1_burst` nothing-allowed, so 6 of the 21 eligible rows are unmasked
+under it against 4 under Aaron's: it dilutes s more, which tilts a split outcome
+towards "mask-dependent" with Aaron's set the higher.
+
+**Eligibility rule, fixed before any mask was drawn.** Per row, on a 1280×720
+grid (720×1280 for the portrait tank panel), under the stretch mapping: the
+row's line-art layer from `dataset/lineart`, binarised exactly as `inkstab.py`'s
+`--lineart` branch (greyscale, inverted, anti-aliased resize, the layer's Otsu
+threshold), gives n_lines. Each polygon is filled with `skimage.draw.polygon`; R
+= ~binary_dilation(M, disk(32)), the whole grid when M is empty; n_R = line
+pixels in R. A row is eligible iff 10 · n_R ≥ max(20,000, n_lines) (that is, n_R
+≥ max(2,000, 0.10 · n_lines), in integers) under both sets. A drawn row that
+fills no pixel counts as nothing-allowed. A layer whose aspect is more than 1%
+off its panel's is refused. All five engines' clips of a row are in or out
+together; no clip is excluded for any other reason except the frame-0 rule
+below.
+
+**Mapping a mask onto a clip.** Masks are rasterised straight onto each clip's
+own grid under that engine's mapping: stretch (the panel scaled to the grid) or
+centre-crop (the panel scaled by max(H/ph, W/pw) to cover the grid, the scaled
+size rounded to whole pixels and at least the grid, offsets floor((scaled −
+grid) / 2)). A point (x, y) maps to row y · scaled_h − top and column x ·
+scaled_w − left, with no half-pixel offset and boundary pixels included. M is
+clipped to the grid before dilation, so allowed area outside a centre-crop
+window gives no margin inside it. Rows whose drawn mask rasterises empty on a
+grid are flagged and counted (`n_m_empty`). Each engine's mapping was fixed by
+the reproduction gate, before any mask existed, as the one with the lower median
+chamfer between frame 0 and the panel's line-art layer over its idle and burst
+clips (stretch on a tie):
+
+| Engine | Clips | Stretch, median px | Centre-crop, median px | Mapping |
+|---|---|---|---|---|
+| Wan 2.2 | 22 | 1.863 | 0.615 | centre-crop |
+| Gen-4 Turbo | 21 | 1.216 | 0.632 | centre-crop |
+| LTX-2.3 | 22 | 1.800 | 0.667 | centre-crop |
+| Gen-4.5 | 22 | 1.137 | 0.508 | centre-crop |
+| MiniMax H3 | 22 | 0.381 | 0.381 | stretch (tie: its grid has the panel's aspect ratio) |
+
+**Measured region.** R = ~binary_dilation(M, disk(m)), computed as
+`distance_transform_edt(~M) > m` (unit-tested equal), all-true when M is empty.
+Primary margin m = 32 clip pixels (about twice the ≈14 px worst-case border
+misalignment); sensitivity m = 16 and 64, on the rows eligible at m = 32.
+
+**Masked chamfer** (`masked.py`'s `masked_frame(a, b, R)`, the one
+implementation both its commands use). For each frame t = 1…N−1 against frame 0
+(a = frame t, b = frame 0), with full-frame distance transforms and the frozen
+line maps: None if a or b is entirely empty, as the frozen metric does; if a∩R
+and b∩R are both non-empty, 0.5 · (EDT(~b)[a∩R].mean() + EDT(~a)[b∩R].mean());
+if only b∩R is non-empty (lines vanished from the region), EDT(~a)[b∩R].mean();
+if only a∩R is non-empty (lines appeared in it), EDT(~b)[a∩R].mean(); if both
+are empty, None. The clip value is the mean of its scorable frames; a clip with
+no scorable frame scores +∞ (stored as `chamfer_px: null` with
+`no_scorable_frame: true`). With R all-true the function equals the frozen
+`_chamfer` bit for bit (unit test). A clip whose frame 0 has fewer than 500 line
+pixels in R is excluded from both columns for that engine, per condition (mask
+set × margin), and reported; each engine keeps its own clips, with no
+re-matching across engines.
+
+**Statistic.** For each condition, D_e = engine e's median over its kept clips
+(`np.median`, which averages the two middle values; +∞ allowed). Both columns
+come from one extraction per clip in the registered run: the whole-frame value
+is the run's recomputed headline, which must equal the gate's recomputed value
+to within 1e-6 px on the same device (mps), otherwise the run stops. The
+registered run therefore reproduces only on Apple-silicon `mps`; on other
+hardware, `masked.py score` computes the same masked values for any clip, row
+and mask file (from a second checkout of the public repository passed as
+`--public-repo`), without the tie to the gate. g = log2(D_Gen-4.5 / D_Wan 2.2),
+in log2 units; s = 1 − g_masked / g_whole; Δg = g_whole − g_masked. g_whole is
+recomputed per condition (set × margin × split) on that condition's kept clips.
+
+**Verdict at m = 32, on idle and burst rows together, in this order:**
+1. **Not testable** if g_whole < 1.0 (exactly 1.0 is testable), or undefined,
+   under either set. This takes precedence over every other outcome.
+2. **Supported** if s ≥ 0.5 under both sets and the lower endpoint of the
+   bootstrap 95% interval for s under Aaron's set is above 0 (an endpoint of
+   exactly 0, or a missing or non-finite interval, fails).
+3. **Mask-dependent** if s ≥ 0.5 under one set only (including when s is
+   undefined under the other).
+4. **Killed** (the plan's "same order, similar gaps", made numeric) if Kendall
+   τ_b between the whole-frame and masked engine medians is 1 over all five
+   engines under both sets, and s < 0.25 under both. A tie between two masked
+   medians gives τ_b < 1; an infinite median makes τ_b undefined, so it cannot
+   be killed.
+5. **Not supported** otherwise, including s ≥ 0.5 under both sets with the lower
+   endpoint of Aaron's interval at or below 0.
+
+An undefined s (g_whole = 0, or a masked median of 0 or +∞) counts as neither ≥
+0.5 nor < 0.25. Any outcome other than supported closes the masked line: new
+masks, margins or classes would need a new amendment. Requiring both sets is the
+defence against masks drawn from memory.
+
+**Bootstrap.** Resample eligible panels (an A1 panel carries both its rows) from
+the sorted panel list:
+`numpy.random.default_rng(20261030).integers(0, n, size=(10000, n))`, one
+generator per split shared by all six conditions. Percentile intervals
+(`np.percentile`, linear) for s and Δg over finite replicates only. Replicates
+with g_whole < 0 stay in the s interval; g_whole = 0 or a non-finite g leaves s
+undefined and the replicate out of it; every replicate with g_whole ≤ 0 is
+counted (`n_g_whole_le_0`), and `n_s_finite` is reported. numpy 2.5.2 is pinned
+(it fixes the generator's draws).
+
+**Reported whatever happens.** The full grid (two mask sets × three margins) and
+idle-only and burst-only splits, with clip counts, exclusions and `n_m_empty`.
+
+**Wording.** Rows in frozen-league order, no rank column; masked medians only
+beside whole-frame medians on the same cells; g and Δg never called "doublings"
+and never compared with the league's 2.6. Headline, one per mask set at m = 32
+over all eligible rows: "Post-hoc (A9): on N cells, Gen-4.5/Wan falls from X× to
+Y× outside the region the prompt allows to move (s, CI). The frozen league is
+unchanged; this qualifies how its gap is read." N is the total kept clips over
+the five engines; X and Y are ratios of medians (2^g) to one decimal; the verb
+is falls, rises or stays; s and its interval to two decimals.
+
+#### A9.5 Order that makes "before any number" true and checkable
+
+1. **Reproduction gate, before any mask existed (done, 30 Oct 2026).** The line
+   maps of all 109 clips were re-extracted, held in memory one clip at a time
+   and never saved. Pass rule: every clip within max(0.01 px, 0.5 %) of its
+   released `line_chamfer_mean_px`, same frame count, grid and device; a failure
+   would block everything and no clip may be dropped to pass. **Result: PASS,
+   109 of 109**, every recomputed value equal to its released value (largest
+   difference 0.000 px), on mps. The gate ran with an earlier
+   `metrics/masked.py` (sha256
+   `3ece0296d6147d97a695060a27e4a8278e7bcd436ba1653c9f2652d779feb5e6`, not
+   released), before its masked-scoring code was added; the registered file adds
+   that code and changes only definition text and file-encoding arguments in the
+   gate's path. `a9_repro_gate.md` was re-finalised by the registered file with
+   both gate CSVs byte-identical; it records `git_dirty: True` because the
+   working tree then held untracked files unrelated to the gate. Anyone can
+   re-run the gate with the registered file (`masked.py gate`, on mps) and
+   compare it with `a9_repro_gate.csv`.
+2. **Both mask sets drawn; eligibility and IoU computed (done, 3 Nov 2026).**
+3. **Rating copies encoded; both studies built, locked and verified (done, 30
+   Oct 2026).**
+4. **Registration:** this amendment and the manifest committed, the provenance
+   row added, the public release refreshed in place, pushed without force and
+   tagged `a9-registered`; within the hour, a Software Heritage "save code now"
+   of the public repository as an independent timestamp. Registration day
+   2026-11-03 is the UTC date of the tag push; every calendar day in A9 is a UTC
+   date.
+5. **Ratings, published before Test 2.** AARON rates on a later UTC day than
+   registration. AARON's two rating files are then pushed to the public
+   repository in an in-place refresh, with a Software Heritage save requested,
+   **before the masked tool runs**: its A9 run refuses unless both files are on
+   the public `main`, byte-identical in release form, each dated after
+   registration. R7 rates on any later UTC day up to and including 2026-11-17;
+   R7's files are published in the same way after they arrive. The sha256 of
+   every session that is not analysed (a rater's extra sessions) and of every
+   rating file replaced after it was first written is published in
+   `analysis/adherence/sessions.sha256`, so nothing set aside is invisible.
+6. **Test 2 in one pass:** one extraction per clip, whole-frame plus all six
+   masked conditions; an interrupted clip is re-extracted on resume; the first
+   gate-tie failure stops the run and keeps records already written. Results are
+   published in a second in-place refresh whose manifest check passes.
+
+#### Registered predictions
+
+- **H1 (Test 1):** the steadier an engine's lines on burst and camera-push
+  cells, the more often it fails to do the requested motion: ρ(S, m) < 0,
+  supported only if p ≤ 0.05 for both raters.
+- **H2 (Test 2):** measured only where the requested motion should not reach,
+  Gen-4.5's line-drift gap to Wan 2.2 shrinks by at least half (s ≥ 0.5) under
+  both mask sets, with the lower end of Aaron's bootstrap interval above 0.
+
+Stated plainly: we expect part of the league's gap to be the cost of doing the
+motion. If instead the steadiest engines do the motion as often as the others,
+and the gap survives masking, the league reads more strongly as a measure of
+holding the drawing, and that is the stronger result. Either outcome is
+reported, and both tests are reported whatever they show.

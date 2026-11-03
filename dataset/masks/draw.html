@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allowed-motion masks</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --bg: #16161a; --surface: #1f1f25; --line: #34343d; --text: #ececf1; --muted: #a3a3b2;
+  --gold: #ffc400; --ok: #5fd38d; --warn: #ffb020; --err: #ff6b6b; --draft: #5fd3ff;
+  color-scheme: dark;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); }
+body { display: grid; grid-template-columns: minmax(0, 1fr) 380px; height: 100vh; overflow: hidden; }
+#stage { position: relative; display: grid; place-items: center; padding: 16px; min-width: 0; min-height: 0; }
+#wrap { position: relative; line-height: 0; box-shadow: 0 0 0 1px var(--line); }
+#panel { display: block; user-select: none; -webkit-user-drag: none; }
+#ink { position: absolute; inset: 0; cursor: crosshair; touch-action: none; }
+#badge { position: absolute; top: 12px; left: 12px; padding: 6px 10px; border-radius: 6px;
+  background: rgba(0, 0, 0, .78); color: var(--ok); font-weight: 600; line-height: 1.2; display: none; }
+#badge.on { display: block; }
+#flash { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 8px 14px;
+  border-radius: 8px; background: rgba(0, 0, 0, .85); line-height: 1.3; opacity: 0;
+  transition: opacity .15s; pointer-events: none; }
+#flash.on { opacity: 1; }
+aside { border-left: 1px solid var(--line); background: var(--surface); overflow-y: auto; padding: 12px 16px;
+  display: flex; flex-direction: column; gap: 8px; }
+h1 { font-size: 16px; margin: 0; }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 4px; }
+p { margin: 0; }
+.count { font-size: 20px; font-weight: 650; }
+.count.all { color: var(--ok); }
+.save { font-size: 12px; color: var(--muted); }
+.save.dirty { color: var(--warn); }
+.save.ok { color: var(--ok); }
+.save.error { color: var(--err); font-weight: 600; }
+.rowid { font: 600 16px/1.3 ui-monospace, "SF Mono", Menlo, monospace; }
+.motion { display: inline-block; margin-top: 4px; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--line); font-size: 12px; }
+.state { margin-top: 6px; font-weight: 600; }
+.state.todo { color: var(--warn); }
+.state.drawn { color: var(--gold); }
+.state.nothing { color: var(--ok); }
+#prompt, #rule { white-space: pre-wrap; }
+.buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+button { font: inherit; color: var(--text); background: #2a2a32; border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; cursor: pointer; text-align: left; }
+.buttons button { padding: 4px 8px; }
+button:hover { border-color: var(--muted); }
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+kbd { font: 12px ui-monospace, Menlo, monospace; padding: 0 4px; border: 1px solid var(--line);
+  border-radius: 4px; color: var(--muted); }
+.rowsbox { flex: 1 1 120px; min-height: 120px; display: flex; flex-direction: column; }
+#rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; flex: 1 1 0; min-height: 0;
+  overflow-y: auto; align-content: start; position: relative; }
+#rows button { width: 100%; display: flex; justify-content: space-between; gap: 8px; padding: 4px 8px;
+  font: 12px/1.4 ui-monospace, Menlo, monospace; background: transparent; border-color: transparent; }
+#rows button[aria-current="true"] { border-color: var(--gold); background: #2a2a32; }
+#rows .mark { color: var(--warn); }
+#rows .mark.done { color: var(--ok); }
+#banner, #loaderr { position: absolute; left: 16px; right: 16px; padding: 10px 14px; border-radius: 8px;
+  font-weight: 600; display: none; z-index: 2; }
+#banner { top: 16px; background: var(--err); color: #1a0000; }
+#loaderr { top: 64px; background: var(--warn); color: #1a1000; }
+#banner.on, #loaderr.on { display: block; }
+#guidance { margin-top: 6px; color: var(--muted); }
+summary { cursor: pointer; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="stage">
+  <div id="wrap">
+    <img id="panel" alt="">
+    <canvas id="ink" aria-label="Drawing surface: click to place points, or press and drag to lasso"></canvas>
+    <div id="badge">Nothing may move</div>
+  </div>
+  <div id="banner" role="alert">NOT SAVED: the last save failed. Your work is still in this tab; the page keeps retrying. Do not close it.</div>
+  <div id="loaderr" role="alert">This panel did not load. Drawing is off for this row; move to another row and back to retry.</div>
+  <div id="flash" role="status" aria-live="polite"></div>
+</main>
+<aside>
+  <div>
+    <h1>Allowed-motion masks</h1>
+    <p class="count" id="count"><span id="done">0</span> / <span id="total">0</span> rows done</p>
+    <p class="save" id="save" aria-live="polite">Loading…</p>
+  </div>
+  <div>
+    <p class="rowid" id="rowid"></p>
+    <span class="motion" id="motion"></span>
+    <p class="state" id="state"></p>
+  </div>
+  <div><h2>Prompt</h2><p id="prompt"></p></div>
+  <div><h2>Drawing rule</h2><p id="rule"></p><p id="guidance"></p></div>
+  <div class="buttons">
+    <button type="button" id="b-close" aria-keyshortcuts="Enter">Close outline <kbd>Enter</kbd></button>
+    <button type="button" id="b-undo" aria-keyshortcuts="Z">Undo <kbd>Z</kbd></button>
+    <button type="button" id="b-nothing" aria-keyshortcuts="N">Nothing may move <kbd>N</kbd></button>
+    <button type="button" id="b-clear" aria-keyshortcuts="X">Clear row <kbd>X</kbd></button>
+    <button type="button" id="b-prev" aria-keyshortcuts="ArrowLeft">Previous <kbd>←</kbd></button>
+    <button type="button" id="b-next" aria-keyshortcuts="ArrowRight">Next <kbd>→</kbd></button>
+    <button type="button" id="b-todo" aria-keyshortcuts="U">Next to do <kbd>U</kbd></button>
+    <button type="button" id="b-hide" aria-pressed="false" aria-keyshortcuts="H"><span id="hide-label">Hide masks</span> <kbd>H</kbd></button>
+  </div>
+  <details>
+    <summary>How to draw</summary>
+    <p>Click to place points; click the first point, double-click, or press <kbd>Enter</kbd> or <kbd>C</kbd> to close the outline. Or press and drag to lasso a shape in one stroke. <kbd>Esc</kbd> drops an unfinished outline. A row can hold several shapes. Every change saves itself; an outline still open when you change rows is closed if it has 3 points, dropped if not.</p>
+    <p>Keys: <kbd>Z</kbd> undo; <kbd>N</kbd> nothing may move (asks first if the row has shapes); <kbd>X</kbd> clear the row (asks first); <kbd>H</kbd> hide or show masks; <kbd>←</kbd> or <kbd>,</kbd> previous row; <kbd>→</kbd> or <kbd>.</kbd> next row; <kbd>U</kbd> next row still to do. Keys do not repeat when held, except the arrows. Outlines with no area (all points in a line) are refused.</p>
+  </details>
+  <div class="rowsbox"><h2>Rows</h2><ol id="rows"></ol></div>
+</aside>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const img = $("panel");
+const cv = $("ink");
+const ctx = cv.getContext("2d");
+const CLOSE_PX = 10;
+const DRAG_PX = 6;
+const STEP_PX = 4;
+const S = {
+  rows: [], data: {}, hist: {}, cur: -1, draft: [], hover: null, down: null,
+  hidden: false, loading: false, loadError: false, failed: false, warnTimer: 0, w: 0, h: 0, timer: 0, saving: false, again: false, dirty: false,
+};
+
+const TITLE = document.title;
+const usable = () => S.cur !== -1 && !S.loading && !S.loadError;
+const area = (pts) => Math.abs(pts.reduce((a, p, k) => {
+  const q = pts[(k + 1) % pts.length];
+  return a + p[0] * q[1] - q[0] * p[1];
+}, 0)) / 2;
+const MIN_AREA = 1e-6;
+
+const R5 = (v) => Math.round(Math.min(1, Math.max(0, v)) * 1e5) / 1e5;
+const row = () => S.rows[S.cur];
+const entry = () => S.data[row().id];
+
+function flash(msg) {
+  const f = $("flash");
+  f.textContent = msg;
+  f.classList.add("on");
+  clearTimeout(flash.t);
+  flash.t = setTimeout(() => f.classList.remove("on"), 1800);
+}
+
+function setSave(kind, msg) {
+  const s = $("save");
+  s.className = "save " + kind;
+  s.textContent = msg;
+  if (kind === "error") s.setAttribute("role", "alert"); else s.removeAttribute("role");
+}
+
+function setWarn(on) {
+  $("banner").classList.toggle("on", on);
+  document.title = (on ? "⚠ NOT SAVED — " : "") + TITLE;
+}
+
+async function boot() {
+  let j;
+  try {
+    const r = await fetch("/rows.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    j = await r.json();
+  } catch (e) {
+    setSave("error", "Could not load the rows: " + e.message);
+    return;
+  }
+  S.rows = j.rows;
+  for (const [id, v] of Object.entries(j.saved || {})) S.data[id] = { status: v.status, allowed: v.allowed };
+  $("rule").textContent = j.rule;
+  $("guidance").textContent = j.guidance;
+  $("total").textContent = String(S.rows.length);
+  buildList();
+  const n = Object.keys(S.data).length;
+  setSave(n ? "ok" : "", n ? "Loaded " + n + " saved rows" : "Nothing saved yet");
+  if (j.saved_error) setSave("error", "Warning: " + j.saved_error);
+  const first = S.rows.findIndex((r) => !S.data[r.id]);
+  go(first === -1 ? 0 : first);
+}
+
+function buildList() {
+  const ol = $("rows");
+  ol.textContent = "";
+  S.rows.forEach((r, i) => {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.i = String(i);
+    const name = document.createElement("span");
+    name.textContent = r.id;
+    const mark = document.createElement("span");
+    mark.className = "mark";
+    b.append(name, mark);
+    b.addEventListener("click", () => go(i));
+    li.append(b);
+    ol.append(li);
+  });
+}
+
+function refreshList() {
+  let done = 0;
+  $("rows").querySelectorAll("button").forEach((b) => {
+    const i = Number(b.dataset.i);
+    const e = S.data[S.rows[i].id];
+    const mark = b.lastChild;
+    mark.textContent = !e ? "to do"
+      : e.status === "nothing-allowed" ? "nothing"
+      : e.allowed.length + (e.allowed.length === 1 ? " shape" : " shapes");
+    mark.className = "mark" + (e ? " done" : "");
+    b.setAttribute("aria-current", String(i === S.cur));
+    if (e) done += 1;
+  });
+  $("done").textContent = String(done);
+  $("count").classList.toggle("all", done === S.rows.length && done > 0);
+}
+
+function refreshState() {
+  const e = entry();
+  const s = $("state");
+  let text;
+  let cls;
+  if (!e) { text = "To do"; cls = "todo"; }
+  else if (e.status === "nothing-allowed") { text = "Nothing may move"; cls = "nothing"; }
+  else { text = "Drawn: " + e.allowed.length + (e.allowed.length === 1 ? " shape" : " shapes"); cls = "drawn"; }
+  if (S.draft.length) text += " · outline open, " + S.draft.length + " points (Enter closes)";
+  s.textContent = text;
+  s.className = "state " + cls;
+  $("hide-label").textContent = S.hidden ? "Show masks" : "Hide masks";
+  $("b-hide").setAttribute("aria-pressed", String(S.hidden));
+}
+
+function refresh() { refreshState(); refreshList(); draw(); }
+
+function finishDraft() {
+  if (S.draft.length >= 3) {
+    const pts = S.draft;
+    const ok = commit(pts);
+    S.draft = [];                      // leaving the row: kept if committed, dropped if refused
+    if (ok) flash("Outline closed");
+  } else if (S.draft.length) { S.draft = []; flash("Unfinished outline dropped"); }
+}
+
+function go(i) {
+  if (i < 0 || i >= S.rows.length) return;
+  if (S.cur !== -1) finishDraft();
+  S.down = null;
+  S.cur = i;
+  const r = row();
+  $("rowid").textContent = r.id;
+  $("motion").textContent = r.motion;
+  $("prompt").textContent = r.prompt;
+  img.alt = "Panel " + r.panel;
+  const url = "/panel/" + encodeURIComponent(r.panel) + ".png";
+  S.loadError = false;
+  $("loaderr").classList.remove("on");
+  if (img.getAttribute("src") === url && img.complete && img.naturalWidth) { S.loading = false; layout(); }
+  else { S.loading = true; img.setAttribute("src", url); }
+  refresh();
+  const cur = $("rows").querySelector('[aria-current="true"]');
+  if (cur) {
+    const list = $("rows");
+    const top = cur.offsetTop, bottom = top + cur.offsetHeight;
+    if (top < list.scrollTop) list.scrollTop = top;
+    else if (bottom > list.scrollTop + list.clientHeight) list.scrollTop = bottom - list.clientHeight;
+  }
+}
+
+function nextTodo() {
+  for (let k = 1; k <= S.rows.length; k++) {
+    const i = (S.cur + k) % S.rows.length;
+    if (!S.data[S.rows[i].id]) { go(i); return; }
+  }
+  flash("All rows are done");
+}
+
+function layout() {
+  if (!img.naturalWidth) return;
+  const st = $("stage");
+  const pad = 32;
+  const s = Math.min((st.clientWidth - pad) / img.naturalWidth, (st.clientHeight - pad) / img.naturalHeight);
+  S.w = Math.max(1, Math.floor(img.naturalWidth * s));
+  S.h = Math.max(1, Math.floor(img.naturalHeight * s));
+  img.style.width = S.w + "px";
+  img.style.height = S.h + "px";
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = Math.round(S.w * dpr);
+  cv.height = Math.round(S.h * dpr);
+  cv.style.width = S.w + "px";
+  cv.style.height = S.h + "px";
+  draw();
+}
+
+function frac(ev) {
+  const b = cv.getBoundingClientRect();
+  return [R5((ev.clientX - b.left) / b.width), R5((ev.clientY - b.top) / b.height)];
+}
+
+function distPx(a, b) { return Math.hypot((a[0] - b[0]) * S.w, (a[1] - b[1]) * S.h); }
+
+function nearFirst() { return S.draft.length >= 3 && S.hover && distPx(S.hover, S.draft[0]) <= CLOSE_PX; }
+
+function path(pts) {
+  ctx.beginPath();
+  pts.forEach(([x, y], k) => (k ? ctx.lineTo(x * S.w, y * S.h) : ctx.moveTo(x * S.w, y * S.h)));
+}
+
+function stroke(colour) {
+  ctx.lineWidth = 4; ctx.strokeStyle = "rgba(0, 0, 0, 0.65)"; ctx.stroke();
+  ctx.lineWidth = 2; ctx.strokeStyle = colour; ctx.stroke();
+}
+
+function draw() {
+  const dpr = window.devicePixelRatio || 1;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, S.w, S.h);
+  if (S.cur === -1) return;
+  const e = entry();
+  $("badge").classList.toggle("on", Boolean(e && e.status === "nothing-allowed"));
+  if (!S.hidden && e && e.status === "drawn") {
+    for (const poly of e.allowed) {
+      path(poly);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(255, 196, 0, 0.28)";
+      ctx.fill();
+      stroke("rgba(255, 196, 0, 0.95)");
+    }
+  }
+  const lasso = S.down && S.down.lasso;
+  const pts = lasso ? S.down.pts : S.draft;
+  if (!pts.length) return;
+  path(pts);
+  if (!lasso && S.hover) ctx.lineTo(S.hover[0] * S.w, S.hover[1] * S.h);
+  stroke("#5fd3ff");
+  if (lasso) return;
+  pts.forEach(([x, y], k) => {
+    ctx.beginPath();
+    ctx.arc(x * S.w, y * S.h, k === 0 && nearFirst() ? 7 : 3.5, 0, 2 * Math.PI);
+    ctx.fillStyle = k === 0 ? "#ffffff" : "#5fd3ff";
+    ctx.fill();
+  });
+}
+
+function remember() {
+  const id = row().id;
+  (S.hist[id] = S.hist[id] || []).push(JSON.stringify(S.data[id] || null));
+}
+
+function changed() { refresh(); scheduleSave(); }
+
+function commit(pts) {
+  if (!usable()) return false;
+  const clean = pts.filter((p, k) => k === 0 || distPx(p, pts[k - 1]) > 0.5);
+  if (clean.length < 3) { flash("An outline needs at least 3 points"); return false; }
+  const poly = clean.map(([x, y]) => [R5(x), R5(y)]);
+  if (area(poly) < MIN_AREA) { flash("That outline has no area (its points are in a line); add a point off the line"); return false; }
+  remember();
+  const id = row().id;
+  S.hidden = false;
+  const e = S.data[id];
+  if (!e || e.status !== "drawn") S.data[id] = { status: "drawn", allowed: [poly] };
+  else e.allowed.push(poly);
+  changed();
+  return true;
+}
+
+function closeDraft() {
+  if (S.draft.length < 3) {
+    flash(S.draft.length ? "An outline needs at least 3 points" : "No outline to close");
+    return;
+  }
+  const pts = S.draft;
+  S.draft = [];
+  if (!commit(pts)) { S.draft = pts; refreshState(); draw(); }
+}
+
+function undo() {
+  if (S.draft.length) { S.draft.pop(); refreshState(); draw(); return; }
+  const id = row().id;
+  const h = S.hist[id];
+  if (!h || !h.length) { flash("Nothing to undo on this row"); return; }
+  const prev = JSON.parse(h.pop());
+  if (prev) S.data[id] = prev; else delete S.data[id];
+  changed();
+  flash("Undone");
+}
+
+function hasShapes() { const e = entry(); return Boolean(e && e.status === "drawn" && e.allowed.length); }
+
+function nothing() {
+  if (hasShapes() && !window.confirm("This row has " + entry().allowed.length + " drawn shape(s). Replace them with 'nothing may move'? (Z undoes)")) return;
+  S.draft = [];
+  S.down = null;
+  remember();
+  const id = row().id;
+  if (S.data[id] && S.data[id].status === "nothing-allowed") { delete S.data[id]; flash("Row back to to do"); }
+  else { S.data[id] = { status: "nothing-allowed", allowed: [] }; flash("Nothing may move in this row"); }
+  changed();
+}
+
+function clearRow() {
+  if (hasShapes() && !window.confirm("Clear the " + entry().allowed.length + " drawn shape(s) in this row? (Z undoes)")) return;
+  S.draft = [];
+  S.down = null;
+  if (!entry()) { flash("This row is already empty"); refreshState(); draw(); return; }
+  remember();
+  delete S.data[row().id];
+  changed();
+  flash("Row cleared (Z undoes)");
+}
+
+function toggleHide() { S.hidden = !S.hidden; refreshState(); draw(); }
+
+function scheduleSave() {
+  S.dirty = true;
+  if (!S.failed) setSave("dirty", "Unsaved changes…");   // an error state is never hidden by new edits
+  if (!S.warnTimer) S.warnTimer = setTimeout(() => { if (S.dirty || S.saving || S.failed) setWarn(true); }, 3000);
+  clearTimeout(S.timer);
+  S.timer = setTimeout(save, 400);
+}
+
+async function save() {
+  if (S.saving) { S.again = true; return; }
+  S.saving = true;
+  S.dirty = false;
+  const body = JSON.stringify({ rows: S.data });
+  try {
+    const r = await fetch("/save", { method: "POST", headers: { "Content-Type": "application/json" }, body });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || "HTTP " + r.status);
+    S.failed = false;
+    setSave("ok", "Saved " + new Date().toLocaleTimeString() + " · " + j.rows_done + " / " + j.rows_total + " rows on disk");
+    if (!S.dirty && !S.again) { clearTimeout(S.warnTimer); S.warnTimer = 0; setWarn(false); }
+  } catch (e) {
+    S.dirty = true;
+    S.failed = true;
+    setWarn(true);
+    setSave("error", "Not saved: " + e.message + ". Your work is still in this tab; retrying…");
+    clearTimeout(S.timer);
+    S.timer = setTimeout(save, 3000);
+  } finally {
+    S.saving = false;
+    if (S.again) { S.again = false; save(); }
+  }
+}
+
+cv.addEventListener("pointerdown", (ev) => {
+  if (ev.button !== 0 || !usable()) return;
+  cv.setPointerCapture(ev.pointerId);
+  const p = frac(ev);
+  S.down = { start: p, pts: [p], lasso: false };
+});
+
+cv.addEventListener("pointermove", (ev) => {
+  const p = frac(ev);
+  S.hover = p;
+  const d = S.down;
+  if (d) {
+    if (!d.lasso && S.draft.length === 0 && distPx(p, d.start) > DRAG_PX) d.lasso = true;
+    if (d.lasso && distPx(p, d.pts[d.pts.length - 1]) >= STEP_PX) d.pts.push(p);
+  }
+  draw();
+});
+
+cv.addEventListener("pointerup", (ev) => {
+  const d = S.down;
+  S.down = null;
+  if (!d) return;
+  if (d.lasso) { if (commit(d.pts)) flash("Shape added"); draw(); return; }
+  const p = frac(ev);
+  if (S.draft.length >= 3 && distPx(p, S.draft[0]) <= CLOSE_PX) { closeDraft(); return; }
+  S.draft.push(p);
+  refreshState();
+  draw();
+});
+
+cv.addEventListener("pointercancel", () => { S.down = null; draw(); });
+cv.addEventListener("pointerleave", () => { S.hover = null; draw(); });
+cv.addEventListener("dblclick", (ev) => {
+  ev.preventDefault();
+  if (S.draft.length >= 4) { S.draft.pop(); closeDraft(); }
+});
+
+document.addEventListener("keydown", (ev) => {
+  if (S.cur === -1) return;
+  const k = ev.key;
+  if ((k === "Enter" || k === " ") && ev.target.closest && ev.target.closest("button, summary, a, input, select, textarea")) return;
+  if (ev.repeat && k !== "ArrowLeft" && k !== "ArrowRight") return;
+  if ((ev.metaKey || ev.ctrlKey) && k.toLowerCase() === "z") { ev.preventDefault(); undo(); return; }
+  if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+  const act = {
+    ArrowRight: () => go(S.cur + 1), ".": () => go(S.cur + 1),
+    ArrowLeft: () => go(S.cur - 1), ",": () => go(S.cur - 1),
+    u: nextTodo, U: nextTodo,
+    Enter: closeDraft, c: closeDraft, C: closeDraft,
+    z: undo, Z: undo,
+    Escape: () => { if (S.draft.length) { S.draft = []; flash("Outline dropped"); refreshState(); draw(); } },
+    n: nothing, N: nothing,
+    x: clearRow, X: clearRow,
+    h: toggleHide, H: toggleHide,
+  }[k];
+  if (act) { ev.preventDefault(); act(); }
+});
+
+window.addEventListener("beforeunload", (ev) => {
+  if (S.dirty || S.saving || S.draft.length) { ev.preventDefault(); ev.returnValue = ""; }
+});
+
+const on = (id, fn) => $(id).addEventListener("click", fn);
+on("b-close", closeDraft);
+on("b-undo", undo);
+on("b-nothing", nothing);
+on("b-clear", clearRow);
+on("b-prev", () => go(S.cur - 1));
+on("b-next", () => go(S.cur + 1));
+on("b-todo", nextTodo);
+on("b-hide", toggleHide);
+img.addEventListener("load", () => { S.loading = false; S.loadError = false; layout(); });
+img.addEventListener("error", () => {
+  S.loading = false;
+  S.loadError = true;
+  S.draft = [];
+  S.down = null;
+  $("loaderr").classList.add("on");
+  draw();
+});
+window.addEventListener("resize", layout);
+boot();
+</script>
+</body>
+</html>

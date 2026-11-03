@@ -11,6 +11,9 @@ check of the metrics.
   2026 and awaiting moderation; the identifier will be added here and on the Zenodo
   record once it is announced. The source is in `paper/`.
 - **Data archive:** Zenodo, [doi:10.5281/zenodo.23072784](https://doi.org/10.5281/zenodo.23072784) (version 1.0.0; versioned, and this repository mirrors it).
+- **Status:** this repository is now ahead of Zenodo 1.0.0: it adds amendment A9
+  and its tools (`metrics/masked.py`, `analysis/a9_*.py`, `dataset/masks/`,
+  `analysis/adherence/`), added after the deposit.
 - **Name:** developed under the working name InkBench; renamed before release
   after a name collision. Historical records in `docs/` and `LEDGER.md` keep the
   old name.

@@ -1,0 +1,41 @@
+# Names that must not reach the rating page, its URLs, its requests or reveal.json.
+# Plain lines match as case-insensitive substrings; /.../flags lines are regular
+# expressions (no i flag: case-sensitive). Written by prepare.py; never edit by hand.
+# This is the public list. The terms that may not be published at all (a private name, the private
+# id prefix, uncleared names) live in private-terms.txt, which only the private repo holds; prepare.py
+# scans with both lists when that file is present. The working-name line is a character class so that the
+# release build's own rename leaves this file byte-identical.
+runway
+/gen[ -]?4/i
+gen45
+gen4t
+turbo
+/\bwan\b/i
+/wan ?2/i
+ltx
+lightricks
+/\bH3\b/
+h3-fal
+_h3
+hailuo
+minimax
+/\bfal\b/i
+fal.ai
+seedance
+bytedance
+comfyui
+/stable ?diffusion/i
+kling
+/\bsora\b/i
+/\bveo\b/i
+/\bluma\b/i
+/\bpika\b/i
+gemini
+/i[n]kbench/i
+# cell and panel ids
+/_(idle|burst|campush)_/i
+/\b(cu|act|est)-(line|tone|black)-\d/i
+/\bcip-/i
+/chain-est/i
+/act-tank/i
+/ground-cu/i

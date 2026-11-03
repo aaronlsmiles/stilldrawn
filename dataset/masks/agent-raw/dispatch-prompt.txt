@@ -1,0 +1,1 @@
+Your folder is <folder>. Read <folder>/brief.md first and follow it exactly. Then reply with the JSON document only.
