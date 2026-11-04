@@ -7,9 +7,9 @@ pre-registered study of five video engines, a failure-mode taxonomy, and a human
 check of the metrics.
 
 - **Paper:** *StillDrawn: Measuring the Stability of Inked Line Art under
-  Image-to-Video Generation*, Aaron Smiles, 2026. Submitted to arXiv on 9 October
-  2026 and awaiting moderation; the identifier will be added here and on the Zenodo
-  record once it is announced. The source is in `paper/`.
+  Image-to-Video Generation*, Aaron Smiles, 2026. Preprint on Zenodo,
+  [doi:10.5281/zenodo.23965026](https://doi.org/10.5281/zenodo.23965026) (v1, not
+  peer reviewed). The source is in `paper/`.
 - **Data archive:** Zenodo, [doi:10.5281/zenodo.23072784](https://doi.org/10.5281/zenodo.23072784) (version 1.0.0; versioned, and this repository mirrors it).
 - **Status:** this repository is now ahead of Zenodo 1.0.0: it adds amendment A9
   and its tools (`metrics/masked.py`, `analysis/a9_*.py`, `dataset/masks/`,
@@ -57,7 +57,7 @@ which also records the DINOv2 checkpoint hash.
 |---|---|
 | Data and documents (`dataset/`, `runs/`, `analysis/out/`, the human-check tables, `docs/`, `LEDGER.md`) | CC BY 4.0 (`LICENSE-DATA`) |
 | Code (`metrics/`, `harness/`, `analysis/*.py`, `tools/`, `zenodo/pack.sh`) | MIT (`LICENSE-CODE`) |
-| Paper (`paper/`) | CC BY 4.0 (also the licence chosen for the arXiv submission) |
+| Paper (`paper/`) | CC BY 4.0 (also the preprint's licence) |
 
 Some items were generated through commercial services whose terms restrict
 using outputs to build competing products. **Please read `NOTICE-PROVIDERS.md`
@@ -66,6 +66,6 @@ before reusing the clips**, and do not re-encode the signed clips.
 ## Citing
 
 See `CITATION.cff`, or cite the paper as: Aaron Smiles, *StillDrawn: Measuring
-the Stability of Inked Line Art under Image-to-Video Generation*, 2026 (submitted
-to arXiv; the identifier follows once it is announced); and the data as:
+the Stability of Inked Line Art under Image-to-Video Generation*, 2026, preprint,
+doi:10.5281/zenodo.23965026; and the data as:
 doi:10.5281/zenodo.23072784.
