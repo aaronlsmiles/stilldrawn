@@ -35,7 +35,7 @@ not reproduced.
 | `f4f49fe43464bef78a5fd175c862c856cde60f92` | 2026-08-17T23:11:31+01:00 | edit to existing text |
 | `69fd66b4a2d3598483d98a752e39eb300722e5f9` | 2026-08-17T23:11:56+01:00 | edit to existing text |
 | `fdf79c0603fc3d22fc404c5ced8aa6675b41d35f` | 2026-10-07T07:41:27+01:00 | added a dated record-correction addendum to A4 (the eight-cell extension's approval); no protocol change |
-| `2d98dedf36a3f94521d48c8f1ddc9d166a02f870` | 2026-11-03T04:49:27Z | added A9 (exploratory follow-up: did each engine do the motion, and drift where nothing should move), with `docs/A9-MANIFEST.sha256`; registered by the public commit tagged `a9-registered`. Software Heritage visit: requested at push (date added when the visit lands) |
+| `2d98dedf36a3f94521d48c8f1ddc9d166a02f870` | 2026-11-03T04:49:27Z | added A9 (exploratory follow-up: did each engine do the motion, and drift where nothing should move), with `docs/A9-MANIFEST.sha256`; registered by the public commit tagged `a9-registered`. Software Heritage visit 2026-11-03T06:06:55Z, full (snapshot `swh:1:snp:1431f5449301f32c5db264af54179524c3aa9d83`) |
 | `b6fdb3da01461ea8ec49233a4a6f3a0af4d97965` | 2026-11-03T05:22:08Z | edit to A9 before it is public: wording corrections in the approval record, the unsaved-data sentence, R7's declaration date and the kill rule's source, and A9.2 quotes the regenerated manifest's hash; no protocol change |
 
 Two entries deserve a note. A1 was committed and then reworded 35 minutes later
