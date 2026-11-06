@@ -1483,3 +1483,108 @@ motion. If instead the steadiest engines do the motion as often as the others,
 and the gap survives masking, the league reads more strongly as a measure of
 holding the drawing, and that is the stronger result. Either outcome is
 reported, and both tests are reported whatever they show.
+
+#### A9 results — 2026-11-06 (exploratory, post-hoc; recorded after both tests ran)
+
+Both tests ran as registered. Neither registered prediction held. No analysis
+beyond A9's was run, except the one sensitivity line declared in
+`docs/A9-DEVIATIONS.md` note 1 before any masked value existed.
+
+**Order, as it happened (UTC).**
+- 2026-11-03 06:06:50: tag `a9-registered` pushed. Software Heritage visit
+  06:06:55, snapshot `swh:1:snp:1431f5449301f32c5db264af54179524c3aa9d83`.
+- 2026-11-06: four rating sessions, all on Aaron's Mac at the recorded builds.
+  The times are when each session was stored:
+
+  | Rater | burst | push |
+  |---|---|---|
+  | R7 | 16:07 | 17:20 |
+  | AARON | 17:01 | 18:22 |
+
+  R7 signed her written declaration before her first session. One complete
+  session per store, so nothing was set aside and `sessions.sha256` does not exist.
+- 18:31:48: all four slim rating files pushed to the public `main` (commit
+  `f5fd0df`), byte-identical to the private copies.
+- About 18:32: `metrics/masked.py a9-run` started. Its guard passed, and it wrote
+  its first record at 18:33:48. An earlier launch the same minute started in the
+  wrong working directory and exited before importing anything.
+- 18:34:47: Software Heritage save requested by Aaron (visit 18:34:49, snapshot
+  `swh:1:snp:e0d5776084a41c3e42b441041833858428608161`). That is about two
+  minutes after the masked run started, not before it as A9.5 step 5 has it; see
+  deviation 3.
+- 21:12:45: the run finished, 109 of 109 clips with every gate tie held. Both
+  analysis scripts then ran twice, and their outputs were byte-identical both times.
+
+Hashes:
+- `metrics/masked.py` `9707ba7b…`, `a9_masked_drift.py` `31f902cd…` and
+  `a9_adherence.py` `9d966cfc…` (as registered);
+- mask sets `allowed-aaron.json` `0f80bfe3…` and `allowed-agent.json` `96b6ccba…`;
+- outputs `a9_masked_drift.json` `a48b7059…` and `a9_adherence.json` `01d1c458…`.
+
+**Test 2: killed.** At m = 32, over all 21 eligible rows (104 clips under each
+set):
+
+- Aaron's masks: Gen-4.5/Wan falls from 3.8× to 3.3× (s = 0.11, 95% CI −0.41 to
+  0.33).
+- Blind set: Gen-4.5/Wan rises from 3.8× to 3.9× (s = −0.01, 95% CI −0.53 to
+  0.22).
+
+Kendall τ_b between the whole-frame and masked engine medians is 1 under both
+sets, and s < 0.25 under both. That is the registered kill rule, so the masked
+line is closed. At m = 16 and m = 64, and in the idle-only and burst-only splits,
+s stays at or below 0.18 under Aaron's set and at or below 0 under the blind set.
+No condition comes near 0.5.
+
+Read as A9's "Stated plainly" paragraph registered it: the league's gap survives
+masking. Gen-4.5's extra drift is not the cost of moving where the prompt allows;
+it lies where nothing should move.
+
+**Test 1: not supported** (two raters, both in time).
+
+| Rater | ρ(S, m) | Exact one-sided p |
+|---|---|---|
+| AARON | −0.90 | 0.0417 |
+| R7 | −0.50 | 0.2250 |
+
+The rule needs p ≤ 0.05 for both raters, so the result is not supported.
+Quadratic-weighted κ between the raters: burst 0.635, push 0.708.
+
+What both raters show (no verdict):
+- Wan 2.2, the steadiest engine, misses the requested motion on 20 of its 22
+  cells for each rater.
+- Within rows, the clips with more drift are rated as doing the motion more fully:
+  mean ρ is 0.54 for AARON (p = 0.0001) and 0.38 for R7 (p = 0.0002).
+- The motion cross-check finds the misses under-animated. Three of its four
+  readings corroborate; R7's burst reading is inconclusive (AUC 0.663).
+
+Where the raters part is the middle of the league. R7 misses more on LTX-2.3
+(11/22) and Gen-4.5 (7/22) than on Gen-4 Turbo (6/22). AARON's misses fall
+steadily from Wan 2.2 (20/22) to MiniMax H3 (2/22), with one exception: H3's
+median drift (5.53 px) is below Gen-4.5's (7.04 px), yet it misses least. A
+five-engine rank test can reach p ≤ 0.05 only at ρ ≤ −0.9, so one swap in the
+middle is enough to miss it.
+
+**Deviations.** Each was recorded before the numbers it could touch existed,
+except deviation 3, which concerns a timestamp, not a number.
+1. *End screen.* Raters pressed blindpanel's two end-screen buttons, "See where
+   you land" then "Add my ratings…". A blindpanel session is stored only after
+   both, whereas A9.3 says no rater presses the reveal before exporting both
+   studies. In this build the end screen identifies no clip or engine: every
+   clip is labelled "clip". Decided 3 Nov, before any rating.
+2. *Aaron's `est-tone-1_burst` mask* reflects a primed judgement: a generated
+   clip he had seen shows a train leaving the tunnel. It is kept as registered
+   (`docs/A9-DEVIATIONS.md` note 1). Sensitivity line, no verdict: read as
+   nothing-allowed, Aaron's set gives 3.8× to 3.4× (s = 0.10, 95% CI −0.43 to
+   0.25), still killed (`analysis/a9_tunnel_sensitivity.py`).
+3. *The second Software Heritage save* was requested about two minutes after the
+   masked run started, not before. The public order rests on the GitHub push at
+   18:31:48, which the run's guard checked against `origin/main` before writing
+   anything. The Software Heritage visit is a second witness that came slightly late.
+4. *Descriptive only:* a mask-agreement measure added after registration
+   (`docs/A9-DEVIATIONS.md` note 2). It changes no registered number.
+
+**What this does and does not change.** The frozen league and its headline are
+unchanged. A9 qualifies how to read them. The gap between Gen-4.5 and Wan 2.2 is
+drift where nothing should move, under either mask set. And the steadiest
+engine's steadiness comes largely from not doing the requested motion: both
+raters agree on that, though the five-engine test of it holds for one rater only.

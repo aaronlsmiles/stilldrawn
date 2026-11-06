@@ -16,7 +16,7 @@ original panel and clip files in `dataset/PANEL-HASHES.csv` and
 
 - `dataset/recipes/chain-est-cosmic-1.json` — `d0375adcf9067755b7be32cc8d6a4f682a5d47afe78c647697ef73fd66046d77`
 - `dataset/recipes/cip-act-tank-1.json` — `543c57fe468f9b34f3c52bc722590c5e3c7526dc05c04d89ab6ed857a2ee313f`
-- `docs/PREREGISTRATION.md` — `41e2e89b9b06bd23d9f221fb2216604fabdf27c19a718486a468d77e17374ecc`
+- `docs/PREREGISTRATION.md` — `9cf534883491ef1b031bb20fb206adfe9ce5b934b719b8f133faa8599ca72ceb`
 - `docs/TAXONOMY.md` — `ec5899a4039a25c0dc94ec859150f5f1e4801b33852db727d4fff66576934003`
 - `docs/TOS-REVIEW.md` — `67e55da4906ad25b20739f042d95ce623c3a28584dbb9d3178547b141987d795`
 

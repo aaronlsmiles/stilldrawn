@@ -37,6 +37,7 @@ not reproduced.
 | `fdf79c0603fc3d22fc404c5ced8aa6675b41d35f` | 2026-10-07T07:41:27+01:00 | added a dated record-correction addendum to A4 (the eight-cell extension's approval); no protocol change |
 | `2d98dedf36a3f94521d48c8f1ddc9d166a02f870` | 2026-11-03T04:49:27Z | added A9 (exploratory follow-up: did each engine do the motion, and drift where nothing should move), with `docs/A9-MANIFEST.sha256`; registered by the public commit tagged `a9-registered`. Software Heritage visit 2026-11-03T06:06:55Z, full (snapshot `swh:1:snp:1431f5449301f32c5db264af54179524c3aa9d83`) |
 | `b6fdb3da01461ea8ec49233a4a6f3a0af4d97965` | 2026-11-03T05:22:08Z | edit to A9 before it is public: wording corrections in the approval record, the unsaved-data sentence, R7's declaration date and the kill rule's source, and A9.2 quotes the regenerated manifest's hash; no protocol change |
+| `34921c38fbdb3536e4f37a945cb2ac3ae30d7b72` | 2026-11-06T21:56:53Z | added the A9 results record, after both tests ran (Test 2 killed, Test 1 not supported); the ratings were public first (commit `f5fd0df`, 2026-11-06T18:31:48Z; Software Heritage visit 2026-11-06T18:34:49Z, snapshot `swh:1:snp:e0d5776084a41c3e42b441041833858428608161`) |
 
 Two entries deserve a note. A1 was committed and then reworded 35 minutes later
 on the same day (its heading changed from admitting the creator-IP panel to
