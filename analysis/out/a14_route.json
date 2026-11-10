@@ -1,0 +1,13 @@
+{
+ "verdict": "match",
+ "record": "docs/A14-ROUTE.md",
+ "record_sha256": "437e7e4c2445acb2ac1fb8322c05ee68e76767b82af11cecedba3b012acc16af",
+ "date": "2026-11-10",
+ "mismatch_rule": "A14.3.4: a route mismatch at the check adds no draw and changes nothing in the batch; it is recorded and reported as a finding in its own right, the prediction is read on the five Runway draws -h4 to -h8 as on a match, and A5's scout is never pooled with them: the pooled 8-draw figure is not computed",
+ "task_reference": {
+  "captured_from": "cu-line-1_idle_sd2r-h1",
+  "fields": {},
+  "check": "cannot fire: the first draw's task record carries no model field and no field named model or version; the route verdict (A14.3.3) is the only model check",
+  "date": "2026-11-10"
+ }
+}

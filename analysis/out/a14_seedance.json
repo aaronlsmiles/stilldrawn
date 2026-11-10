@@ -1,0 +1,662 @@
+{
+ "amendment": "A14",
+ "status": "confirmatory (A5's prediction only)",
+ "threshold_px": 10.0,
+ "route": {
+  "verdict": "match",
+  "record": "docs/A14-ROUTE.md",
+  "record_sha256": "437e7e4c2445acb2ac1fb8322c05ee68e76767b82af11cecedba3b012acc16af",
+  "date": "2026-11-10",
+  "mismatch_rule": "A14.3.4: a route mismatch at the check adds no draw and changes nothing in the batch; it is recorded and reported as a finding in its own right, the prediction is read on the five Runway draws -h4 to -h8 as on a match, and A5's scout is never pooled with them: the pooled 8-draw figure is not computed",
+  "task_reference": {
+   "captured_from": "cu-line-1_idle_sd2r-h1",
+   "fields": {},
+   "check": "cannot fire: the first draw's task record carries no model field and no field named model or version; the route verdict (A14.3.3) is the only model check",
+   "date": "2026-11-10"
+  }
+ },
+ "found_during_run": null,
+ "absent_fields": [],
+ "prediction": {
+  "reading": "prediction refuted: Seedance's departure rate is lower than H3's",
+  "draws": [
+   "act-black-3_burst_sd2r-h4",
+   "act-black-3_burst_sd2r-h5",
+   "act-black-3_burst_sd2r-h6",
+   "act-black-3_burst_sd2r-h7",
+   "act-black-3_burst_sd2r-h8"
+  ],
+  "k": 0,
+  "n": 5,
+  "refused": [],
+  "missing": [],
+  "wilson95": [
+   0.0,
+   0.43449149475208104
+  ],
+  "h3": {
+   "k": 8,
+   "n": 10,
+   "wilson95": [
+    0.49015684672072335,
+    0.9433190520193067
+   ]
+  },
+  "fisher_p_h3_greater": 0.006993006993006993
+ },
+ "prediction_rule_a_only": {
+  "reading": "prediction refuted: Seedance's departure rate is lower than H3's",
+  "draws": [
+   "act-black-3_burst_sd2r-h4",
+   "act-black-3_burst_sd2r-h5",
+   "act-black-3_burst_sd2r-h6",
+   "act-black-3_burst_sd2r-h7",
+   "act-black-3_burst_sd2r-h8"
+  ],
+  "k": 0,
+  "n": 5,
+  "refused": [],
+  "missing": [],
+  "wilson95": [
+   0.0,
+   0.43449149475208104
+  ],
+  "h3": {
+   "k": 8,
+   "n": 10,
+   "wilson95": [
+    0.49015684672072335,
+    0.9433190520193067
+   ]
+  },
+  "fisher_p_h3_greater": 0.006993006993006993
+ },
+ "scout": {
+  "draws": [
+   "act-black-3_burst_sd2-h1",
+   "act-black-3_burst_sd2-h2",
+   "act-black-3_burst_sd2-h3"
+  ],
+  "full_rule": {
+   "k": 1,
+   "n": 3,
+   "rate": 0.3333333333333333,
+   "wilson95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "refused": [],
+   "missing": []
+  },
+  "rule_a_only": {
+   "k": 1,
+   "n": 3,
+   "rate": 0.3333333333333333,
+   "wilson95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "refused": [],
+   "missing": []
+  }
+ },
+ "pooled": {
+  "computed": true,
+  "draws": [
+   "act-black-3_burst_sd2-h1",
+   "act-black-3_burst_sd2-h2",
+   "act-black-3_burst_sd2-h3",
+   "act-black-3_burst_sd2r-h4",
+   "act-black-3_burst_sd2r-h5",
+   "act-black-3_burst_sd2r-h6",
+   "act-black-3_burst_sd2r-h7",
+   "act-black-3_burst_sd2r-h8"
+  ],
+  "full_rule": {
+   "k": 1,
+   "n": 8,
+   "rate": 0.125,
+   "wilson95": [
+    0.02241690886329617,
+    0.4708948057698615
+   ],
+   "refused": [],
+   "missing": []
+  },
+  "rule_a_only": {
+   "k": 1,
+   "n": 8,
+   "rate": 0.125,
+   "wilson95": [
+    0.02241690886329617,
+    0.4708948057698615
+   ],
+   "refused": [],
+   "missing": []
+  }
+ },
+ "cells": {
+  "cu-line-1_idle": {
+   "draws": [
+    "cu-line-1_idle_sd2r-h1",
+    "cu-line-1_idle_sd2r-h2",
+    "cu-line-1_idle_sd2r-h3",
+    "cu-line-1_idle_sd2r-h4",
+    "cu-line-1_idle_sd2r-h5"
+   ],
+   "k": 0,
+   "n": 5,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.43449149475208104
+   ],
+   "h3": {
+    "k": 9,
+    "n": 10,
+    "rate": 0.9
+   },
+   "reading": "no verdict"
+  },
+  "cu-line-1_burst": {
+   "draws": [
+    "cu-line-1_burst_sd2r-h1",
+    "cu-line-1_burst_sd2r-h2",
+    "cu-line-1_burst_sd2r-h3",
+    "cu-line-1_burst_sd2r-h4",
+    "cu-line-1_burst_sd2r-h5"
+   ],
+   "k": 4,
+   "n": 5,
+   "rate": 0.8,
+   "wilson95": [
+    0.3755282641185388,
+    0.9637768390302125
+   ],
+   "h3": {
+    "k": 2,
+    "n": 10,
+    "rate": 0.2
+   },
+   "reading": "no verdict"
+  },
+  "act-black-3_idle": {
+   "draws": [
+    "act-black-3_idle_sd2r-h1",
+    "act-black-3_idle_sd2r-h2",
+    "act-black-3_idle_sd2r-h3",
+    "act-black-3_idle_sd2r-h4",
+    "act-black-3_idle_sd2r-h5"
+   ],
+   "k": 0,
+   "n": 5,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.43449149475208104
+   ],
+   "h3": {
+    "k": 0,
+    "n": 10,
+    "rate": 0.0
+   },
+   "reading": "no verdict"
+  },
+  "act-black-3_burst": {
+   "draws": [
+    "act-black-3_burst_sd2r-h4",
+    "act-black-3_burst_sd2r-h5",
+    "act-black-3_burst_sd2r-h6",
+    "act-black-3_burst_sd2r-h7",
+    "act-black-3_burst_sd2r-h8"
+   ],
+   "k": 0,
+   "n": 5,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.43449149475208104
+   ],
+   "h3": {
+    "k": 8,
+    "n": 10,
+    "rate": 0.8
+   },
+   "reading": "no verdict"
+  }
+ },
+ "a4_statistic": {
+  "full_rule": {
+   "burst_black": [
+    0,
+    5
+   ],
+   "idle_line": [
+    0,
+    5
+   ],
+   "p_one_sided": 1.0
+  },
+  "rule_a_only": {
+   "burst_black": [
+    0,
+    5
+   ],
+   "idle_line": [
+    0,
+    5
+   ],
+   "p_one_sided": 1.0
+  }
+ },
+ "disagreements": {
+  "n": 5,
+  "draws": [
+   "act-black-3_burst_sd2-h2",
+   "cu-line-1_burst_sd2r-h1",
+   "cu-line-1_burst_sd2r-h2",
+   "cu-line-1_burst_sd2r-h3",
+   "cu-line-1_burst_sd2r-h5"
+  ]
+ },
+ "model_versions": {
+  "runway": [
+   "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)"
+  ],
+  "flag_more_than_one": false
+ },
+ "draws": {
+  "act-black-3_burst_sd2-h1": {
+   "cell_id": "act-black-3_burst_sd2-h1",
+   "route": "fal (A5)",
+   "refused": false,
+   "clip": true,
+   "code": "s05",
+   "review": "held",
+   "chamfer": 3.4720606072325335,
+   "edge_abs_slope": 0.01426234014923329,
+   "style_terminal": 0.2149125337600708,
+   "motion": 0.006133004816042053,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": null,
+   "model_version": "Seedance 2.0 via fal.ai (bytedance/seedance-2.0/image-to-video, 720p, standard tier)",
+   "date": "2026-08-14"
+  },
+  "act-black-3_burst_sd2-h2": {
+   "cell_id": "act-black-3_burst_sd2-h2",
+   "route": "fal (A5)",
+   "refused": false,
+   "clip": true,
+   "code": "s22",
+   "review": "held",
+   "chamfer": 16.93729582220031,
+   "edge_abs_slope": 0.06698061356858488,
+   "style_terminal": 0.37405478954315186,
+   "motion": 0.06016615033149719,
+   "rule_a": true,
+   "rule_b": false,
+   "seed": null,
+   "model_version": "Seedance 2.0 via fal.ai (bytedance/seedance-2.0/image-to-video, 720p, standard tier)",
+   "date": "2026-08-14"
+  },
+  "act-black-3_burst_sd2-h3": {
+   "cell_id": "act-black-3_burst_sd2-h3",
+   "route": "fal (A5)",
+   "refused": false,
+   "clip": true,
+   "code": "s16",
+   "review": "held",
+   "chamfer": 4.884455721106718,
+   "edge_abs_slope": 0.03681081531039943,
+   "style_terminal": 0.1320611834526062,
+   "motion": 0.010718570815192329,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": null,
+   "model_version": "Seedance 2.0 via fal.ai (bytedance/seedance-2.0/image-to-video, 720p, standard tier)",
+   "date": "2026-08-14"
+  },
+  "cu-line-1_idle_sd2r-h1": {
+   "cell_id": "cu-line-1_idle_sd2r-h1",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s18",
+   "review": "held",
+   "chamfer": 4.054487886624124,
+   "edge_abs_slope": 0.03329519683890407,
+   "style_terminal": 0.08533799648284912,
+   "motion": 0.013283976664145788,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260813,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_idle_sd2r-h2": {
+   "cell_id": "cu-line-1_idle_sd2r-h2",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s19",
+   "review": "held",
+   "chamfer": 7.088900136274178,
+   "edge_abs_slope": 0.037448281350455505,
+   "style_terminal": 0.10796195268630981,
+   "motion": 0.013874064303106733,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260814,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_idle_sd2r-h3": {
+   "cell_id": "cu-line-1_idle_sd2r-h3",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s07",
+   "review": "held",
+   "chamfer": 6.236821268733894,
+   "edge_abs_slope": 0.03001284688534459,
+   "style_terminal": 0.0681566596031189,
+   "motion": 0.017187388406859502,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260815,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_idle_sd2r-h4": {
+   "cell_id": "cu-line-1_idle_sd2r-h4",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s08",
+   "review": "held",
+   "chamfer": 5.24337661912804,
+   "edge_abs_slope": 0.034530855408129946,
+   "style_terminal": 0.1431877613067627,
+   "motion": 0.010697222418255277,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260816,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_idle_sd2r-h5": {
+   "cell_id": "cu-line-1_idle_sd2r-h5",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s23",
+   "review": "held",
+   "chamfer": 5.523594352847031,
+   "edge_abs_slope": 0.017773017991480525,
+   "style_terminal": 0.14939343929290771,
+   "motion": 0.007296580821275711,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260817,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_burst_sd2r-h1": {
+   "cell_id": "cu-line-1_burst_sd2r-h1",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s11",
+   "review": "held",
+   "chamfer": 10.529602783966133,
+   "edge_abs_slope": 0.16287064393542952,
+   "style_terminal": 0.1729879379272461,
+   "motion": 0.029071892301241558,
+   "rule_a": true,
+   "rule_b": false,
+   "seed": 20260813,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_burst_sd2r-h2": {
+   "cell_id": "cu-line-1_burst_sd2r-h2",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s01",
+   "review": "held",
+   "chamfer": 14.101497853844608,
+   "edge_abs_slope": 0.0340328211072159,
+   "style_terminal": 0.16591596603393555,
+   "motion": 0.03517354196972317,
+   "rule_a": true,
+   "rule_b": false,
+   "seed": 20260814,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_burst_sd2r-h3": {
+   "cell_id": "cu-line-1_burst_sd2r-h3",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s12",
+   "review": "held",
+   "chamfer": 10.451723802675216,
+   "edge_abs_slope": 0.0010688947845332434,
+   "style_terminal": 0.11955916881561279,
+   "motion": 0.0495510995388031,
+   "rule_a": true,
+   "rule_b": false,
+   "seed": 20260815,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_burst_sd2r-h4": {
+   "cell_id": "cu-line-1_burst_sd2r-h4",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s03",
+   "review": "held",
+   "chamfer": 7.035565624200112,
+   "edge_abs_slope": 0.0673959042883038,
+   "style_terminal": 0.14702248573303223,
+   "motion": 0.026356808013386197,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260816,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "cu-line-1_burst_sd2r-h5": {
+   "cell_id": "cu-line-1_burst_sd2r-h5",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s17",
+   "review": "held",
+   "chamfer": 10.964646046165452,
+   "edge_abs_slope": 0.19386682796589655,
+   "style_terminal": 0.17149806022644043,
+   "motion": 0.052860294779141746,
+   "rule_a": true,
+   "rule_b": false,
+   "seed": 20260817,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_idle_sd2r-h1": {
+   "cell_id": "act-black-3_idle_sd2r-h1",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s15",
+   "review": "held",
+   "chamfer": 0.20495366448785265,
+   "edge_abs_slope": 0.04413328901664772,
+   "style_terminal": 0.034513771533966064,
+   "motion": 0.0007620997623436981,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260813,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_idle_sd2r-h2": {
+   "cell_id": "act-black-3_idle_sd2r-h2",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s09",
+   "review": "held",
+   "chamfer": 0.2628912755341035,
+   "edge_abs_slope": 0.05175395356865054,
+   "style_terminal": 0.034831225872039795,
+   "motion": 0.0009014138744937049,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260814,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_idle_sd2r-h3": {
+   "cell_id": "act-black-3_idle_sd2r-h3",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s04",
+   "review": "held",
+   "chamfer": 0.20236248194603979,
+   "edge_abs_slope": 0.04772647583093179,
+   "style_terminal": 0.025259792804718018,
+   "motion": 0.0008518800605088472,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260815,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_idle_sd2r-h4": {
+   "cell_id": "act-black-3_idle_sd2r-h4",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s14",
+   "review": "held",
+   "chamfer": 0.6975819398982687,
+   "edge_abs_slope": 0.036503842542757736,
+   "style_terminal": 0.039731502532958984,
+   "motion": 0.007056662191947301,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260816,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_idle_sd2r-h5": {
+   "cell_id": "act-black-3_idle_sd2r-h5",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s21",
+   "review": "held",
+   "chamfer": 0.34073842253850173,
+   "edge_abs_slope": 0.13754237214091253,
+   "style_terminal": 0.06620389223098755,
+   "motion": 0.0008855307888653544,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260817,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_burst_sd2r-h4": {
+   "cell_id": "act-black-3_burst_sd2r-h4",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s10",
+   "review": "held",
+   "chamfer": 2.141299882402806,
+   "edge_abs_slope": 0.11182125528360504,
+   "style_terminal": 0.11189150810241699,
+   "motion": 0.0008525135150800148,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260816,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_burst_sd2r-h5": {
+   "cell_id": "act-black-3_burst_sd2r-h5",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s06",
+   "review": "held",
+   "chamfer": 5.043230763392815,
+   "edge_abs_slope": 0.09396174099735681,
+   "style_terminal": 0.17211776971817017,
+   "motion": 0.0009308662782940599,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260817,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_burst_sd2r-h6": {
+   "cell_id": "act-black-3_burst_sd2r-h6",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s02",
+   "review": "held",
+   "chamfer": 2.396068987546585,
+   "edge_abs_slope": 0.3346241384962805,
+   "style_terminal": 0.21429967880249023,
+   "motion": 0.0009326900665958723,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260818,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_burst_sd2r-h7": {
+   "cell_id": "act-black-3_burst_sd2r-h7",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s20",
+   "review": "held",
+   "chamfer": 5.649467515224306,
+   "edge_abs_slope": 0.30997826176987586,
+   "style_terminal": 0.1950850486755371,
+   "motion": 0.0101951046122445,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260819,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  },
+  "act-black-3_burst_sd2r-h8": {
+   "cell_id": "act-black-3_burst_sd2r-h8",
+   "route": "Runway",
+   "refused": false,
+   "clip": true,
+   "code": "s13",
+   "review": "held",
+   "chamfer": 3.5028474298077827,
+   "edge_abs_slope": 0.5135240675333304,
+   "style_terminal": 0.18851971626281738,
+   "motion": 0.001182855779512061,
+   "rule_a": false,
+   "rule_b": false,
+   "seed": 20260820,
+   "model_version": "seedance2 (Runway dev API, X-Runway-Version 2024-11-06)",
+   "date": "2026-11-10"
+  }
+ },
+ "reviewer": "a fresh, blind, read-only Claude agent (Claude Opus), dispatched by the operator on 2026-11-10 with only the coded strip folder and the five named failures; one sitting, 23 strips"
+}
