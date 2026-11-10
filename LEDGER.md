@@ -170,3 +170,49 @@ After Aaron's $10 top-up: ≈$11.60 available, scout $9.07, ≈$2.53 left after.
 | 2026-10-01 | NOTE A4 authorisation | Record correction: A4's 8-cell extension had an explicit go from Aaron on 2026-08-14 02:29 (a $30 fal top-up "so you can run the core study plus the pre-declared 8-cell extension too"); the 4-cell £8.75 figure in the authorisation block above covers only the core. See the addendum to A4 in docs/PREREGISTRATION.md. No spend added. | — | 0.00 | 0.00 | 115.37 | note |
 | 2026-11-03 | NOTE A9 registered | Amendment A9 (exploratory follow-up; see docs/PREREGISTRATION.md): no generation and no paid calls; existing clips are re-analysed and rated. No spend. | — | 0.00 | 0.00 | 115.37 | note |
 | 2026-11-10 | NOTE Zenodo v1.1.0 | Dataset version 1.1.0 published (doi:10.5281/zenodo.24107518): adds amendment A9, its instrument, ratings and results; the six clip archives are carried over from 1.0.0 unchanged. No spend. | — | 0.00 | 0.00 | 115.37 | note |
+
+## EXTENSION AUTHORIZATION — 2026-11-10 (the motion ladder and the grey-ground series, amendments A10 and A12)
+
+Named questions, hypotheses and kill rules: PREREGISTRATION A10 (line stability as a function of
+motion) and A12 (the grey-ground series with a noise floor), registered 2026-11-10 by the public
+commit tagged `a10-registered`.
+Aaron's go recorded 2026-11-10, with the registration ("This go covers the Runway batches for A10,
+A12, A14 and A15 within their envelopes").
+Envelope: generation about £27. Gen-4.5 ladder 48 × $0.60 = $28.80; Gen-4 Turbo 10 × $0.25 =
+$2.50; one rented-GPU session for the local ladders and ground draws, about $3.20; $34.50 in all.
+A re-run after a lost machine (A12.3.1) adds about an hour of pod time, under £2.
+Every paid batch gets its row before the next one starts (rule 1); Aaron is told before the pod
+is deployed, before each Gen-4.5 batch (a batch of 21 is $12.60, about £9.84), at each further
+£10 of spend, and before any single item over £40. The FX pin is re-read at spend.
+
+## EXTENSION AUTHORIZATION — 2026-11-10 (the human check at power and adherence at power, amendments A11 and A13; Prolific)
+
+Named questions, hypotheses and kill rules: PREREGISTRATION A11 and A13, registered 2026-11-10
+(`a10-registered`). Both are rater studies on Prolific, paid in pounds, at the account's fee of
+three sevenths of the rewards plus 20% VAT on the fee (read from the account on 2026-11-10).
+A11: twelve raters at £4.50, about £81.77 (the two pilot raters £13.63, the ten after them
+£68.14); one top-up of up to four, at most £27.26.
+A13: twelve raters at £6.00, about £109.03 (pilot £18.17, ten £90.86); £122.66 if the sitting
+runs to 45 minutes and the reward rises to £6.75; one top-up of up to four, £36.34 to £40.89.
+The budget for A13's twelve is £110 to £125; a top-up is outside it.
+Aaron's go for the spend in total was recorded 2026-11-10 (base about £265 and worst case about
+£355 across A10 to A16). Each Prolific batch is published and funded by Aaron himself, on his go
+at the time; its row is written from Prolific's cost screen before it is published.
+
+## EXTENSION AUTHORIZATION — 2026-11-10 (Seedance, Kling and Midjourney video: amendments A14, A15 and A16)
+
+Named questions and decision rules: PREREGISTRATION A14 (A5's Seedance prediction at five fresh
+draws), A15 (a Kling scout, then an A10 arm only if the scout passes) and A16 (the same for
+Midjourney video, run by hand), registered 2026-11-10 (`a10-registered`).
+Aaron's go recorded 2026-11-10, with the registration (the same words as the A10 and A12 block
+above; A16 costs nothing beyond the Midjourney Standard plan already held).
+Envelopes: A14, 20 clips × 5 s × 30 credits = $30.00, about £23.50. A15, the scout 6 clips ×
+5 s × 12.56 credits ≈ $3.77, about £3; the arm 48 cells ≈ $30.14, about £24, at Runway's
+promotional rate until 2026-11-30 UTC (15.7 credits a second at list: about £3.70 and £29). A16,
+£0.00 beyond the plan; its jobs are logged in `runs/manifest.jsonl` and take £0.00 rows.
+For these paid batches the row is written before the batch is submitted, with the day's credit
+rate, the clip count and the estimate, and reconciled with the Runway dashboard once the batch
+is done: a declared departure from rule 1, which appends a row after the charge. A14's batch
+does not run if Runway's credit rate on the day differs from 30 credits a second at 720p. Each
+scout runs before its arm, and an arm runs only if its scout's registered rule passes. The first
+draw or cell of each run is watched and reported to Aaron before the rest.
