@@ -1,6 +1,7 @@
 # The clips (1.7 GB) are distributed through the Zenodo archive, not git.
 runs/*/*.mp4
 zenodo/dist/
+zenodo/dist-*/
 paper/arxiv/
 __pycache__/
 .DS_Store

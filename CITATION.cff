@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use StillDrawn, please cite the paper and the dataset."
 title: "StillDrawn: A Benchmark Dataset for Inked Line Art under Image-to-Video Generation"
 type: dataset
-version: "1.0.0"
-date-released: "2026-10-09"
+version: "1.1.0"
+date-released: "2026-11-10"
 license: CC-BY-4.0
 repository-code: "https://github.com/aaronlsmiles/stilldrawn"
 authors:
@@ -18,7 +18,7 @@ keywords:
   - evaluation
   - comics
   - manga
-doi: "10.5281/zenodo.23072784"
+doi: "10.5281/zenodo.24107518"
 preferred-citation:
   type: article
   title: "StillDrawn: Measuring the Stability of Inked Line Art under Image-to-Video Generation"

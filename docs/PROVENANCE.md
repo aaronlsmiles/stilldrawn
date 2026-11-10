@@ -45,3 +45,9 @@ specifying its extension cells). A7 is dated 2026-08-16 in its heading, the day
 its decisions were made, and was committed early on 2026-08-17. The label A6 was used twice, for two
 separate amendments (the motion channel and the human-check instrument). Later
 "edit" commits are corrections and dated addenda inside existing sections.
+
+The Zenodo archive follows the document by version: version 1.0.0
+(doi:10.5281/zenodo.23072784, 2026-10-09) holds it as it stood before A9, and version 1.1.0
+(doi:10.5281/zenodo.24107518, published 2026-11-10) holds it as of the last row above, with
+A9 and its results record. Later amendments are in this repository first and enter the
+archive with its next version.

@@ -202,6 +202,6 @@ white).
 
 ## Maintenance
 
-Versioned releases are archived on Zenodo (DOI: [`10.5281/zenodo.23072784`](https://doi.org/10.5281/zenodo.23072784), version 1.0.0); code and issues live at
+Versioned releases are archived on Zenodo (DOI: [`10.5281/zenodo.24107518`](https://doi.org/10.5281/zenodo.24107518), version 1.1.0; version 1.0.0 is [`10.5281/zenodo.23072784`](https://doi.org/10.5281/zenodo.23072784)); code and issues live at
 https://github.com/aaronlsmiles/stilldrawn. Corrections are published as new
 Zenodo versions under the same concept DOI.
