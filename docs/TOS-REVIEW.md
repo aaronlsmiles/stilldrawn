@@ -226,3 +226,52 @@ datasets or evaluation). The account has no API agreement, legal or settings pag
 API terms exist (`/api-terms` returns 404). In the 23 Oct Terms, §5(viii) reads as quoted above, and
 §1's "Powered by Runway" applies to applications built on the API. What the sign-up screen showed
 in August could not be recovered. Aaron closed the item on this evidence on 30 Oct 2026.
+
+## Re-check — 2026-11-08 (third-party video models through Runway's API: `seedance2` for A14, `kling_4` for A15)
+
+Read by the study's operator on 8 Nov 2026 from the public pages (runway.com/terms-of-use, "Last
+updated October 23, 2026"; docs.dev.runwayml.com index, models, pricing, attribution, uploads,
+outputs and moderation pages). `runway.com/api-terms` and `/legal` still return 404; the docs site
+links no API terms. Findings, against the eleven questions the A14–A16 draft asks:
+
+1. **Provider terms.** Nothing names ByteDance's or Kuaishou's terms as incorporated. The Terms
+   say only that "certain Services may be subject to additional terms"; the models page lists
+   Seedance under provider ByteDance and Kling under Kling. The contract for an API output is
+   with Runway, under the same Terms as Gen-4.5. Open: the providers' own terms were not read.
+2. **Evaluations and benchmarks.** No clause. §5(viii) (outputs not used "to create, train,
+   develop, or improve similar or competitive products or services") is the nearest, as before;
+   publishing a stability measurement of a clip is none of those.
+3. **Redistribution and CC BY.** §4.4 unchanged: "the Company does not claim ownership of any
+   of your Inputs or Outputs" and "does not restrict your commercial use of your Outputs". No
+   CC BY term either way; the 1 Oct decision (CC BY 4.0 unchanged, informational
+   NOTICE-PROVIDERS with a no-training request) stands and extends to Seedance and Kling clips.
+4. **Attribution.** None on outputs; "Powered by Runway" applies to applications offered to end
+   users, not to a dataset.
+5. **§4.4 and §5(viii).** Same wording as read on 23 Oct; the page date is unchanged. §4.4 still
+   says inputs and outputs "may be used by the Company to train and improve its AI models",
+   which the NOTICE already discloses.
+6. **C2PA and watermarks.** Not stated on the pages read. Treat as for Gen-4.5: ship the clips
+   byte-exact with whatever credentials they carry; strip nothing from a released clip (A11's
+   served copies are a delivery matter, not the release).
+7. **Generated audio.** No separate terms. `seedance2` is run with `audio: false`; `kling_4`
+   always generates audio, which the harness strips from the stored clip and records; the
+   released clip is the stripped file, so no audio is ever published.
+8. **Territory.** No UK clause; §15 says only that the Services may not be appropriate or
+   available elsewhere.
+9. **Content rules.** Nothing model-specific found; moderation "will evaluate all elements of
+   your request". The Usage Policy (6 Mar 2026) was read on 30 Oct: content rules only. A
+   violinist, a boxer and a lighthouse interior raise nothing.
+10. **Inputs.** Uploads are `runway://` URIs valid 24 hours; output URLs expire within 24–48
+    hours; "no obligation to store any of Your Content"; storage location not stated.
+11. **Pricing.** Kling 4.0 is 20 % off through 30 Nov 2026 UTC, list prices from 1 Dec (not
+    Flash). No Seedance promotion. A15's costs are recorded at both prices.
+
+**Decision (operator, 8 Nov):** the 1 Oct position covers `seedance2` and `kling_4` through
+Runway: contract with Runway, CC BY 4.0 unchanged, NOTICE-PROVIDERS extended to name ByteDance
+and Kuaishou as model providers with the same no-training request, route and version per clip
+in the manifest. **Open for Aaron before any Kling or Seedance clip:** whether to read
+ByteDance's and Kuaishou's own terms as well (no Runway page incorporates them; reading them is
+belt and braces, not a requirement the Terms impose). Midjourney (A16) is a separate contract:
+its entry is written when the scout is scheduled (Standard plan: every upload and clip is public
+on the gallery and licensed to Midjourney; the panels are CC BY already; raters are never
+pointed there).

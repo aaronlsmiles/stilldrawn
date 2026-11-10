@@ -1,0 +1,174 @@
+{
+ "amendment": "A14",
+ "engine": "seedance2",
+ "pack": "harness/motion-prompts.md",
+ "pack_sha256": "43a022980cdd4884c1eaaf4702baf5bc9b6b925ac9c8a611a23b1ed354e0ef31",
+ "prompts": {
+  "IDLE": "Subtle idle motion only: gentle breathing, faint sway of cloth or foliage, slight ambient drift. Camera locked off. The image is a black-and-white inked drawing and must remain one in every frame \u2014 line weight, screentone dots, and flat black ink shapes stay exactly as drawn; no repainting, no photorealistic rendering, no colour, no added lighting effects.",
+  "BURST": "The action implied by the drawing continues in one fast, committed burst of motion, then settles. Camera locked off. The image is a black-and-white inked drawing and must remain one in every frame \u2014 line weight, screentone dots, and flat black ink shapes stay exactly as drawn; no repainting, no photorealistic rendering, no colour, no added lighting effects."
+ },
+ "ratio": "1280:720",
+ "duration_s": 5,
+ "audio": false,
+ "seed_rule": "draw -h<k> is sent 20260812 + k (A14.3.2)",
+ "cells": [
+  {
+   "cell_id": "cu-line-1_idle_sd2r-h1",
+   "panel": "cu-line-1",
+   "motion": "IDLE",
+   "draw": 1,
+   "seed": 20260813
+  },
+  {
+   "cell_id": "cu-line-1_idle_sd2r-h2",
+   "panel": "cu-line-1",
+   "motion": "IDLE",
+   "draw": 2,
+   "seed": 20260814
+  },
+  {
+   "cell_id": "cu-line-1_idle_sd2r-h3",
+   "panel": "cu-line-1",
+   "motion": "IDLE",
+   "draw": 3,
+   "seed": 20260815
+  },
+  {
+   "cell_id": "cu-line-1_idle_sd2r-h4",
+   "panel": "cu-line-1",
+   "motion": "IDLE",
+   "draw": 4,
+   "seed": 20260816
+  },
+  {
+   "cell_id": "cu-line-1_idle_sd2r-h5",
+   "panel": "cu-line-1",
+   "motion": "IDLE",
+   "draw": 5,
+   "seed": 20260817
+  },
+  {
+   "cell_id": "cu-line-1_burst_sd2r-h1",
+   "panel": "cu-line-1",
+   "motion": "BURST",
+   "draw": 1,
+   "seed": 20260813
+  },
+  {
+   "cell_id": "cu-line-1_burst_sd2r-h2",
+   "panel": "cu-line-1",
+   "motion": "BURST",
+   "draw": 2,
+   "seed": 20260814
+  },
+  {
+   "cell_id": "cu-line-1_burst_sd2r-h3",
+   "panel": "cu-line-1",
+   "motion": "BURST",
+   "draw": 3,
+   "seed": 20260815
+  },
+  {
+   "cell_id": "cu-line-1_burst_sd2r-h4",
+   "panel": "cu-line-1",
+   "motion": "BURST",
+   "draw": 4,
+   "seed": 20260816
+  },
+  {
+   "cell_id": "cu-line-1_burst_sd2r-h5",
+   "panel": "cu-line-1",
+   "motion": "BURST",
+   "draw": 5,
+   "seed": 20260817
+  },
+  {
+   "cell_id": "act-black-3_idle_sd2r-h1",
+   "panel": "act-black-3",
+   "motion": "IDLE",
+   "draw": 1,
+   "seed": 20260813
+  },
+  {
+   "cell_id": "act-black-3_idle_sd2r-h2",
+   "panel": "act-black-3",
+   "motion": "IDLE",
+   "draw": 2,
+   "seed": 20260814
+  },
+  {
+   "cell_id": "act-black-3_idle_sd2r-h3",
+   "panel": "act-black-3",
+   "motion": "IDLE",
+   "draw": 3,
+   "seed": 20260815
+  },
+  {
+   "cell_id": "act-black-3_idle_sd2r-h4",
+   "panel": "act-black-3",
+   "motion": "IDLE",
+   "draw": 4,
+   "seed": 20260816
+  },
+  {
+   "cell_id": "act-black-3_idle_sd2r-h5",
+   "panel": "act-black-3",
+   "motion": "IDLE",
+   "draw": 5,
+   "seed": 20260817
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2r-h4",
+   "panel": "act-black-3",
+   "motion": "BURST",
+   "draw": 4,
+   "seed": 20260816
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2r-h5",
+   "panel": "act-black-3",
+   "motion": "BURST",
+   "draw": 5,
+   "seed": 20260817
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2r-h6",
+   "panel": "act-black-3",
+   "motion": "BURST",
+   "draw": 6,
+   "seed": 20260818
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2r-h7",
+   "panel": "act-black-3",
+   "motion": "BURST",
+   "draw": 7,
+   "seed": 20260819
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2r-h8",
+   "panel": "act-black-3",
+   "motion": "BURST",
+   "draw": 8,
+   "seed": 20260820
+  }
+ ],
+ "mismatch_rule": "A14.3.4: a route mismatch at the check adds no draw and changes nothing in the batch; it is recorded and reported as a finding in its own right, the prediction is read on the five Runway draws -h4 to -h8 as on a match, and A5's scout is never pooled with them: the pooled 8-draw figure is not computed",
+ "scout": [
+  {
+   "cell_id": "act-black-3_burst_sd2-h1",
+   "route": "fal (A5)",
+   "clip": "runs/seedance/act-black-3_burst_sd2-h1.mp4"
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2-h2",
+   "route": "fal (A5)",
+   "clip": "runs/seedance/act-black-3_burst_sd2-h2.mp4"
+  },
+  {
+   "cell_id": "act-black-3_burst_sd2-h3",
+   "route": "fal (A5)",
+   "clip": "runs/seedance/act-black-3_burst_sd2-h3.mp4"
+  }
+ ]
+}

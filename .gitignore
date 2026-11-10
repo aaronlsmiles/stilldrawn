@@ -7,3 +7,5 @@ __pycache__/
 .DS_Store
 # Local dump of the private Zenodo draft record (user id, draft file ids): not for the public tree.
 zenodo/23072784.json
+# Midjourney downloads wait here until `harness/mj_log.py record` copies them (A16.5.1); never committed.
+runs/midjourney/incoming/

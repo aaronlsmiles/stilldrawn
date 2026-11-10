@@ -18,9 +18,14 @@ lands in the paper (implementation here follows the standard coincidence-
 matrix formulation with the ordinal distance metric).
 
 Bootstrap seed: 20260813 (recorded; resamples the 20 cells).
+
+Refactored in Nov 2026 (amendment A11) into importable parts, `guard_strays`,
+`load_matrices`, `analyse` and `run`, so that A11's analysis
+(analysis/human_check2/collect.py) runs the same code. The output is unchanged byte
+for byte (analysis/test_human_check_collect.py).
 """
 import json
-from collections import Counter
+from collections import Counter  # noqa: F401  (kept from the frozen script)
 from pathlib import Path
 
 import numpy as np
@@ -67,16 +72,9 @@ def krippendorff_alpha_ordinal(matrix):
     return None if De == 0 else 1.0 - Do / De
 
 
-def main():
-    mapping = json.loads((HERE / "mapping.json").read_text())
-    o2c = mapping["opaque_to_cell"]
-    rows = {r["cell_id"]: r for r in json.loads((OUT / "results_table.json").read_text())}
-
-    rating_files = sorted((HERE / "ratings").glob("ratings-*.json"))
-    if not rating_files:
-        raise SystemExit("no rating files yet — drop ratings-<RATER>.json into "
-                         f"{HERE/'ratings'}/ and re-run")
-
+def guard_strays(here=HERE):
+    """Refuse when a rating or baseline file sits where the analysis would not read it."""
+    here = Path(here)
     # Guard added 2026-08-17. A duplicate `answers/` directory held a second
     # copy of rater 1's file for two days; nothing read it. The danger is not
     # the duplicate but the silence: a returned file dropped anywhere other
@@ -84,69 +82,97 @@ def main():
     # missing, reporting a smaller n without ever saying a file was skipped.
     # Fail loudly instead. `pilot/` is exempt — it is deliberately quarantined
     # (R13) and must never be pooled.
-    stray = [p for p in HERE.rglob("ratings-*.json")
-             if p.parent != HERE / "ratings" and p.parent != HERE / "pilot"]
+    stray = [p for p in here.rglob("ratings-*.json")
+             if p.parent != here / "ratings" and p.parent != here / "pilot"]
     if stray:
         raise SystemExit(
             "rating file(s) found outside ratings/ — refusing to run, because "
             "these would be silently excluded:\n"
             + "\n".join(f"  {p}" for p in stray)
-            + f"\nMove them into {HERE/'ratings'}/ (or into pilot/ if they are "
+            + f"\nMove them into {here/'ratings'}/ (or into pilot/ if they are "
               "not study data) and re-run.")
 
     # Same guard for A8 baseline files. `baseline-kit/` is exempt: it is the
     # build output the rater opens, so the file legitimately appears there
     # first and is copied into baselines/.
-    stray_b = [p for p in HERE.rglob("baseline-*.json")
-               if p.parent not in (HERE / "baselines", HERE / "baseline-kit")]
+    stray_b = [p for p in here.rglob("baseline-*.json")
+               if p.parent not in (here / "baselines", here / "baseline-kit")]
     if stray_b:
         raise SystemExit(
             "baseline file(s) outside baselines/ — refusing to run:\n"
             + "\n".join(f"  {p}" for p in stray_b)
-            + f"\nMove them into {HERE/'baselines'}/ and re-run.")
+            + f"\nMove them into {here/'baselines'}/ and re-run.")
 
-    opaque_ids = sorted(o2c)
-    raters, axes = [], {"register": [], "sameness": []}
+
+def load_matrices(rating_files, opaque_ids, axes=("register", "sameness")):
+    """(raters, {axis: raters x items matrix}) in the order of `rating_files` and `opaque_ids`."""
+    raters, mats = [], {a: [] for a in axes}
     for f in rating_files:
-        d = json.loads(f.read_text())
+        d = json.loads(Path(f).read_text())
         raters.append(d["rater"])
         for axis in axes:
             # A6 kits carry both axes; a pre-A6 file would carry "score" only
             got = {r["clip"]: r.get(axis, r.get("score")) for r in d["ratings"]}
-            axes[axis].append([got.get(o, np.nan) for o in opaque_ids])
-    matrices = {a: np.array(v, dtype=float) for a, v in axes.items()}
+            mats[axis].append([got.get(o, np.nan) for o in opaque_ids])
+    return raters, {a: np.array(v, dtype=float) for a, v in mats.items()}
 
-    rng = np.random.default_rng(SEED)
-    results = {"n_raters": len(raters), "raters": raters, "instrument": "A6",
-               "per_axis": {}}
-    cells = [o2c[o] for o in opaque_ids]
+
+def analyse(matrices, cells, rows, seed=SEED, b=10000):
+    """Per axis: Krippendorff's α and, per headline, Spearman ρ with a bootstrap 95% CI.
+    One generator, default_rng(seed), runs through the axes and metrics in order."""
+    rng = np.random.default_rng(seed)
+    per_axis = {}
     for axis, matrix in matrices.items():
-      mean_rating = np.nanmean(matrix, axis=0)
-      results["per_axis"][axis] = {
-          "krippendorff_alpha_ordinal": krippendorff_alpha_ordinal(matrix),
-          "per_metric": {}}
-      for metric in HEADLINES:
-        pairs = [(rows[c][metric], mr) for c, mr in zip(cells, mean_rating)
-                 if rows[c][metric] is not None and not np.isnan(mr)]
-        if len(pairs) < 4:
-            results["per_axis"][axis]["per_metric"][metric] = None
-            continue
-        x, y = map(np.array, zip(*pairs))
-        rho, p = stats.spearmanr(x, y)
-        boots = []
-        for _ in range(10000):
-            idx = rng.integers(0, len(x), len(x))
-            if len(set(x[idx])) > 1 and len(set(y[idx])) > 1:
-                boots.append(stats.spearmanr(x[idx], y[idx]).statistic)
-        lo, hi = np.percentile(boots, [2.5, 97.5])
-        results["per_axis"][axis]["per_metric"][metric] = {
-            "n_cells": len(pairs), "spearman_rho": float(rho), "p": float(p),
-            "ci95": [float(lo), float(hi)], "bootstrap_n": len(boots), "seed": SEED}
+        mean_rating = np.nanmean(matrix, axis=0)
+        per_axis[axis] = {
+            "krippendorff_alpha_ordinal": krippendorff_alpha_ordinal(matrix),
+            "per_metric": {}}
+        for metric in HEADLINES:
+            pairs = [(rows[c][metric], mr) for c, mr in zip(cells, mean_rating)
+                     if rows[c][metric] is not None and not np.isnan(mr)]
+            if len(pairs) < 4:
+                per_axis[axis]["per_metric"][metric] = None
+                continue
+            x, y = map(np.array, zip(*pairs))
+            rho, p = stats.spearmanr(x, y)
+            boots = []
+            for _ in range(b):
+                idx = rng.integers(0, len(x), len(x))
+                if len(set(x[idx])) > 1 and len(set(y[idx])) > 1:
+                    boots.append(stats.spearmanr(x[idx], y[idx]).statistic)
+            lo, hi = np.percentile(boots, [2.5, 97.5])
+            per_axis[axis]["per_metric"][metric] = {
+                "n_cells": len(pairs), "spearman_rho": float(rho), "p": float(p),
+                "ci95": [float(lo), float(hi)], "bootstrap_n": len(boots), "seed": seed}
+    return per_axis
 
-    out = HERE / "human_check_results.json"
-    out.write_text(json.dumps(results, indent=1))
+
+def run(here=HERE, out_dir=OUT, out=None):
+    """The frozen §6 analysis end to end. Returns (results, path written)."""
+    here, out_dir = Path(here), Path(out_dir)
+    mapping = json.loads((here / "mapping.json").read_text())
+    o2c = mapping["opaque_to_cell"]
+    rows = {r["cell_id"]: r for r in json.loads((out_dir / "results_table.json").read_text())}
+
+    rating_files = sorted((here / "ratings").glob("ratings-*.json"))
+    if not rating_files:
+        raise SystemExit("no rating files yet — drop ratings-<RATER>.json into "
+                         f"{here/'ratings'}/ and re-run")
+    guard_strays(here)
+
+    opaque_ids = sorted(o2c)
+    raters, matrices = load_matrices(rating_files, opaque_ids)
+    results = {"n_raters": len(raters), "raters": raters, "instrument": "A6",
+               "per_axis": analyse(matrices, [o2c[o] for o in opaque_ids], rows)}
+    path = Path(out) if out else here / "human_check_results.json"
+    path.write_text(json.dumps(results, indent=1))
+    return results, path
+
+
+def main():
+    results, path = run()
     print(json.dumps(results, indent=1))
-    print(f"-> {out}")
+    print(f"-> {path}")
 
 
 if __name__ == "__main__":

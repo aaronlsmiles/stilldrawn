@@ -1,0 +1,50 @@
+{
+ "amendment": "A10",
+ "seed": 20261104,
+ "n": 12,
+ "python_version": "3.12.10",
+ "pool": "the 27 core panels of dataset/panel-pack.md; the two A1 extension panels excluded",
+ "algorithm": "random.Random(seed): one treatment permutation (itertools order) for the three doubled cells, then each cell's panels by rng.sample over its three, cells in class-major order (draw_ladder_panels.py); uniform over the 118,098 admissible draws (6 permutations of the doubled cells x 3^9 cell fillings)",
+ "doubled_cells": [
+  "act-tone",
+  "cu-black",
+  "est-line"
+ ],
+ "panels": [
+  "act-black-1",
+  "act-line-2",
+  "act-tone-1",
+  "act-tone-3",
+  "cu-black-2",
+  "cu-black-3",
+  "cu-line-3",
+  "cu-tone-1",
+  "est-black-3",
+  "est-line-1",
+  "est-line-2",
+  "est-tone-3"
+ ],
+ "strata_counts": {
+  "content_class": {
+   "cu": 4,
+   "act": 4,
+   "est": 4
+  },
+  "treatment": {
+   "line": 4,
+   "tone": 4,
+   "black": 4
+  },
+  "cell": {
+   "cu-line": 1,
+   "cu-tone": 1,
+   "cu-black": 2,
+   "act-line": 1,
+   "act-tone": 2,
+   "act-black": 1,
+   "est-line": 2,
+   "est-tone": 1,
+   "est-black": 1
+  }
+ }
+}

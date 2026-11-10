@@ -1,0 +1,79 @@
+{
+ "rule": "A5's composition (A15.4, A16.6): three FLINT pairs and three BURST draws of act-black-3",
+ "kling_4": [
+  {
+   "cell_id": "flint-cu-line-2--cu-line-1_kling4",
+   "motion": "FLINT",
+   "panel": "cu-line-2",
+   "last_panel": "cu-line-1"
+  },
+  {
+   "cell_id": "flint-act-line-2--act-tone-3_kling4",
+   "motion": "FLINT",
+   "panel": "act-line-2",
+   "last_panel": "act-tone-3"
+  },
+  {
+   "cell_id": "flint-est-line-2--est-black-3_kling4",
+   "motion": "FLINT",
+   "panel": "est-line-2",
+   "last_panel": "est-black-3"
+  },
+  {
+   "cell_id": "act-black-3_burst_kling4-h1",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 1
+  },
+  {
+   "cell_id": "act-black-3_burst_kling4-h2",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 2
+  },
+  {
+   "cell_id": "act-black-3_burst_kling4-h3",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 3
+  }
+ ],
+ "midjourney": [
+  {
+   "cell_id": "flint-cu-line-2--cu-line-1_mjv",
+   "motion": "FLINT",
+   "panel": "cu-line-2",
+   "last_panel": "cu-line-1"
+  },
+  {
+   "cell_id": "flint-act-line-2--act-tone-3_mjv",
+   "motion": "FLINT",
+   "panel": "act-line-2",
+   "last_panel": "act-tone-3"
+  },
+  {
+   "cell_id": "flint-est-line-2--est-black-3_mjv",
+   "motion": "FLINT",
+   "panel": "est-line-2",
+   "last_panel": "est-black-3"
+  },
+  {
+   "cell_id": "act-black-3_burst_mjv-h1",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 1
+  },
+  {
+   "cell_id": "act-black-3_burst_mjv-h2",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 2
+  },
+  {
+   "cell_id": "act-black-3_burst_mjv-h3",
+   "motion": "BURST",
+   "panel": "act-black-3",
+   "draw": 3
+  }
+ ]
+}

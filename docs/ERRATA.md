@@ -49,3 +49,12 @@ the audit before release; each is corrected here rather than in the record.
    released outputs and the motion figure
    (`analysis/out/figures/fig6_motion.png`, Figure 2 in the paper) were regenerated; the paper reports the
    corrected values.
+9. **The first study's 20-clip draw** (`analysis/draw_subset.py`). The registered
+   draw (`analysis/out/human_subset.json`) did not reproduce from the public
+   results table. The script sorted the cell ids before its seeded shuffle, and in
+   this release the creator-IP panel's id (`cip-act-tank-1`) sorts in a different
+   place from its private form, so the shuffle started from another order and drew
+   other cells. The script now sorts by a key under which both id forms give the
+   same order (the creator-IP cells last, every other id as itself), and the
+   registered draw reproduces from `analysis/out/results_table.json`. The private
+   draw and the published subset are unchanged.

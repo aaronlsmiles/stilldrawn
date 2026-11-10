@@ -7,6 +7,10 @@ the taxonomy outlier review and the results report — extraction only, no
 image processing beyond resizing.
 
 Usage: extract_frames.py CELL_ID [CELL_ID ...]   (cell ids as in the manifest)
+
+A cell's engine tag is its last `_` field less any draw suffix (`-h3`, `-d2`, `-r2`); the tag
+names the clip's folder in runs/ (ENGINE_DIR). Ladder cells (`ladder-<panel>_<level>_<tag>`)
+take their panel from after the `ladder-` prefix.
 """
 import json
 import sys
@@ -24,6 +28,10 @@ ENGINE_DIR = {
     "gen45": "gen4.5",
     "wan22": "wan22",
     "ltx23": "ltx23",
+    "sd2": "seedance",       # A5: Seedance 2.0 through fal (A14 re-codes the scout's three draws)
+    "sd2r": "seedance2",     # A14: Seedance 2.0 through Runway
+    "kling4": "kling_4",     # A15: Kling 4 through Runway (scout and arm)
+    "mjv": "midjourney",     # A16: Midjourney video, by hand (scout and arm)
 }
 TILE_H = 300
 
@@ -33,12 +41,19 @@ def panel_for(cell_id: str) -> Path:
     if cell_id.startswith("flint-"):
         first = body[len("flint-"):].split("--")[0]
         return ROOT / "dataset" / "panels" / f"{first}.png"
-    return ROOT / "dataset" / "panels" / f"{body.rsplit('_', 1)[0]}.png"
+    return ROOT / "dataset" / "panels" / f"{body.rsplit('_', 1)[0].removeprefix('ladder-')}.png"
+
+
+def clip_path(cell_id: str) -> Path:
+    """runs/<engine folder>/<cell id>.mp4, the folder from the cell's engine tag."""
+    tag = cell_id.rsplit("_", 1)[1].split("-", 1)[0]
+    if tag not in ENGINE_DIR:
+        raise SystemExit(f"{cell_id}: unknown engine tag {tag!r} (known: {', '.join(sorted(ENGINE_DIR))})")
+    return ROOT / "runs" / ENGINE_DIR[tag] / f"{cell_id}.mp4"
 
 
 def extract(cell_id: str):
-    suffix = cell_id.rsplit("_", 1)[1]
-    clip = ROOT / "runs" / ENGINE_DIR[suffix] / f"{cell_id}.mp4"
+    clip = clip_path(cell_id)
     frames = iio.imread(clip, plugin="pyav")
     n = len(frames)
     picks = {"f0": 0, "mid": n // 2, "last": n - 1}

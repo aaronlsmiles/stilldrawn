@@ -1,0 +1,29 @@
+{
+ "seed": 20261104,
+ "rule": "codes s01.. in review order; the order a permutation of the sorted cell ids by numpy.random.default_rng(20261104); one set for every strip the review codes, whatever the route verdict (A14.3.6)",
+ "codes": {
+  "s01": "cu-line-1_burst_sd2r-h2",
+  "s02": "act-black-3_burst_sd2r-h6",
+  "s03": "cu-line-1_burst_sd2r-h4",
+  "s04": "act-black-3_idle_sd2r-h3",
+  "s05": "act-black-3_burst_sd2-h1",
+  "s06": "act-black-3_burst_sd2r-h5",
+  "s07": "cu-line-1_idle_sd2r-h3",
+  "s08": "cu-line-1_idle_sd2r-h4",
+  "s09": "act-black-3_idle_sd2r-h2",
+  "s10": "act-black-3_burst_sd2r-h4",
+  "s11": "cu-line-1_burst_sd2r-h1",
+  "s12": "cu-line-1_burst_sd2r-h3",
+  "s13": "act-black-3_burst_sd2r-h8",
+  "s14": "act-black-3_idle_sd2r-h4",
+  "s15": "act-black-3_idle_sd2r-h1",
+  "s16": "act-black-3_burst_sd2-h3",
+  "s17": "cu-line-1_burst_sd2r-h5",
+  "s18": "cu-line-1_idle_sd2r-h1",
+  "s19": "cu-line-1_idle_sd2r-h2",
+  "s20": "act-black-3_burst_sd2r-h7",
+  "s21": "act-black-3_idle_sd2r-h5",
+  "s22": "act-black-3_burst_sd2-h2",
+  "s23": "cu-line-1_idle_sd2r-h5"
+ }
+}

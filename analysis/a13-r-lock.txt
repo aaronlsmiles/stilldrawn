@@ -1,0 +1,6 @@
+R version 4.6.2 (2026-10-29)
+ordinal 2026.7.26
+ucminf 1.2.3
+numDeriv 2016.8.1.1
+Matrix 1.7.6
+repos https://packagemanager.posit.co/cran/2026-11-01
