@@ -1,0 +1,11 @@
+{
+ "seed_honoured": false,
+ "motion_setting": "Low",
+ "end_frame": true,
+ "hd_available": true,
+ "prompt_verbatim": false,
+ "videos_per_job": "1",
+ "record": "docs/A16-SETUP.md",
+ "record_sha256": "a86ece532c6c2684c02dfd8b4d60232d4633395a5755fbb4da2d4ea5f0ac2503",
+ "date": "2026-11-11"
+}

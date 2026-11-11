@@ -1,0 +1,466 @@
+{
+ "amendment": "A10",
+ "status": "confirmatory",
+ "seed": 20261104,
+ "permutations": 10000,
+ "bootstrap": 10000,
+ "alpha": 0.05,
+ "expected_from": "analysis/out/a10_cells.json",
+ "refused": [],
+ "engines": {
+  "wan22": {
+   "name": "Wan 2.2",
+   "n_cells": 48,
+   "cells": {
+    "expected": 48,
+    "refused": [],
+    "complete": 48,
+    "missing": 0,
+    "missing_motion": [],
+    "missing_inkstab": [],
+    "unexpected_not_analysed": []
+   },
+   "manipulation": {
+    "median_motion_by_level": {
+     "STILL": 0.0008166344703308174,
+     "LOW": 0.0010089057763772351,
+     "MID": 0.0016145977058580944,
+     "HIGH": 0.020570380772863116
+    },
+    "n": 48,
+    "rising_steps": 3,
+    "of_steps": 3,
+    "rule": "at least 2 of 3 steps rise and HIGH > STILL",
+    "passed": true
+   },
+   "A10-H1": {
+    "reading": "supported",
+    "per_metric": {
+     "chamfer": {
+      "n": 48,
+      "rho": 0.5627442466348241,
+      "p_perm_one_sided": 9.999000099990002e-05,
+      "ci95": [
+       0.29989560216427535,
+       0.7345558287423005
+      ],
+      "bootstrap_n": 10000
+     },
+     "edge": {
+      "n": 48,
+      "rho": 0.3747286148501954,
+      "p_perm_one_sided": 0.0037996200379962005,
+      "ci95": [
+       0.07114717095017734,
+       0.6145769039592361
+      ],
+      "bootstrap_n": 10000
+     },
+     "style": {
+      "n": 48,
+      "rho": 0.506187581415545,
+      "p_perm_one_sided": 0.00019998000199980003,
+      "ci95": [
+       0.24938631356148022,
+       0.7052981390363597
+      ],
+      "bootstrap_n": 10000
+     }
+    }
+   },
+   "A10-H1-within-panel": {
+    "metric": "chamfer",
+    "stratified_by": "panel",
+    "verdict": "none (secondary)",
+    "n": 48,
+    "strata": 12,
+    "permutations": 10000,
+    "rho": 0.5627442466348241,
+    "p_pooled_within_strata_perm": 9.999000099990002e-05,
+    "rho_within": 0.7333333333333333,
+    "p_within": 9.999000099990002e-05
+   },
+   "model_versions": [
+    "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+   ],
+   "n_cells_without_manifest_line": 0,
+   "hardware": [
+    "RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)"
+   ],
+   "hardware_mixed": false
+  },
+  "ltx23": {
+   "name": "LTX-2.3",
+   "n_cells": 48,
+   "cells": {
+    "expected": 48,
+    "refused": [],
+    "complete": 48,
+    "missing": 0,
+    "missing_motion": [],
+    "missing_inkstab": [],
+    "unexpected_not_analysed": []
+   },
+   "manipulation": {
+    "median_motion_by_level": {
+     "STILL": 0.002278118474142892,
+     "LOW": 0.005543971700327737,
+     "MID": 0.006515521449702127,
+     "HIGH": 0.06104840125356402
+    },
+    "n": 48,
+    "rising_steps": 3,
+    "of_steps": 3,
+    "rule": "at least 2 of 3 steps rise and HIGH > STILL",
+    "passed": true
+   },
+   "A10-H1": {
+    "reading": "supported",
+    "per_metric": {
+     "chamfer": {
+      "n": 48,
+      "rho": 0.6312418584455058,
+      "p_perm_one_sided": 9.999000099990002e-05,
+      "ci95": [
+       0.43036840401628973,
+       0.7696200676892355
+      ],
+      "bootstrap_n": 10000
+     },
+     "edge": {
+      "n": 48,
+      "rho": 0.11376465479808943,
+      "p_perm_one_sided": 0.22977702229777022,
+      "ci95": [
+       -0.19822861846679385,
+       0.4146335487050421
+      ],
+      "bootstrap_n": 10000
+     },
+     "style": {
+      "n": 48,
+      "rho": 0.5936821537125488,
+      "p_perm_one_sided": 9.999000099990002e-05,
+      "ci95": [
+       0.36530288730176963,
+       0.7618463489340407
+      ],
+      "bootstrap_n": 10000
+     }
+    }
+   },
+   "A10-H1-within-panel": {
+    "metric": "chamfer",
+    "stratified_by": "panel",
+    "verdict": "none (secondary)",
+    "n": 48,
+    "strata": 12,
+    "permutations": 10000,
+    "rho": 0.6312418584455058,
+    "p_pooled_within_strata_perm": 9.999000099990002e-05,
+    "rho_within": 0.85,
+    "p_within": 9.999000099990002e-05
+   },
+   "model_versions": [
+    "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+   ],
+   "n_cells_without_manifest_line": 0,
+   "hardware": [
+    "RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)"
+   ],
+   "hardware_mixed": false
+  },
+  "gen45": {
+   "name": "Gen-4.5",
+   "n_cells": 48,
+   "cells": {
+    "expected": 48,
+    "refused": [],
+    "complete": 48,
+    "missing": 0,
+    "missing_motion": [],
+    "missing_inkstab": [],
+    "unexpected_not_analysed": []
+   },
+   "manipulation": {
+    "median_motion_by_level": {
+     "STILL": 0.004313333580891291,
+     "LOW": 0.0029111126334302956,
+     "MID": 0.010913185154398281,
+     "HIGH": 0.022382405483060412
+    },
+    "n": 48,
+    "rising_steps": 2,
+    "of_steps": 3,
+    "rule": "at least 2 of 3 steps rise and HIGH > STILL",
+    "passed": true
+   },
+   "A10-H1": {
+    "reading": "supported",
+    "per_metric": {
+     "chamfer": {
+      "n": 48,
+      "rho": 0.6287451150673035,
+      "p_perm_one_sided": 9.999000099990002e-05,
+      "ci95": [
+       0.41438148570553646,
+       0.7707601544233592
+      ],
+      "bootstrap_n": 10000
+     },
+     "edge": {
+      "n": 48,
+      "rho": 0.4384498480243161,
+      "p_perm_one_sided": 0.0010998900109989002,
+      "ci95": [
+       0.16947307763407032,
+       0.6471954886550771
+      ],
+      "bootstrap_n": 10000
+     },
+     "style": {
+      "n": 48,
+      "rho": 0.35518888406426397,
+      "p_perm_one_sided": 0.008099190080991902,
+      "ci95": [
+       0.0691748710645287,
+       0.5944885170526217
+      ],
+      "bootstrap_n": 10000
+     }
+    }
+   },
+   "A10-H1-within-panel": {
+    "metric": "chamfer",
+    "stratified_by": "panel",
+    "verdict": "none (secondary)",
+    "n": 48,
+    "strata": 12,
+    "permutations": 10000,
+    "rho": 0.6287451150673035,
+    "p_pooled_within_strata_perm": 0.00019998000199980003,
+    "rho_within": 0.4666666666666667,
+    "p_within": 0.0027997200279972004
+   },
+   "model_versions": [
+    "gen4.5 (Runway dev API, X-Runway-Version 2024-11-06)"
+   ],
+   "n_cells_without_manifest_line": 0,
+   "hardware": null,
+   "hardware_mixed": null
+  }
+ },
+ "A10-H2": {
+  "pair": [
+   "Gen-4.5",
+   "Wan 2.2"
+  ],
+  "statistic": "g = log2(median chamfer Gen-4.5 / median chamfer Wan 2.2)",
+  "band_rule": "overlap of the two engines' realised-motion IQRs over their ladder cells, inclusive",
+  "wan_high_q75": 0.02931861132383347,
+  "other_still_medians": {
+   "LTX-2.3": 0.002278118474142892,
+   "Gen-4.5": 0.004313333580891291
+  },
+  "wan_compared_with": [
+   "Gen-4.5",
+   "LTX-2.3"
+  ],
+  "wan_check_lacking_still": [],
+  "n_whole": {
+   "Gen-4.5": 48,
+   "Wan 2.2": 48
+  },
+  "g_whole": 1.6866951946520046,
+  "iqr": {
+   "Gen-4.5": [
+    0.002767265205168062,
+    0.020088897397120796
+   ],
+   "Wan 2.2": [
+    0.0007060521614870855,
+    0.004957338316099984
+   ]
+  },
+  "band": [
+   0.002767265205168062,
+   0.004957338316099984
+  ],
+  "n_band": {
+   "Gen-4.5": 9,
+   "Wan 2.2": 9
+  },
+  "band_panels": {
+   "Gen-4.5": {
+    "act-black-1": 2,
+    "act-line-2": 0,
+    "act-tone-1": 1,
+    "act-tone-3": 2,
+    "cu-black-2": 0,
+    "cu-black-3": 1,
+    "cu-line-3": 0,
+    "cu-tone-1": 0,
+    "est-black-3": 2,
+    "est-line-1": 1,
+    "est-line-2": 0,
+    "est-tone-3": 0
+   },
+   "Wan 2.2": {
+    "act-black-1": 0,
+    "act-line-2": 0,
+    "act-tone-1": 1,
+    "act-tone-3": 0,
+    "cu-black-2": 0,
+    "cu-black-3": 3,
+    "cu-line-3": 1,
+    "cu-tone-1": 0,
+    "est-black-3": 0,
+    "est-line-1": 3,
+    "est-line-2": 1,
+    "est-tone-3": 0
+   }
+  },
+  "g_band": 2.358510296639742,
+  "reading": "not supported"
+ },
+ "figure_not_plotted_nonpositive": 0,
+ "arms": {
+  "kling4": {
+   "name": "Kling",
+   "amendment": "A15",
+   "scout_rule": "A15.5",
+   "label": "A10-H1 (Kling, A15)",
+   "expected_from": "analysis/out/a15_cells.json",
+   "in_A10_H2": false,
+   "scout_reading": "scout failed: does not move on request (1 of 3 BURST draws above the floor)",
+   "status": "not run: scout failed: does not move on request (1 of 3 BURST draws above the floor)",
+   "reading": "not run: scout failed: does not move on request (1 of 3 BURST draws above the floor)",
+   "cells_found_not_analysed": []
+  },
+  "mjv": {
+   "name": "Midjourney",
+   "amendment": "A16",
+   "scout_rule": "A16.7",
+   "label": "A10-H1 (Midjourney, A16)",
+   "expected_from": "analysis/out/a16_cells.json",
+   "in_A10_H2": false,
+   "scout_reading": null,
+   "status": "analysed",
+   "reading": "incomplete: 48 cells missing",
+   "n_cells": 0,
+   "cells": {
+    "expected": 48,
+    "refused": [],
+    "complete": 0,
+    "missing": 48,
+    "missing_motion": [
+     "ladder-act-black-1_high_mjv",
+     "ladder-act-black-1_low_mjv",
+     "ladder-act-black-1_mid_mjv",
+     "ladder-act-black-1_still_mjv",
+     "ladder-act-line-2_high_mjv",
+     "ladder-act-line-2_low_mjv",
+     "ladder-act-line-2_mid_mjv",
+     "ladder-act-line-2_still_mjv",
+     "ladder-act-tone-1_high_mjv",
+     "ladder-act-tone-1_low_mjv",
+     "ladder-act-tone-1_mid_mjv",
+     "ladder-act-tone-1_still_mjv",
+     "ladder-act-tone-3_high_mjv",
+     "ladder-act-tone-3_low_mjv",
+     "ladder-act-tone-3_mid_mjv",
+     "ladder-act-tone-3_still_mjv",
+     "ladder-cu-black-2_high_mjv",
+     "ladder-cu-black-2_low_mjv",
+     "ladder-cu-black-2_mid_mjv",
+     "ladder-cu-black-2_still_mjv",
+     "ladder-cu-black-3_high_mjv",
+     "ladder-cu-black-3_low_mjv",
+     "ladder-cu-black-3_mid_mjv",
+     "ladder-cu-black-3_still_mjv",
+     "ladder-cu-line-3_high_mjv",
+     "ladder-cu-line-3_low_mjv",
+     "ladder-cu-line-3_mid_mjv",
+     "ladder-cu-line-3_still_mjv",
+     "ladder-cu-tone-1_high_mjv",
+     "ladder-cu-tone-1_low_mjv",
+     "ladder-cu-tone-1_mid_mjv",
+     "ladder-cu-tone-1_still_mjv",
+     "ladder-est-black-3_high_mjv",
+     "ladder-est-black-3_low_mjv",
+     "ladder-est-black-3_mid_mjv",
+     "ladder-est-black-3_still_mjv",
+     "ladder-est-line-1_high_mjv",
+     "ladder-est-line-1_low_mjv",
+     "ladder-est-line-1_mid_mjv",
+     "ladder-est-line-1_still_mjv",
+     "ladder-est-line-2_high_mjv",
+     "ladder-est-line-2_low_mjv",
+     "ladder-est-line-2_mid_mjv",
+     "ladder-est-line-2_still_mjv",
+     "ladder-est-tone-3_high_mjv",
+     "ladder-est-tone-3_low_mjv",
+     "ladder-est-tone-3_mid_mjv",
+     "ladder-est-tone-3_still_mjv"
+    ],
+    "missing_inkstab": [],
+    "unexpected_not_analysed": []
+   },
+   "manipulation": {
+    "median_motion_by_level": {
+     "STILL": null,
+     "LOW": null,
+     "MID": null,
+     "HIGH": null
+    },
+    "n": 0,
+    "rising_steps": 0,
+    "of_steps": 3,
+    "rule": "at least 2 of 3 steps rise and HIGH > STILL",
+    "passed": false
+   },
+   "A10-H1": {
+    "reading": "incomplete: 48 cells missing",
+    "per_metric": {
+     "chamfer": {
+      "n": 0,
+      "rho": null,
+      "p_perm_one_sided": null,
+      "ci95": null,
+      "bootstrap_n": 0
+     },
+     "edge": {
+      "n": 0,
+      "rho": null,
+      "p_perm_one_sided": null,
+      "ci95": null,
+      "bootstrap_n": 0
+     },
+     "style": {
+      "n": 0,
+      "rho": null,
+      "p_perm_one_sided": null,
+      "ci95": null,
+      "bootstrap_n": 0
+     }
+    }
+   },
+   "A10-H1-within-panel": {
+    "metric": "chamfer",
+    "stratified_by": "panel",
+    "verdict": "none (secondary)",
+    "n": 0,
+    "strata": 0,
+    "permutations": 10000,
+    "rho": null,
+    "p_pooled_within_strata_perm": null,
+    "rho_within": null,
+    "p_within": null
+   },
+   "model_versions": [],
+   "n_cells_without_manifest_line": 48,
+   "hardware": null,
+   "hardware_mixed": null
+  }
+ }
+}

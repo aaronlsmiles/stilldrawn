@@ -1,0 +1,737 @@
+{
+ "amendment": "A12",
+ "status": "descriptive, registered read-out",
+ "seed": 20261104,
+ "permutations": 10000,
+ "rule": "|dose effect| > 2 x the median per-level range",
+ "engines": {
+  "gen4_turbo": {
+   "name": "Gen-4 Turbo",
+   "n_points": 15,
+   "n_expected": 15,
+   "n_missing": 0,
+   "per_metric": {
+    "chamfer": {
+     "n_points": 15,
+     "rho_vs_k": -0.48007935851918326,
+     "p_perm_two_sided": 0.07539246075392461,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 4.677398097529812,
+       "range": 4.402591372065227
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 5.22304340761555,
+       "range": 9.803059608515033
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 11.301025656095456,
+       "range": 12.114733228745813
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 7.757025666279073,
+       "range": 5.487049871204396
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 14.698834207197656,
+       "range": 8.922144111157369
+      }
+     },
+     "noise_floor": 8.922144111157369,
+     "dose_effect": 10.021436109667844,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    },
+    "edge": {
+     "n_points": 15,
+     "rho_vs_k": -0.31641594084218894,
+     "p_perm_two_sided": 0.25447455254474555,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.02395751108361931,
+       "range": 0.0529566208564211
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.04182703821796672,
+       "range": 0.04037892459376663
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.030036352008043672,
+       "range": 0.07113882719333277
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.0006497320045873221,
+       "range": 0.023826812105962623
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.09077846410413616,
+       "range": 0.030810922669970625
+      }
+     },
+     "noise_floor": 0.04037892459376663,
+     "dose_effect": 0.06682095302051685,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    },
+    "style": {
+     "n_points": 15,
+     "rho_vs_k": -0.26186146828319085,
+     "p_perm_two_sided": 0.35476452354764526,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.04915904998779297,
+       "range": 0.01605933904647827
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.04265117645263672,
+       "range": 0.014500617980957031
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.04433000087738037,
+       "range": 0.01449894905090332
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.037004709243774414,
+       "range": 0.025914788246154785
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.07335042953491211,
+       "range": 0.02643197774887085
+      }
+     },
+     "noise_floor": 0.01605933904647827,
+     "dose_effect": 0.02419137954711914,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    }
+   },
+   "a3": null,
+   "draws": [
+    {
+     "k": "1.00",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v100_idle_gen4t",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "1.00",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v100_idle_gen4t-d2",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "1.00",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v100_idle_gen4t-d3",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.90",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v090_idle_gen4t",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.90",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v090_idle_gen4t-d2",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.90",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v090_idle_gen4t-d3",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.80",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v080_idle_gen4t",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.80",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v080_idle_gen4t-d2",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.80",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v080_idle_gen4t-d3",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.65",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v065_idle_gen4t",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.65",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v065_idle_gen4t-d2",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.65",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v065_idle_gen4t-d3",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.52",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v052_idle_gen4t",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.52",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v052_idle_gen4t-d2",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    },
+    {
+     "k": "0.52",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v052_idle_gen4t-d3",
+     "model_version": "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+    }
+   ],
+   "model_versions": [
+    "gen4_turbo (Runway dev API, X-Runway-Version 2024-11-06)"
+   ],
+   "n_draws_without_manifest_line": 0,
+   "hardware": null,
+   "hardware_mixed": null,
+   "series_rerun": null
+  },
+  "wan22": {
+   "name": "Wan 2.2",
+   "n_points": 15,
+   "n_expected": 15,
+   "n_missing": 0,
+   "per_metric": {
+    "chamfer": {
+     "n_points": 15,
+     "rho_vs_k": 0.5237229365663817,
+     "p_perm_two_sided": 0.04659534046595341,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 1.858160128958031,
+       "range": 2.5931369275834295
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 1.2571815504416548,
+       "range": 1.8221215781796452
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 1.4179740773607237,
+       "range": 1.6265555723616554
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.3021474185245133,
+       "range": 1.2424503154400597
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.0950743525858546,
+       "range": 1.2832683619955314
+      }
+     },
+     "noise_floor": 1.6265555723616554,
+     "dose_effect": -1.7630857763721763,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    },
+    "edge": {
+     "n_points": 15,
+     "rho_vs_k": -0.7092081432669752,
+     "p_perm_two_sided": 0.0044995500449955,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.025989654836532077,
+       "range": 0.043184033683680595
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.045381324380541765,
+       "range": 0.018798546595371012
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.0691795280112159,
+       "range": 0.05348897666150532
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.0765610233337443,
+       "range": 0.044162762380621876
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.060793817101772514,
+       "range": 0.04253766053433774
+      }
+     },
+     "noise_floor": 0.043184033683680595,
+     "dose_effect": 0.03480416226524044,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    },
+    "style": {
+     "n_points": 15,
+     "rho_vs_k": 0.6655645652197768,
+     "p_perm_two_sided": 0.007599240075992401,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.03959918022155762,
+       "range": 0.031054139137268066
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.03159940242767334,
+       "range": 0.02348119020462036
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.029375433921813965,
+       "range": 0.027853012084960938
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.010400235652923584,
+       "range": 0.02100890874862671
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.005976080894470215,
+       "range": 0.01159203052520752
+      }
+     },
+     "noise_floor": 0.02348119020462036,
+     "dose_effect": -0.0336230993270874,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    }
+   },
+   "a3": {
+    "label": "a3",
+    "note": "A3's single draw on other hardware; never in the noise floor or rho",
+    "n_present": 5,
+    "by_level": {
+     "1.00": {
+      "chamfer": 1.8776131662633473,
+      "edge": 0.02661076533473187,
+      "style": 0.047014713287353516
+     },
+     "0.90": {
+      "chamfer": 1.330022237970012,
+      "edge": 0.04575642466257525,
+      "style": 0.026413559913635254
+     },
+     "0.80": {
+      "chamfer": 1.4128161018480654,
+      "edge": 0.0693137155809382,
+      "style": 0.034224629402160645
+     },
+     "0.65": {
+      "chamfer": 0.07858415368013841,
+      "edge": 0.05911265407047608,
+      "style": 0.009106636047363281
+     },
+     "0.52": {
+      "chamfer": 0.08749776206542949,
+      "edge": 0.060703990063272685,
+      "style": 0.005765378475189209
+     }
+    },
+    "model_version": {
+     "1.00": null,
+     "0.90": null,
+     "0.80": null,
+     "0.65": null,
+     "0.52": null
+    }
+   },
+   "draws": [
+    {
+     "k": "1.00",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v100_idle_wan22-d1",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "1.00",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v100_idle_wan22-d2",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "1.00",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v100_idle_wan22-d3",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v090_idle_wan22-d1",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v090_idle_wan22-d2",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v090_idle_wan22-d3",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v080_idle_wan22-d1",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v080_idle_wan22-d2",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v080_idle_wan22-d3",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v065_idle_wan22-d1",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v065_idle_wan22-d2",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v065_idle_wan22-d3",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v052_idle_wan22-d1",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v052_idle_wan22-d2",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v052_idle_wan22-d3",
+     "model_version": "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    }
+   ],
+   "model_versions": [
+    "Wan2.2-TI2V-5B GGUF Q5_K_M (QuantStack) + umt5-xxl GGUF Q5_K_M (city96) + Wan2.2_VAE, ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+   ],
+   "n_draws_without_manifest_line": 0,
+   "hardware": [
+    "RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)"
+   ],
+   "hardware_mixed": false,
+   "series_rerun": false
+  },
+  "ltx23": {
+   "name": "LTX-2.3",
+   "n_points": 15,
+   "n_expected": 15,
+   "n_missing": 0,
+   "per_metric": {
+    "chamfer": {
+     "n_points": 15,
+     "rho_vs_k": -0.44734667498378433,
+     "p_perm_two_sided": 0.103989601039896,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 9.005622064702477,
+       "range": 5.051298901144674
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 4.627328965001998,
+       "range": 5.023392310150246
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 6.455469890967482,
+       "range": 7.137957283975289
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 18.44768643873527,
+       "range": 42.68521338216777
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 26.085157984201594,
+       "range": 44.39053719382516
+      }
+     },
+     "noise_floor": 7.137957283975289,
+     "dose_effect": 17.079535919499115,
+     "rho_agrees": true,
+     "reading": "monotone claim allowed (darker ground, more drift)"
+    },
+    "edge": {
+     "n_points": 15,
+     "rho_vs_k": 0.19639610121239312,
+     "p_perm_two_sided": 0.49185081491850813,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.10474288786880159,
+       "range": 0.6538553702749867
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.14105629987668347,
+       "range": 0.3885747183340267
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.1494885663120106,
+       "range": 0.269630367402812
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.09725088859800575,
+       "range": 0.24538272811226103
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.09531600663242808,
+       "range": 0.2470474696789416
+      }
+     },
+     "noise_floor": 0.269630367402812,
+     "dose_effect": -0.009426881236373516,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    },
+    "style": {
+     "n_points": 15,
+     "rho_vs_k": 0.229128784747792,
+     "p_perm_two_sided": 0.41845815418458154,
+     "by_level": {
+      "1.00": {
+       "n_draws": 3,
+       "median": 0.16167080402374268,
+       "range": 0.5104259252548218
+      },
+      "0.90": {
+       "n_draws": 3,
+       "median": 0.11961418390274048,
+       "range": 0.11024826765060425
+      },
+      "0.80": {
+       "n_draws": 3,
+       "median": 0.12462949752807617,
+       "range": 0.1382189393043518
+      },
+      "0.65": {
+       "n_draws": 3,
+       "median": 0.11361849308013916,
+       "range": 0.14416742324829102
+      },
+      "0.52": {
+       "n_draws": 3,
+       "median": 0.1061849594116211,
+       "range": 0.08342492580413818
+      }
+     },
+     "noise_floor": 0.1382189393043518,
+     "dose_effect": -0.05548584461212158,
+     "rho_agrees": true,
+     "reading": "not readable at three draws"
+    }
+   },
+   "a3": {
+    "label": "a3",
+    "note": "A3's single draw on other hardware; never in the noise floor or rho",
+    "n_present": 5,
+    "by_level": {
+     "1.00": {
+      "chamfer": 10.04146904927831,
+      "edge": 0.6780656451805795,
+      "style": 0.6884295344352722
+     },
+     "0.90": {
+      "chamfer": 1.5104184921369277,
+      "edge": 0.4955389977767227,
+      "style": 0.17123901844024658
+     },
+     "0.80": {
+      "chamfer": 13.381344816591477,
+      "edge": 0.354046841057292,
+      "style": 0.1834043264389038
+     },
+     "0.65": {
+      "chamfer": 19.77364650554317,
+      "edge": 0.35672294824343925,
+      "style": 0.18518924713134766
+     },
+     "0.52": {
+      "chamfer": 27.065166866704917,
+      "edge": 0.30634232272889134,
+      "style": 0.13715064525604248
+     }
+    },
+    "model_version": {
+     "1.00": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0",
+     "0.90": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0",
+     "0.80": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0",
+     "0.65": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0",
+     "0.52": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0"
+    }
+   },
+   "draws": [
+    {
+     "k": "1.00",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v100_idle_ltx23-d1",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "1.00",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v100_idle_ltx23-d2",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "1.00",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v100_idle_ltx23-d3",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v090_idle_ltx23-d1",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v090_idle_ltx23-d2",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.90",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v090_idle_ltx23-d3",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v080_idle_ltx23-d1",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v080_idle_ltx23-d2",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.80",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v080_idle_ltx23-d3",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v065_idle_ltx23-d1",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v065_idle_ltx23-d2",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.65",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v065_idle_ltx23-d3",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 1,
+     "cell_id": "ground-cu-line-1-v052_idle_ltx23-d1",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 2,
+     "cell_id": "ground-cu-line-1-v052_idle_ltx23-d2",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    },
+    {
+     "k": "0.52",
+     "draw": 3,
+     "cell_id": "ground-cu-line-1-v052_idle_ltx23-d3",
+     "model_version": "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+    }
+   ],
+   "model_versions": [
+    "LTX-2.3-22B distilled-1.1 GGUF Q4_K_M (unsloth) + gemma-3-12B-it fp8_scaled (Comfy-Org) + LTX23 bf16 VAEs (Kijai), ComfyUI 0.31.0 [RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)]"
+   ],
+   "n_draws_without_manifest_line": 0,
+   "hardware": [
+    "RTX5090-32GB CUDA driver 595.91.07 (RunPod secure, A10/A12)"
+   ],
+   "hardware_mixed": false,
+   "series_rerun": false
+  }
+ }
+}
