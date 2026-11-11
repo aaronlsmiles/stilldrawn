@@ -1,0 +1,73 @@
+{
+ "amendment": "A15",
+ "arm": "kling_4",
+ "rule": "A15.5",
+ "reading": "scout failed: does not move on request (1 of 3 BURST draws above the floor)",
+ "floor": 0.0016057083117110389,
+ "floor_file": "analysis/out/scout_floor.json",
+ "floor_sha256": "c50e6d148ec279e8c21162864b3e10314f6de1ab9197384d57da53eeab9a87d3",
+ "n_cells": 6,
+ "cells": {
+  "flint-cu-line-2--cu-line-1_kling4": {
+   "motion": "FLINT",
+   "refused": false,
+   "chamfer": 30.868604525446003,
+   "motion_value": 0.03304445412423876,
+   "above_floor": null,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  },
+  "flint-act-line-2--act-tone-3_kling4": {
+   "motion": "FLINT",
+   "refused": false,
+   "chamfer": 16.50944257842552,
+   "motion_value": 0.04167094826698303,
+   "above_floor": null,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  },
+  "flint-est-line-2--est-black-3_kling4": {
+   "motion": "FLINT",
+   "refused": false,
+   "chamfer": 4.880796596630732,
+   "motion_value": 0.01955428057246738,
+   "above_floor": null,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  },
+  "act-black-3_burst_kling4-h1": {
+   "motion": "BURST",
+   "refused": false,
+   "chamfer": 2.959231318808101,
+   "motion_value": 0.0009350412939157751,
+   "above_floor": false,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  },
+  "act-black-3_burst_kling4-h2": {
+   "motion": "BURST",
+   "refused": false,
+   "chamfer": 2.849519149906364,
+   "motion_value": 0.0007500779659797748,
+   "above_floor": false,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  },
+  "act-black-3_burst_kling4-h3": {
+   "motion": "BURST",
+   "refused": false,
+   "chamfer": 4.363183458565291,
+   "motion_value": 0.003088246410091718,
+   "above_floor": true,
+   "seed": null,
+   "metrics_file_missing": false,
+   "failures": []
+  }
+ },
+ "date": "2026-11-11"
+}

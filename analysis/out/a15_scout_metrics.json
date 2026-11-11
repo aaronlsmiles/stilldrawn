@@ -1,0 +1,80 @@
+{
+ "amendment": "A15",
+ "engine": "kling_4",
+ "date": "2026-11-11",
+ "runs": 1,
+ "cells": {
+  "flint-cu-line-2--cu-line-1_kling4": {
+   "inkstab": {
+    "path": "runs/metrics-scout/flint-cu-line-2--cu-line-1_kling4.json",
+    "sha256": "d3a1d536d5b5852191521e20c62d474e759be1eef988966c118f39fc6654342d"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/flint-cu-line-2--cu-line-1_kling4.json",
+    "sha256": "6193837885e20d3f256fee3af43ccaad73ec79640c10fbe40728cce8443eb34f"
+   },
+   "failures": [],
+   "retried": false
+  },
+  "flint-act-line-2--act-tone-3_kling4": {
+   "inkstab": {
+    "path": "runs/metrics-scout/flint-act-line-2--act-tone-3_kling4.json",
+    "sha256": "cdd0767feb8c580c308e03105e703534ad3d3813aeb4115e60664ef58ff8886e"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/flint-act-line-2--act-tone-3_kling4.json",
+    "sha256": "e1952901cb235e7416e82e4e240f253982b963481417eb80fc152037ce05b2c9"
+   },
+   "failures": [],
+   "retried": false
+  },
+  "flint-est-line-2--est-black-3_kling4": {
+   "inkstab": {
+    "path": "runs/metrics-scout/flint-est-line-2--est-black-3_kling4.json",
+    "sha256": "df5cde962c2ddc0f71f9bc9a8b91d452e79c748d43cc9810b44bb73df352b07b"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/flint-est-line-2--est-black-3_kling4.json",
+    "sha256": "a3780b6c89cf1553a8f9d708c206bceea341187a8888174d2ed35bb968062ddb"
+   },
+   "failures": [],
+   "retried": false
+  },
+  "act-black-3_burst_kling4-h1": {
+   "inkstab": {
+    "path": "runs/metrics-scout/act-black-3_burst_kling4-h1.json",
+    "sha256": "8bc47e9792f3ce28d2da6420f716cc3126de5c95d5e8c831644e365daef5c0d6"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/act-black-3_burst_kling4-h1.json",
+    "sha256": "a1eda961e28fa2c3786f7a734c723271940837e1c03ab7c1261723ae03a19ff4"
+   },
+   "failures": [],
+   "retried": false
+  },
+  "act-black-3_burst_kling4-h2": {
+   "inkstab": {
+    "path": "runs/metrics-scout/act-black-3_burst_kling4-h2.json",
+    "sha256": "b223896e89558a067759a34a8ed2ab4267da3af2c01ec3f198085732f19cb5f9"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/act-black-3_burst_kling4-h2.json",
+    "sha256": "f30e1fc86350b689ac939772fc1bdb6759ba29a73fd02267169394093c829ebe"
+   },
+   "failures": [],
+   "retried": false
+  },
+  "act-black-3_burst_kling4-h3": {
+   "inkstab": {
+    "path": "runs/metrics-scout/act-black-3_burst_kling4-h3.json",
+    "sha256": "df93fc30dec5d4f2cc33791519dd9ff40b4a3a20298f1e0c0c2b5c04a36055af"
+   },
+   "motion": {
+    "path": "runs/metrics-motion-scout/act-black-3_burst_kling4-h3.json",
+    "sha256": "3aac2fba2b3c7820588ec36789e685d5cdd0fda02e4822b74779f3197e0d55df"
+   },
+   "failures": [],
+   "retried": false
+  }
+ }
+}
