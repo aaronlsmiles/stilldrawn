@@ -8,8 +8,9 @@ check of the metrics.
 
 - **Paper:** *StillDrawn: Measuring the Stability of Inked Line Art under
   Image-to-Video Generation*, Aaron Smiles, 2026. Preprint on Zenodo,
-  [doi:10.5281/zenodo.23965026](https://doi.org/10.5281/zenodo.23965026) (v1, not
-  peer reviewed). The source is in `paper/`.
+  [doi:10.5281/zenodo.24341092](https://doi.org/10.5281/zenodo.24341092) (v1.1, not
+  peer reviewed; v1 is [doi:10.5281/zenodo.23965026](https://doi.org/10.5281/zenodo.23965026)).
+  The source is in `paper/`.
 - **Data archive:** Zenodo, [doi:10.5281/zenodo.24107518](https://doi.org/10.5281/zenodo.24107518) (version 1.1.0; version 1.0.0 is [doi:10.5281/zenodo.23072784](https://doi.org/10.5281/zenodo.23072784); this repository mirrors the archive).
 - **Status:** Zenodo v1.1.0 adds amendment A9 and its results (`metrics/masked.py`,
   `analysis/a9_*.py`, `dataset/masks/`, `analysis/adherence/`); the six clip archives
@@ -67,5 +68,5 @@ before reusing the clips**, and do not re-encode the signed clips.
 
 See `CITATION.cff`, or cite the paper as: Aaron Smiles, *StillDrawn: Measuring
 the Stability of Inked Line Art under Image-to-Video Generation*, 2026, preprint,
-doi:10.5281/zenodo.23965026; and the data as:
+doi:10.5281/zenodo.24341092 (v1.1); and the data as:
 doi:10.5281/zenodo.24107518 (version 1.1.0).

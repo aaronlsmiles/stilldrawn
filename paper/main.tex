@@ -113,9 +113,17 @@ conditional image generation, ImagenHub~\cite{ku2023imagenhub}
 reports that across roughly thirty models and seven tasks, no existing
 automatic metric reaches a Spearman correlation of $0.2$ with human
 judgement outside a single task. The same gap has been shown on drawn
-content specifically: the AniSora authors abandoned general-purpose scores
-for animation after finding that a clip with visible distortions outscored a
-clean one on motion smoothness~\cite{jiang2024anisora}. A metric suite for a
+content specifically. On static facial sketches, Scoot~\cite{fan2019scoot}
+found that two widely used similarity metrics, FSIM and SSIM, fail to track
+perceived similarity, and built a database of 152k human judgements to test
+how well a metric agrees with perception; on animation, the AniSora authors
+abandoned general-purpose scores after finding that a clip with visible
+distortions outscored a clean one on motion
+smoothness~\cite{jiang2024anisora}. That such a gap exists on drawings is
+established, and we do not claim it; what we add is the direction it runs on
+animated line art, where global scalars miss in-register insertion and score
+framing escape like register failure (Section~\ref{sec:taxonomy}). A metric
+suite for a
 new substrate therefore cannot be validated by construction; it has to be
 checked against people, which is why Section~\ref{sec:human} exists and why
 we registered its predictions before rating began.
@@ -192,7 +200,9 @@ does and does not claim: it measures \emph{line displacement}, not perceived
 two rather than assuming it.
 
 That distance-transform convention has already been carried into generated
-video. Line-art video colourisation is evaluated with a sketch-alignment
+video. Line-art video colourisation, a task with a reference-based
+deep-learning lineage that predates diffusion~\cite{shi2023linevideo}, is
+evaluated in its diffusion-based form with a sketch-alignment
 measure that extracts line maps from generated frames and scores their
 displacement against a reference drawing via a Euclidean distance
 map~\cite{huang2024lvcd}, a construction reused in later animation
@@ -291,7 +301,14 @@ judgements over brief exposures~\cite{ariely2001sets,whitney2018ensemble},
 and adopts the rater protocol of
 ImagenHub~\cite{ku2023imagenhub}, which standardises
 human evaluation of conditional image generation with three raters per model
-and Krippendorff's $\alpha$ as the reliability statistic. Our
+and Krippendorff's $\alpha$ as the reliability statistic. Benchmarking
+stylised imagery has a direct precedent in non-photorealistic rendering:
+NPRportrait~\cite{rosin2022nprportrait} is a three-level benchmark for
+evaluating portrait stylisation, built to explicit criteria with its
+consistency validated by user studies, on the argument that evaluation in
+that field lags the norms of computer vision and machine learning. It scores
+static stylisation methods; StillDrawn asks whether an inked style survives
+generated motion. Our
 dataset documentation follows Gebru et al.~\cite{gebru2021datasheets}; and
 the frozen-protocol-with-dated-amendments reporting practice is borrowed
 from pre-registration norms in the experimental
